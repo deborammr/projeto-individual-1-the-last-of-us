@@ -1,0 +1,210 @@
+body {
+    padding-top: 100px;
+}
+
+/* ---------- SESSÃO 1 ----------- */
+.container-sessao1 {
+    position: absolute;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 80px);
+    background-size: cover;
+    background-position: center;
+}
+
+.caixa-sessao1 {
+    background-color: transparent;
+    padding: 80px 50px;
+}
+
+.caixa-texto1 {
+    background-color: transparent;
+    padding: 350px 20px;
+    border-radius: 10px;
+    text-align: left;
+    color: #fff;
+    max-width: 600px;
+    font-family: 'Arial', sans-serif;
+}
+
+.caixa-texto1 h1 {
+    background-color: transparent;
+    text-transform: uppercase;
+    color: rgb(224, 222, 222);
+    text-align: left;
+    font-weight: 200;
+    letter-spacing: 1.2px;
+    font-family: "TheLastofUs";
+    font-size: 2.5em;
+    margin-bottom: 15px;
+}
+
+/* ---------- SESSÃO 2 ----------- */
+.container-sessao2 {
+    position: absolute;
+    top: 100vh;
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 80px);
+    background-size: cover;
+    background-position: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.cont-esq {}
+
+.cont-dir {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 25px;
+    margin: 25px;
+    outline: 2px solid #fff;
+    border-radius: 10px;
+    height: 80vh;
+    overflow: hidden;
+}
+
+.cont-dir img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.caixa-sessao2 {
+    background-color: transparent;
+    padding: 0 7px;
+}
+
+.caixa-texto2 {
+    background-color: transparent;
+    border-radius: 10px;
+    text-align: left;
+    color: #fff;
+    max-width: 600px;
+    font-family: 'Arial', sans-serif;
+    padding: 0 70px;
+    width: 100%;
+}
+
+.caixa-texto2 h1 {
+    background-color: transparent;
+    text-transform: uppercase;
+    color: rgb(224, 222, 222);
+    text-align: left;
+    font-weight: 200;
+    letter-spacing: 1.2px;
+    font-family: "TheLastofUs";
+    font-size: 2.5em;
+    margin-bottom: 15px;
+}
+
+.caixa-texto2 p {
+    width: 650px;
+    font-weight: 100;
+    font-size: 22px;
+}
+
+/* ---------- SESSÃO 3 ----------- */
+.container-sessao3 {
+    position: absolute;
+    top: calc(200vh - 80px);
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 80px);
+    background-size: cover;
+    background-position: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.container-sessao3 .cont-esq {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 25px;
+    margin: 25px;
+    outline: 2px solid #fff;
+    border-radius: 10px;
+    height: 80vh;
+    overflow: hidden;
+}
+
+.container-sessao3 .cont-esq img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.container-sessao3 .cont-dir {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0 70px;
+
+
+}
+
+.caixa-texto3 {
+    border-radius: 10px;
+    text-align: left;
+    color: #fff;
+    max-width: 600px;
+    font-family: 'Arial', sans-serif;
+
+}
+
+.caixa-texto3 h1 {
+    background-color: transparent;
+    text-transform: uppercase;
+    color: rgb(224, 222, 222);
+    text-align: left;
+    font-weight: 200;
+    letter-spacing: 1.2px;
+    font-family: "TheLastofUs";
+    font-size: 2.5em;
+    margin-bottom: 15px;
+}
+
+.caixa-texto3 p {
+    width: 650px;
+    font-weight: 100;
+    font-size: 24px;
+}
+
+/* ---------- SESSÃO 4 ----------- */
+.container-sessao4 {
+    position: absolute;
+    top: calc(300vh - 80px);
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 80px);
+    background-size: cover;
+    background-position: center;
+    justify-content: space-between;
+    align-items: flex-start;
+        background-image: url('../public/assets/joel-save-sarah.jpg');
+}
+
+/* ---------- SESSÃO 5 ----------- */
+.container-sessao5 {
+    position: absolute;
+    top: calc(400vh - 80px);
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 80px);
+    background-size: cover;
+    background-position: center;
+    justify-content: space-between;
+    align-items: flex-start;
+        background-image: url('../public/assets/joel-save-sarah.jpg');
+}
+
+

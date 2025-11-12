@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TLOU | Cadastro</title>
+
+    <!-- Chamada CSS Geral-->
+    <link rel="stylesheet" href="../public/css/geral.css">
+
+    <!-- Chamada CSS da página-->
+    <link rel="stylesheet" href="../public/css/cadastro-login.css">
+
+    <!-- Chamada CSS Scrollbar -->
+    <link rel="stylesheet" href="../public/css/scrollbar.css">
+
+    <!-- Ícone Vagalumes -->
+    <link rel="shortcut icon" type="imagex/png" href="../public/assets/fireflies-logo.png">
+
+</head>
+
+<body>
+
+    <!-- ---------- HEADER ------------ -->
+
+        <header>
+        <nav class="navbar">
+            <div class="navbar-container">
+                <div class="navbar-logo">
+                    <img src="../public/assets/The_Last_of_Us_logo_branco.png" alt="Logo The Last of Us">
+                </div>
+                <ul class="navbar-menu">
+                    <li><a href="../public/index.html">HOME</a></li>
+                    <div class="dropdown">
+                        <h1>HISTORIA</h1>
+                        <div class="dropdown-content">
+                            <a href="../public/historia-parte1.html">PARTE 1</a>
+                            <a href="../public/historia-left-behind.html">LEFT BEHIND</a>    
+                            <a href="../public/historia-parte2.html">PARTE 2</a>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <h1>EXPLORAR</h1>
+                        <div class="dropdown-content">
+                            <a href="../public/explorar-personagens.html">PERSONAGENS</a>
+                            <a href="../public/explorar-grupos.html">GRUPOS</a>
+                            <a href="../public/explorar-infectados.html">INFECTADOS</a>
+                        </div>
+                    </div>
+                    <li><a href="../public/quiz.html">QUIZ</a></li>
+                    <li><a href="../public/sobre.html">SOBRE</a></li>
+                    <li><a href="../public/login.html" class="pg-atual">LOGIN</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <!-- ---------- BODY ------------ -->
+
+    <main class="scroll-container">
+
+        <!-- ----------CONTAINER 1---------- -->
+        <div class="container-sessao1">
+            <div class="caixa-sessao1">
+                <div class="caixa-texto1">
+                    <div class="login">
+                        <div class="hader">
+                            <h1>Faça seu cadastro para se tornar um sobrevivente!</h1>
+                        </div>
+                        <form action="#">
+                            <input type="text" placeholder="NOME" required="" />
+                            <input type="email" placeholder="E-MAIL" required="" />
+                            <input type="password" placeholder="SENHA" required="" />
+                            <input type="password" placeholder="CONFIRME A SENHA" required="" />
+                            <button class="btn-saiba">CADASTRE-SE</button>
+                            <h3> Já é cadastrado? <br><a href="../public/login.html">Login</a></h3>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

@@ -1,0 +1,148 @@
+body {
+    padding-top: 100px;
+}
+
+/* ---------- SESSÃO 1 ----------- */
+
+.container-sessao1 {
+    position: absolute;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 80px);
+    background-image: url('../assets/imagem-principal2.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.caixa-sessao1 {
+    background-color: #00000000;
+    padding: 80px 50px;
+
+}
+
+.caixa-texto1 {
+    background-color: #00000000;
+    padding: 350px 20px;
+    border-radius: 10px;
+    text-align: left;
+    color: #fff;
+    max-width: 600px;
+    font-family: 'Arial', sans-serif;
+}
+
+.caixa-texto1 h1 {
+    background-color: #00000000;
+    font-family: 'TheLastofUs';
+    font-size: 2.1em;
+    margin-bottom: 15px;
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+    color: rgb(224, 222, 222);
+    text-align: left;
+    font-weight: 200;
+    letter-spacing: 1.2px;
+    font-family: "TheLastofUs";
+    font-size: 2.5em;
+}
+
+/* ---------- SESSÃO 2 ----------- */
+
+.container-sessao2 {
+    position: absolute;
+    top: 100vh;
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 80px);
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    padding: 80px;
+}
+
+/* ---------- SESSÃO 3 ----------- */
+
+.container-sessao3 {
+    position: absolute;
+    top: calc(200vh - 80px);
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 80px);
+    background-image: url('../assets/52342170554_740298ac0c_h.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+
+.container {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 380px;
+    background-color: rgb(32, 31, 30);
+    z-index: 102;
+    outline: 4px solid #83868a;
+    outline-offset: 2px;
+    border-radius: 34px;
+    overflow: hidden;
+}
+
+.card-trans {
+    z-index: 2000;
+    transition: transform 0.5s;
+    margin: 0 auto;
+    transform-origin: top center;
+}
+
+.card {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    background-color: rgb(10, 17, 12);
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    overflow: hidden;
+}
+
+
+.card-img {
+    max-width: 100%;
+    height: auto;
+}
+
+h3 {
+    text-transform: uppercase;
+    color: rgb(224, 222, 222);
+    text-align: center;
+    font-weight: 200;
+    letter-spacing: 1.2px;
+    font-family: "TheLastofUs";
+    font-size: 30px;
+}
+
+.content {
+    padding: 0 1.4em;
+    text-align: center;
+}
+
+.content>h3 {
+    margin-top: 20px;
+}
+
+
+.content>.description {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-family: Oswald;
+    letter-spacing: 0.9px;
+    font-weight: 100;
+    color: rgb(202, 202, 202);
+    font-size: 16px;
+}

@@ -1,0 +1,53 @@
+* {
+    text-align: center;
+    font-family: "TheLastofUs";
+    text-transform: uppercase;
+    background-color: transparent;
+}
+
+.container-sessao1 {
+    background-image: url('../assets/imagem-principal.jpg');
+}
+
+.login {
+    max-width: 400px;
+    border-radius: 5px;
+    margin: 100px;
+    padding: 20px;
+    font-size: 30px;
+    background-color: #111;
+    border: 2px solid rgb(224, 222, 222);
+    border-radius: 34px;
+
+}
+
+.login h1 {
+    font-size: 30px;
+}
+
+.login h3,
+.login a {
+    font-size: 20px;
+}
+
+.login a:hover {
+    color: #903030;
+    text-decoration: underline;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+form input {
+    height: 40px;
+    border: 2px solid rgb(224, 222, 222);
+    padding: 10px;
+    font-size: 20px;
+    border-radius: 34px;
+    outline: 2px;
+}
+
