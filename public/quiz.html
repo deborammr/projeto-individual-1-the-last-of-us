@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TLOU | Quizz</title>
+
+    <!-- Chamada CSS Geral-->
+    <link rel="stylesheet" href="./css/geral.css">
+
+    <!-- Chamada CSS da página-->
+    <link rel="stylesheet" href="./css/quiz.css">
+
+    <!-- Chamada CSS Scrollbar -->
+    <link rel="stylesheet" href="./css/scrollbar.css">
+
+    <!-- Ícone Vagalumes -->
+    <link rel="shortcut icon" type="imagex/png" href="./assets/fireflies-logo.png">
+
+</head>
+
+<body>
+
+    <!-- ---------- HEADER ------------ -->
+
+    <header>
+        <nav class="navbar">
+            <div class="navbar-container">
+                <div class="navbar-logo">
+                    <img src="./assets/The_Last_of_Us_logo_branco.png" alt="Logo The Last of Us">
+                </div>
+                <ul class="navbar-menu">
+                    <li><a href="./index.html" class="pg-atual">HOME</a></li>
+                    <div class="dropdown">
+                        <h1>HISTORIA</h1>
+                        <div class="dropdown-content">
+                            <a href="./historia-parte1.html">PARTE 1</a>
+                            <a href="./historia-left-behind.html">LEFT BEHIND</a>
+                            <a href="./historia-parte2.html">PARTE 2</a>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <h1>EXPLORAR</h1>
+                        <div class="dropdown-content">
+                            <a href="./explorar-personagens.html">PERSONAGENS</a>
+                            <a href="./explorar-grupos.html">GRUPOS</a>
+                            <a href="./explorar-infectados.html">INFECTADOS</a>
+                        </div>
+                    </div>
+                    <li><a href="./quiz.html">QUIZ</a></li>
+                    <li><a href="./sobre.html">SOBRE</a></li>
+                    <li><a href="./login.html">LOGIN</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main class="scroll-container">
+
+        <!-- ----------CONTAINER 1---------- -->
+        <div class="container-sessao1">
+
+                    <body onload="onloadEsconder()">
+                        <div id="pontuacaoEJogo" class="pontuacaoEJogo">
+                            <button id="btnIniciarQuiz" class="btn-saiba btn-iniciar" onclick="iniciarQuiz()">INICIAR QUIZ</button>
+
+                            <div id="pontuacao" class="caixa-pontos">
+                                <div id="pontuacaoDuranteJogo" class="flex-coluna">
+                                    <span class="width-fit-content">Quantidade de acertos: <span
+                                            id="spanCertas"></span></span>
+                                    <span class="width-fit-content">Quantidade de erros: <span
+                                            id="spanErradas"></span></span>
+                                </div>
+                                <div id="pontuacaoFinalJogo" class="flex-coluna">
+                                    <span id="pontuacaoFinal" class="width-fit-content">Pontuação Final:
+                                        <span id="spanPontuacaoFinal">***</span>
+                                    </span>
+                                    <span id="msgFinal" class="width-fit-content">***</span>
+                                </div>
+                            </div>
+
+                            <div id="jogo" class="caixa-quiz">
+
+                                <div id="infoQuestao" class="">
+                                    <span>Questão atual: <span id="spanNumeroDaQuestaoAtual"></span> de <span
+                                            id="qtdQuestoes"></span>
+                                        questões.</span>
+                                </div>
+
+                                <div id="perguntaDaQuestaoAtual" class="">
+                                    <span id="spanQuestaoExibida"></span>
+                                </div>
+
+                                <div id="infoAlternativas" class="">
+                                    <span>Escolha uma opção dentre as abaixo:</span>
+                                </div>
+
+                                <div id="opcoes" class="flex-linha">
+                                    <span>
+                                        <input type="radio" id="primeiraOpcao" name="option" class="radio"
+                                            value="alternativaA" />
+                                        <label for="primeiraOpcao" class="option" id="labelOpcaoUm"></label>
+                                    </span>
+                                    <span>
+                                        <input type="radio" id="segundaOpcao" name="option" class="radio"
+                                            value="alternativaB" />
+                                        <label for="segundaOpcao" class="option" id="labelOpcaoDois"></label>
+                                    </span>
+                                    <span>
+                                        <input type="radio" id="terceiraOpcao" name="option" class="radio"
+                                            value="alternativaC" />
+                                        <label for="terceiraOpcao" class="option" id="labelOpcaoTres"></label>
+                                    </span>
+                                    <span>
+                                        <input type="radio" id="quartaOpcao" name="option" class="radio"
+                                            value="alternativaD" />
+                                        <label for="quartaOpcao" class="option" id="labelOpcaoQuatro"></label>
+                                    </span>
+                                </div>
+
+                                <div id="botoes" class="flex-coluna">
+                                    <button onclick="submeter()" id="btnSubmeter" class="btn-saiba">Submeter resposta</button>
+                                    <button onclick="avancar()" id="btnProx" disabled class="btn-saiba">Avançar para próxima
+                                        questão</button>
+                                    <!-- <button onclick="finalizar()" id="btnConcluir" disabled>Finalizar Quiz</button> -->
+                                    <button onclick="tentarNovamente()" id="btnTentarNovamente" disabled class="btn-saiba">Tentar
+                                        novamente</button>
+                                </div>
+
+                            </div>
+                        </div>
+                    </body>
+
+        </div>
+    </main>
+
+
+
+</html>
+<script>
+    const listaDeQuestoes = [
+
+        // Parte 1
+        {
+            pergunta: "Qual é o nome da filha de Joel?",
+            alternativaA: "Tess",
+            alternativaB: "Ellie",
+            alternativaC: "Sarah",
+            alternativaD: "Riley",
+            alternativaCorreta: "alternativaC"
+        },
+
+        {
+            pergunta: "Qual é o nome do fungo que causa a infecção?",
+            alternativaA: "Cordyceps",
+            alternativaB: "Mycelium",
+            alternativaC: "Clickeritis",
+            alternativaD: "Necrospora",
+            alternativaCorreta: "alternativaA"
+        },
+
+        {
+            pergunta: "Qual destes números é ímpar?",
+            alternativaA: "Dez",
+            alternativaB: "Doze",
+            alternativaC: "Oito",
+            alternativaD: "Onze",
+            alternativaCorreta: "alternativaD"
+        },
+        {
+            pergunta: "Quem é o irmão de Joel?",
+            alternativaA: "Bill",
+            alternativaB: "Tommy",
+            alternativaC: "David",
+            alternativaD: "Henry",
+            alternativaCorreta: "alternativaB"
+        },
+        {
+            pergunta: "Qual grupo tenta criar uma cura usando a imunidade de Ellie?",
+            alternativaA: "FEDRA",
+            alternativaB: "Os Vaga-lumes (Fireflies)",
+            alternativaC: "Os Caçadores",
+            alternativaD: "Os Serafitas",
+            alternativaCorreta: "alternativaB"
+        },
+        {
+            pergunta: "Onde ocorre o clímax final do primeiro jogo?",
+            alternativaA: "No hospital de Salt Lake City",
+            alternativaB: "No laboratório da Universidade de Colorado",
+            alternativaC: "Em Boston",
+            alternativaD: "No esconderijo dos Caçadores",
+            alternativaCorreta: "alternativaA"
+        },
+        {
+            pergunta: "Como morre Tess?",
+            alternativaA: "Infectada por um Estalador",
+            alternativaB: "Baleada por soldados da FEDRA",
+            alternativaC: "Queimada viva",
+            alternativaD: "Mordida por Ellie",
+            alternativaCorreta: "alternativaB"
+        },
+        {
+            pergunta: "Qual é o nome do homem que ajuda Joel com armadilhas e armas em Lincoln?",
+            alternativaA: "Henry",
+            alternativaB: "Bill",
+            alternativaC: "David",
+            alternativaD: "Sam",
+            alternativaCorreta: "alternativaB"
+        },
+
+        {
+            pergunta: "Como Joel e Ellie se conhecem?",
+            alternativaA: "Tess pede para Joel escoltar Ellie",
+            alternativaB: "Joel a encontra perdida em Boston",
+            alternativaC: "Ellie invade a casa de Joel",
+            alternativaD: "Eles se conhecem no hospital dos Vaga-lumes",
+            alternativaCorreta: "alternativaA"
+        },
+        {
+            pergunta: "Qual cidade Joel e Ellie visitam para encontrar Tommy?",
+            alternativaA: "Pittsburgh",
+            alternativaB: "Jackson",
+            alternativaC: "Denver",
+            alternativaD: "Salt Lake City",
+            alternativaCorreta: "alternativaB"
+        },
+        {
+            pergunta: "O que causa a morte de Tess no primeiro jogo?",
+            alternativaA: "É mordida por um infectado",
+            alternativaB: "É baleada por soldados da FEDRA",
+            alternativaC: "É traída pelos Vaga-lumes",
+            alternativaD: "É morta por Joel acidentalmente",
+            alternativaCorreta: "alternativaB"
+        },
+        {
+            pergunta: "Como se chama o hospital onde ocorre o clímax do primeiro jogo?",
+            alternativaA: "Hospital St. Mary's",
+            alternativaB: "Hospital Salt Lake City Central",
+            alternativaC: "Hospital Marlene Firefly",
+            alternativaD: "Hospital da FEDRA",
+            alternativaCorreta: "alternativaA"
+        },
+        {
+            pergunta: "Qual é o nome da líder dos Vaga-lumes (Fireflies)?",
+            alternativaA: "Tess",
+            alternativaB: "Marlene",
+            alternativaC: "Abby",
+            alternativaD: "Riley",
+            alternativaCorreta: "alternativaB"
+        },
+        {
+            pergunta: "Em que ano começa a infecção segundo a cronologia oficial do jogo?",
+            alternativaA: "2013",
+            alternativaB: "2010",
+            alternativaC: "2020",
+            alternativaD: "2003",
+            alternativaCorreta: "alternativaA"
+        },
+        {
+            pergunta: "Quais são os quatro estágios principais da infecção pelo Cordyceps?",
+            alternativaA: "Corredor, Estalador, Baiacu, Rei Rato",
+            alternativaB: "Corredor, Espreitador, Estalador, Baiacu",
+            alternativaC: "Mordido, Infectado, Estalador, Morto",
+            alternativaD: "Corredor, Atacante, Caçador, Baiacu",
+            alternativaCorreta: "alternativaB"
+        },
+
+
+        //Left Behind
+
+        {
+            pergunta: "Qual é o nome da melhor amiga de Ellie?",
+            alternativaA: "Dina",
+            alternativaB: "Riley",
+            alternativaC: "Sarah",
+            alternativaD: "Abby",
+            alternativaCorreta: "alternativaB"
+        },
+        {
+            pergunta: "Onde se passa a maior parte do DLC Left Behind?",
+            alternativaA: "Num hospital abandonado",
+            alternativaB: "Num shopping center",
+            alternativaC: "Numa escola",
+            alternativaD: "Num acampamento militar",
+            alternativaCorreta: "alternativaB"
+        },
+        {
+            pergunta: "Qual dessas atividades Ellie e Riley NÃO fazem juntas?",
+            alternativaA: "Tirar fotos na cabine",
+            alternativaB: "Brincar de guerra de água",
+            alternativaC: "Jogar fliperama",
+            alternativaD: "Nadar em um lago",
+            alternativaCorreta: "alternativaD"
+        },
+        {
+            pergunta: "Qual é o destino de Riley ao final do DLC?",
+            alternativaA: "Ela escapa da cidade",
+            alternativaB: "Ela é mordida por um infectado",
+            alternativaC: "Ela é morta por soldados",
+            alternativaD: "Ela se junta à FEDRA",
+            alternativaCorreta: "alternativaB"
+        },
+
+        //Parte 2
+
+        {
+            pergunta: "Qual personagem mata Joel?",
+            alternativaA: "Abby Anderson",
+            alternativaB: "Owen",
+            alternativaC: "Manny",
+            alternativaD: "Isaac",
+            alternativaCorreta: "alternativaA"
+        },
+        {
+            pergunta: "Qual é o nome da namorada de Ellie?",
+            alternativaA: "Riley",
+            alternativaB: "Dina",
+            alternativaC: "Abby",
+            alternativaD: "Mel",
+            alternativaCorreta: "alternativaB"
+        },
+        {
+            pergunta: "Em qual cidade se passa a maior parte do jogo?",
+            alternativaA: "Jackson",
+            alternativaB: "Seattle",
+            alternativaC: "Salt Lake City",
+            alternativaD: "Denver",
+            alternativaCorreta: "alternativaB"
+        },
+        {
+            pergunta: "Qual é o nome do grupo militar que domina Seattle?",
+            alternativaA: "Serafitas",
+            alternativaB: "Vaga-lumes",
+            alternativaC: "WLF (Washington Liberation Front)",
+            alternativaD: "Hunters",
+            alternativaCorreta: "alternativaC"
+        },
+        {
+            pergunta: "Qual é o nome do cachorro que Abby encontra e treina no acampamento dos WLF?",
+            alternativaA: "Bear",
+            alternativaB: "Alice",
+            alternativaC: "Buck",
+            alternativaD: "Max",
+            alternativaCorreta: "alternativaB"
+        },
+        {
+            pergunta: "Que instrumento Joel ensina Ellie a tocar?",
+            alternativaA: "Guitarra",
+            alternativaB: "Violino",
+            alternativaC: "Ukulele",
+            alternativaD: "Piano",
+            alternativaCorreta: "alternativaA"
+        },
+        {
+            pergunta: "Qual é a música que Joel toca para Ellie no início do jogo?",
+            alternativaA: "Take On Me",
+            alternativaB: "Future Days",
+            alternativaC: "Wayfaring Stranger",
+            alternativaD: "True Faith",
+            alternativaCorreta: "alternativaB"
+        },
+
+        {
+            pergunta: "Qual é o nome da personagem que busca vingança contra Joel?",
+            alternativaA: "Abby Anderson",
+            alternativaB: "Mel",
+            alternativaC: "Nora",
+            alternativaD: "Yara",
+            alternativaCorreta: "alternativaA"
+        },
+        {
+            pergunta: "Qual é o nome do grupo religioso inimigo do WLF?",
+            alternativaA: "Serafitas (ou Cicatrizes)",
+            alternativaB: "Vaga-lumes",
+            alternativaC: "Caçadores",
+            alternativaD: "Fireflies do Oeste",
+            alternativaCorreta: "alternativaA"
+        },
+        {
+            pergunta: "Qual é o nome completo de Ellie?",
+            alternativaA: "Ellie Johnson",
+            alternativaB: "Ellie Williams",
+            alternativaC: "Ellie Miller",
+            alternativaD: "Ellie Greene",
+            alternativaCorreta: "alternativaB"
+        },
+        {
+            pergunta: "Quem ajuda Abby a escapar dos Serafitas?",
+            alternativaA: "Lev e Yara",
+            alternativaB: "Dina e Jesse",
+            alternativaC: "Ellie e Tommy",
+            alternativaD: "Owen e Mel",
+            alternativaCorreta: "alternativaA"
+        },
+        {
+            pergunta: "Qual é a última localização jogável de Ellie em The Last of Us Part II?",
+            alternativaA: "Jackson",
+            alternativaB: "Rancho da Ellie",
+            alternativaC: "Santa Barbara",
+            alternativaD: "Seattle",
+            alternativaCorreta: "alternativaC"
+        }
+
+
+    ]
+
+    // variáveis globais    
+    let numeroDaQuestaoAtual = 0
+    let pontuacaoFinal = 0
+    let tentativaIncorreta = 0
+    let certas = 0
+    let erradas = 0
+    let quantidadeDeQuestoes = listaDeQuestoes.length
+    // let isUltima = numeroDaQuestaoAtual == quantidadeDeQuestoes-1 ? true : false
+
+    function onloadEsconder() {
+        document.getElementById('pontuacao').style.display = "none"
+        document.getElementById('jogo').style.display = "none"
+    }
+
+    function iniciarQuiz() {
+        document.getElementById('pontuacao').style.display = "flex"
+        document.getElementById('jogo').style.display = "flex"
+        document.getElementById('btnIniciarQuiz').style.display = "none"
+
+        document.getElementById('qtdQuestoes').innerHTML = quantidadeDeQuestoes
+
+        preencherHTMLcomQuestaoAtual(0)
+
+        btnSubmeter.disabled = false
+        btnProx.disabled = true
+        // btnConcluir.disabled = true
+        btnTentarNovamente.disabled = true
+    }
+
+    function preencherHTMLcomQuestaoAtual(index) {
+        habilitarAlternativas(true)
+        const questaoAtual = listaDeQuestoes[index]
+        numeroDaQuestaoAtual = index
+        console.log("questaoAtual")
+        console.log(questaoAtual)
+        document.getElementById("spanNumeroDaQuestaoAtual").innerHTML = Number(index) + 1 // ajustando porque o index começa em 0
+        document.getElementById("spanQuestaoExibida").innerHTML = questaoAtual.pergunta;
+        document.getElementById("labelOpcaoUm").innerHTML = questaoAtual.alternativaA;
+        document.getElementById("labelOpcaoDois").innerHTML = questaoAtual.alternativaB;
+        document.getElementById("labelOpcaoTres").innerHTML = questaoAtual.alternativaC;
+        document.getElementById("labelOpcaoQuatro").innerHTML = questaoAtual.alternativaD;
+    }
+
+    function submeter() {
+        const options = document.getElementsByName("option"); // recupera alternativas no html
+
+        let hasChecked = false
+        for (let i = 0; i < options.length; i++) {
+            if (options[i].checked) {
+                hasChecked = true
+                break
+            }
+        }
+
+        if (!hasChecked) {
+            alert("Não há alternativas escolhidas. Escolha uma opção.")
+        } else {
+            btnSubmeter.disabled = true
+            btnProx.disabled = false
+
+            habilitarAlternativas(false)
+
+            checarResposta()
+        }
+    }
+
+    function habilitarAlternativas(trueOrFalse) {
+        let opcaoEscolhida = trueOrFalse ? false : true
+
+        primeiraOpcao.disabled = opcaoEscolhida
+        segundaOpcao.disabled = opcaoEscolhida
+        terceiraOpcao.disabled = opcaoEscolhida
+        quartaOpcao.disabled = opcaoEscolhida
+
+    }
+
+    function avancar() {
+        btnProx.disabled = true
+        btnSubmeter.disabled = false
+
+        desmarcarRadioButtons()
+
+        if (numeroDaQuestaoAtual < quantidadeDeQuestoes - 1) {
+            preencherHTMLcomQuestaoAtual(numeroDaQuestaoAtual)
+        } else if (numeroDaQuestaoAtual == quantidadeDeQuestoes - 1) {
+            alert("Atenção... a próxima é a ultima questão!")
+            preencherHTMLcomQuestaoAtual(numeroDaQuestaoAtual)
+        } else {
+            finalizarJogo()
+        }
+        limparCoresBackgroundOpcoes()
+    }
+
+    function tentarNovamente() {
+        // atualiza a página
+        window.location.reload()
+    }
+
+    function checarResposta() {
+        const questaoAtual = listaDeQuestoes[numeroDaQuestaoAtual] // questão atual 
+        const respostaQuestaoAtual = questaoAtual.alternativaCorreta // qual é a resposta correta da questão atual
+
+        const options = document.getElementsByName("option"); // recupera alternativas no html
+
+        let alternativaCorreta = null // variável para armazenar a alternativa correta
+
+        options.forEach((option) => {
+            if (option.value === respostaQuestaoAtual) {
+                console.log("alternativaCorreta está no componente: " + alternativaCorreta)
+                alternativaCorreta = option.labels[0].id
+            }
+        })
+
+        // verifica se resposta assinalada é correta
+        options.forEach((option) => {
+            if (option.checked === true && option.value === respostaQuestaoAtual) {
+                document.getElementById(alternativaCorreta).classList.add("text-success-with-bg")
+                pontuacaoFinal++
+                certas++
+                document.getElementById("spanCertas").innerHTML = certas
+                numeroDaQuestaoAtual++
+            } else if (option.checked && option.value !== respostaQuestaoAtual) {
+                const wrongLabelId = option.labels[0].id
+
+                document.getElementById(wrongLabelId).classList.add("text-danger-with-bg")
+                document.getElementById(alternativaCorreta).classList.add("text-success-with-bg")
+                tentativaIncorreta++
+                erradas++
+                document.getElementById("spanErradas").innerHTML = erradas
+                numeroDaQuestaoAtual++
+            }
+        })
+    }
+
+    function limparCoresBackgroundOpcoes() {
+        const options = document.getElementsByName("option");
+        options.forEach((option) => {
+            document.getElementById(option.labels[0].id).classList.remove("text-danger-with-bg")
+            document.getElementById(option.labels[0].id).classList.remove("text-success-with-bg")
+        })
+    }
+
+    function desmarcarRadioButtons() {
+        const options = document.getElementsByName("option");
+        for (let i = 0; i < options.length; i++) {
+            options[i].checked = false;
+        }
+    }
+
+    function finalizarJogo() {
+        let textoParaMensagemFinal = null
+        let classComCoresParaMensagemFinal = null
+        const porcentagemFinalDeAcertos = pontuacaoFinal / quantidadeDeQuestoes
+
+        if (porcentagemFinalDeAcertos <= 0.3) {
+            textoParaMensagemFinal = "Parece que você não estudou..."
+            classComCoresParaMensagemFinal = "text-danger-with-bg"
+        }
+        else if (porcentagemFinalDeAcertos > 0.3 && porcentagemFinalDeAcertos < 0.9) {
+            textoParaMensagemFinal = "Pode melhorar na próxima, hein!"
+            classComCoresParaMensagemFinal = "text-warning-with-bg"
+        }
+        else if (porcentagemFinalDeAcertos >= 0.9) {
+            textoParaMensagemFinal = "Uau, parabéns!"
+            classComCoresParaMensagemFinal = "text-success-with-bg"
+        }
+
+        textoParaMensagemFinal += "<br> Você acertou " + Math.round((porcentagemFinalDeAcertos) * 100) + "% das questões."
+
+
+        document.getElementById('msgFinal').innerHTML = textoParaMensagemFinal
+        document.getElementById('msgFinal').classList.add(classComCoresParaMensagemFinal)
+        document.getElementById('spanPontuacaoFinal').innerHTML = pontuacaoFinal
+
+        document.getElementById('jogo').classList.add("text-new-gray")
+
+        btnProx.disabled = true
+        btnSubmeter.disabled = true
+        // btnConcluir.disabled = true
+        btnTentarNovamente.disabled = false
+
+    }
+</script>

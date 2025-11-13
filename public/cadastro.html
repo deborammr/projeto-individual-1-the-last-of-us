@@ -7,54 +7,54 @@
     <title>TLOU | Cadastro</title>
 
     <!-- Chamada CSS Geral-->
-    <link rel="stylesheet" href="../public/css/geral.css">
+    <link rel="stylesheet" href="./css/geral.css">
 
     <!-- Chamada CSS da página-->
-    <link rel="stylesheet" href="../public/css/cadastro-login.css">
+    <link rel="stylesheet" href="./css/cadastro-login.css">
 
     <!-- Chamada CSS Scrollbar -->
-    <link rel="stylesheet" href="../public/css/scrollbar.css">
+    <link rel="stylesheet" href="./css/scrollbar.css">
 
     <!-- Ícone Vagalumes -->
-    <link rel="shortcut icon" type="imagex/png" href="../public/assets/fireflies-logo.png">
+    <link rel="shortcut icon" type="imagex/png" href="./public/assets/fireflies-logo.png">
 
 </head>
 
 <body>
 
     <!-- ---------- HEADER ------------ -->
-
-        <header>
+    <header>
         <nav class="navbar">
             <div class="navbar-container">
                 <div class="navbar-logo">
-                    <img src="../public/assets/The_Last_of_Us_logo_branco.png" alt="Logo The Last of Us">
+                    <img src="./assets/The_Last_of_Us_logo_branco.png" alt="Logo The Last of Us">
                 </div>
                 <ul class="navbar-menu">
-                    <li><a href="../public/index.html">HOME</a></li>
+                    <li><a href="./index.html" class="pg-atual">HOME</a></li>
                     <div class="dropdown">
                         <h1>HISTORIA</h1>
                         <div class="dropdown-content">
-                            <a href="../public/historia-parte1.html">PARTE 1</a>
-                            <a href="../public/historia-left-behind.html">LEFT BEHIND</a>    
-                            <a href="../public/historia-parte2.html">PARTE 2</a>
+                            <a href="./historia-parte1.html">PARTE 1</a>
+                            <a href="./historia-left-behind.html">LEFT BEHIND</a>
+                            <a href="./historia-parte2.html">PARTE 2</a>
                         </div>
                     </div>
                     <div class="dropdown">
                         <h1>EXPLORAR</h1>
                         <div class="dropdown-content">
-                            <a href="../public/explorar-personagens.html">PERSONAGENS</a>
-                            <a href="../public/explorar-grupos.html">GRUPOS</a>
-                            <a href="../public/explorar-infectados.html">INFECTADOS</a>
+                            <a href="./explorar-personagens.html">PERSONAGENS</a>
+                            <a href="./explorar-grupos.html">GRUPOS</a>
+                            <a href="./explorar-infectados.html">INFECTADOS</a>
                         </div>
                     </div>
-                    <li><a href="../public/quiz.html">QUIZ</a></li>
-                    <li><a href="../public/sobre.html">SOBRE</a></li>
-                    <li><a href="../public/login.html" class="pg-atual">LOGIN</a></li>
+                    <li><a href="./quiz.html">QUIZ</a></li>
+                    <li><a href="./sobre.html">SOBRE</a></li>
+                    <li><a href="./login.html">LOGIN</a></li>
                 </ul>
             </div>
         </nav>
     </header>
+    
     <!-- ---------- BODY ------------ -->
 
     <main class="scroll-container">
@@ -68,12 +68,12 @@
                             <h1>Faça seu cadastro para se tornar um sobrevivente!</h1>
                         </div>
                         <form action="#">
-                            <input type="text" placeholder="NOME" required="" />
-                            <input type="email" placeholder="E-MAIL" required="" />
-                            <input type="password" placeholder="SENHA" required="" />
-                            <input type="password" placeholder="CONFIRME A SENHA" required="" />
-                            <button class="btn-saiba">CADASTRE-SE</button>
-                            <h3> Já é cadastrado? <br><a href="../public/login.html">Login</a></h3>
+                            <input type="text" placeholder="NOME" required id="nome_input" />
+                            <input type="email" placeholder="E-MAIL" required id="email_input" />
+                            <input type="password" placeholder="SENHA" required id="senha_input"/>
+                            <input type="password" placeholder="CONFIRME A SENHA" required id="confirmacao_senha_input" />
+                            <button class="btn-saiba" onclick="cadastrar()">CADASTRE-SE</button>
+                            <h3> Já é cadastrado? <br><a href="./login.html">Login</a></h3>
                         </form>
                     </div>
                 </div>
@@ -81,4 +81,80 @@
         </div>
     </main>
 </body>
+
+<script>
+
+    function cadastrar() {
+        // aguardar();
+
+        //Recupere o valor da nova input pelo nome do id
+        // Agora vá para o método fetch logo abaixo
+        var nomeVar = nome_input.value;
+        var emailVar = email_input.value;
+        var senhaVar = senha_input.value;
+        var confirmacaoSenhaVar = confirmacao_senha_input.value;
+
+        // Verificando se há algum campo em branco
+        if (
+            nomeVar == "" ||
+            emailVar == "" ||
+            senhaVar == "" ||
+            confirmacaoSenhaVar == ""
+        ) {
+            cardErro.style.display = "block";
+            mensagem_erro.innerHTML =
+                "(Mensagem de erro para todos os campos em branco)";
+
+            finalizarAguardar();
+            return false;
+        } else {
+            setInterval(sumirMensagem, 5000);
+        }
+
+        // Enviando o valor da nova input
+        fetch("/usuarios/cadastrar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                nomeServer: nomeVar,
+                emailServer: emailVar,
+                senhaServer: senhaVar
+            }),
+        })
+            .then(function (resposta) {
+                console.log("resposta: ", resposta);
+
+                if (resposta.ok) {
+                    cardErro.style.display = "block";
+
+                    mensagem_erro.innerHTML =
+                        "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+
+                    setTimeout(() => {
+                        window.location = "login.html";
+                    }, "2000");
+
+                    limparFormulario();
+                    finalizarAguardar();
+                } else {
+                    throw "Houve um erro ao tentar realizar o cadastro!";
+                }
+            })
+            .catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+                finalizarAguardar();
+            });
+
+        return false;
+    }
+
+    function sumirMensagem() {
+        cardErro.style.display = "none";
+    }
+</script>
+
 </html>

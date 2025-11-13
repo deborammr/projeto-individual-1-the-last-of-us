@@ -1,0 +1,137 @@
+* {
+    text-align: center;
+    font-family: "TheLastofUs";
+    text-transform: uppercase;
+    background-color: #111;
+}
+
+.container-sessao1 {
+    background-image: none;
+}
+
+
+.btn-iniciar {
+    top: 40vh;
+}
+
+.pontuacaoEJogo {
+    flex-direction: row;
+}
+
+.caixa-pontos {
+    /* align-items: center;
+    justify-content: center; */
+    width: 25vw;
+    border-radius: 5px;
+    margin: 70px 100px 100px 100px;
+    padding: 20px;
+    font-size: 30px;
+    background-color: #111;
+    border: 2px solid rgb(224, 222, 222);
+    border-radius: 34px;
+    flex-direction: column;
+}
+
+.caixa-quiz {
+    align-items: center;
+    justify-content: center;
+    width: 60vw;
+    border-radius: 5px;
+    margin: 70px 100px 100px 100px;
+    padding: 20px;
+    font-size: 30px;
+    background-color: #111;
+    border: 2px solid rgb(224, 222, 222);
+    border-radius: 34px;
+    flex-direction: column;
+}
+
+
+/* 
+.login {
+    max-width: 400px;
+    border-radius: 5px;
+    margin: 70px 100px 100px 100px;
+    padding: 20px;
+    font-size: 30px;
+    background-color: #111;
+    border: 2px solid rgb(224, 222, 222);
+    border-radius: 34px;
+
+}
+
+.login h1 {
+    font-size: 30px;
+}
+
+.login h3,
+.login a {
+    font-size: 20px;
+}
+
+.login a:hover {
+    color: #903030;
+    text-decoration: underline;
+} */
+
+/* webdataviz */
+:root {
+    --primary-brand-color: #ED145B;
+    --secondary-brand-color: #0762C8;
+    --success: #198754;
+    --success-dark: #095c36;
+    --success-light: #9dd3ba;
+    --warning: #ffc107;
+    --warning-dark: #705400;
+    --warning-light: #fdebb3;
+    --danger: #dc3545;
+    --danger-dark: #990c19;
+    --danger-light: #f0c1c6;
+    --new-gray: #CCCCCC;
+    --new-black: #212427;
+    --new-white: #E8E8E8;
+}
+
+body {
+    color: var(--new-black);
+    background-color: var(--new-white);
+    /* font-family: Verdana, Geneva, Tahoma, sans-serif; */
+}
+
+.flex-coluna {
+    display: flex;
+    flex-direction: column;
+}
+
+.flex-linha {
+    display: flex;
+    flex-direction: row;
+}
+
+.width-fit-content {
+    width: fit-content;
+}
+
+/* .padding-8 {
+    padding: 8px;
+} */
+
+.text-success-with-bg {
+    color: var(--success-dark);
+    background-color: var(--success-light);
+}
+
+.text-warning-with-bg {
+    color: var(--warning-dark);
+    background-color: var(--warning-light);
+}
+
+.text-danger-with-bg {
+    color: var(--danger-dark);
+    background-color: var(--danger-light);
+}
+
+.text-new-gray {
+    color: var(--new-gray);
+}
+
