@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="./css/scrollbar.css">
 
     <!-- Ícone Vagalumes -->
-    <link rel="shortcut icon" type="imagex/png" href="./public/assets/fireflies-logo.png">
+    <link rel="shortcut icon" type="imagex/png" href="./assets/fireflies-logo.png">
 
 </head>
 
@@ -30,7 +30,7 @@
                     <img src="./assets/The_Last_of_Us_logo_branco.png" alt="Logo The Last of Us">
                 </div>
                 <ul class="navbar-menu">
-                    <li><a href="./index.html" class="pg-atual">HOME</a></li>
+                    <li><a href="./index.html">HOME</a></li>
                     <div class="dropdown">
                         <h1>HISTORIA</h1>
                         <div class="dropdown-content">
@@ -49,18 +49,18 @@
                     </div>
                     <li><a href="./quiz.html">QUIZ</a></li>
                     <li><a href="./sobre.html">SOBRE</a></li>
-                    <li><a href="./login.html">LOGIN</a></li>
+                    <li><a href="./login.html" class="pg-atual">LOGIN</a></li>
                 </ul>
             </div>
         </nav>
     </header>
-    
+
     <!-- ---------- BODY ------------ -->
 
     <main class="scroll-container">
 
         <!-- ----------CONTAINER 1---------- -->
-        <div class="container-sessao1">
+        <!-- <div class="container-sessao1">
             <div class="caixa-sessao1">
                 <div class="caixa-texto1">
                     <div class="login">
@@ -68,17 +68,50 @@
                             <h1>Faça seu cadastro para se tornar um sobrevivente!</h1>
                         </div>
                         <form action="#">
-                            <input type="text" placeholder="NOME" required id="nome_input" />
-                            <input type="email" placeholder="E-MAIL" required id="email_input" />
-                            <input type="password" placeholder="SENHA" required id="senha_input"/>
-                            <input type="password" placeholder="CONFIRME A SENHA" required id="confirmacao_senha_input" />
+                            <input type="text" placeholder="NOME" id="nome_input" />
+                            <input type="email" placeholder="E-MAIL" id="email_input" />
+                            <input type="password" placeholder="SENHA" id="senha_input" />
+                            <input type="password" placeholder="CONFIRME A SENHA" id="confirmacao_senha_input" />
                             <button class="btn-saiba" onclick="cadastrar()">CADASTRE-SE</button>
                             <h3> Já é cadastrado? <br><a href="./login.html">Login</a></h3>
                         </form>
                     </div>
                 </div>
             </div>
+        </div> -->
+
+
+        <div class="container-sessao1">
+            <div class="alerta_erro">
+                <div class="card_erro" id="cardErro">
+                    <span id="mensagem_erro"></span>
+                </div>
+            </div>
+            <div class="login">
+                <div class="card card-cadastro">
+                    <h2>Bem-vindo!</h2>
+                    <div class="form">
+                        <div class="campo">
+                            <input id="nome_input" type="text" placeholder="NOME" class="form_input" />
+                        </div>
+                        <div class="campo">
+                            <input id="email_input" type="text" placeholder="E-MAIL" class="form_input" />
+                        </div>
+                        <div class="campo">
+                            <input id="senha_input" type="password" placeholder="SENHA" class="form_input" />
+                        </div>
+                        <div class="campo">
+                            <input id="confirmacao_senha_input" type="password" placeholder="CONFIRMAÇÃO SENHA"
+                                class="form_input" />
+                        </div>
+                        <button class="btn-saiba" onclick="cadastrar()">Cadastrar</button>
+                        <h3> Já é cadastrado? <br><a href="./login.html">Login</a></h3>
+                    </div>
+                    <div id="div_erros_login"></div>
+                </div>
+            </div>
         </div>
+
     </main>
 </body>
 
@@ -95,19 +128,32 @@
         var confirmacaoSenhaVar = confirmacao_senha_input.value;
 
         // Verificando se há algum campo em branco
-        if (
-            nomeVar == "" ||
-            emailVar == "" ||
-            senhaVar == "" ||
-            confirmacaoSenhaVar == ""
-        ) {
+        if (nomeVar == "") {
             cardErro.style.display = "block";
-            mensagem_erro.innerHTML =
-                "(Mensagem de erro para todos os campos em branco)";
-
+            mensagem_erro.innerHTML = "Por favor, preencha seu <br>nome!";
             finalizarAguardar();
             return false;
-        } else {
+        }
+        else if (emailVar == "") {
+            cardErro.style.display = "block";
+            mensagem_erro.innerHTML = "Por favor, preencha seu <br>e-mail!";
+            finalizarAguardar();
+            return false;
+        }
+        else if (senhaVar == ""  || confirmacaoSenhaVar == "") {
+            cardErro.style.display = "block";
+            mensagem_erro.innerHTML = "Por favor, preencha sua <br>senha!";
+            finalizarAguardar();
+            return false;
+        }
+        else if (confirmacaoSenhaVar == "") {
+            cardErro.style.display = "block";
+            mensagem_erro.innerHTML = "Por favor, confirme sua <br>senha!";
+            finalizarAguardar();
+            return false;
+        }
+
+        else {
             setInterval(sumirMensagem, 5000);
         }
 

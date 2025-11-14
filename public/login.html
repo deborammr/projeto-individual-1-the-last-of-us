@@ -31,7 +31,7 @@
                     <img src="./assets/The_Last_of_Us_logo_branco.png" alt="Logo The Last of Us">
                 </div>
                 <ul class="navbar-menu">
-                    <li><a href="./index.html" class="pg-atual">HOME</a></li>
+                    <li><a href="./index.html">HOME</a></li>
                     <div class="dropdown">
                         <h1>HISTORIA</h1>
                         <div class="dropdown-content">
@@ -50,7 +50,7 @@
                     </div>
                     <li><a href="./quiz.html">QUIZ</a></li>
                     <li><a href="./sobre.html">SOBRE</a></li>
-                    <li><a href="./login.html">LOGIN</a></li>
+                    <li><a href="./login.html" class="pg-atual">LOGIN</a></li>
                 </ul>
             </div>
         </nav>
@@ -59,26 +59,127 @@
 
     <main class="scroll-container">
 
-        <!-- ----------CONTAINER 1---------- -->
         <div class="container-sessao1">
+            <div class="alerta_erro">
+                <div class="card_erro" id="cardErro">
+                    <span id="mensagem_erro"></span>
+                </div>
+            </div>
+            <div class="login">
+                <div class="card card-login">
+                    <h2>Faça seu login iniciar sua jornada!</h2>
+                    <div class="form">
+                        <div class="campo">
+                            <input id="email_input" type="email" placeholder="E-MAIL" class="form_input">
+                        </div>
+                        <div class="campo">
+                            <input id="senha_input" type="password" placeholder="SENHA" class="form_input">
+
+                        </div>
+                        <button class="btn-saiba" onclick="entrar()">Entrar</button>
+                        <h3>Não tem um cadastro?<br><a href="./cadastro.html">Cadastre-se</a></h3>
+                    </div>
+                    <div id="div_erros_login"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ----------CONTAINER 1---------- -->
+        <!-- <div class="container-sessao1">
             <div class="caixa-sessao1">
                 <div class="caixa-texto1">
                     <div class="login">
                         <div class="hader">
-                            <h1>Faça seu cadastro para se tornar um sobrevivente!</h1>
+                            <h1>Faça seu login iniciar sua aventura!</h1>
 
                         </div>
                         <form action="#">
-                            <input type="email" placeholder="E-MAIL" required="" />
-                            <input type="password" placeholder="SENHA" required="" />
-                            <button class="btn-saiba">LOGIN</button>
+                            <input type="email" placeholder="E-MAIL" class="email_input"/>
+                            <input type="password" placeholder="SENHA" class="senha_input"/>
+                            <button onclick="entrar()" class="btn-saiba">LOGIN</button>
                             <h3>Não tem um cadastro?<br><a href="./cadastro.html">Cadastre-se</a></h3>
                         </form>
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
+
     </main>
 </body>
-</html>
 
+<script>
+    function entrar() {
+        // aguardar();
+
+        var emailVar = email_input.value;
+        var senhaVar = senha_input.value;
+
+        if (emailVar == "") {
+            cardErro.style.display = "block"
+            mensagem_erro.innerHTML = "Por favor, preencha seu <br>e-mail!";
+            return false;
+        }
+        if (senhaVar == "") {
+            cardErro.style.display = "block"
+            mensagem_erro.innerHTML = "Por favor, preencha <br>sua senha!";
+            return false;
+        }
+        else {
+            setInterval(sumirMensagem, 5000)
+        }
+
+        console.log("FORM LOGIN: ", emailVar);
+        console.log("FORM SENHA: ", senhaVar);
+
+        fetch("/usuarios/autenticar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                emailServer: emailVar,
+                senhaServer: senhaVar
+            })
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO entrar()!")
+
+            if (resposta.ok) {
+                console.log(resposta);
+
+                resposta.json().then(json => {
+                    console.log(json);
+                    console.log(JSON.stringify(json));
+                    sessionStorage.EMAIL_USUARIO = json.email;
+                    sessionStorage.NOME_USUARIO = json.nome;
+                    sessionStorage.ID_USUARIO = json.id
+
+                    setTimeout(function () {
+                        window.location = "./quiz.html";
+                    }, 1000); // apenas para exibir o loading
+
+                });
+
+            } else {
+
+                console.log("Houve um erro ao tentar realizar o login!");
+
+                resposta.text().then(texto => {
+                    console.error(texto);
+                    // finalizarAguardar(texto);
+                });
+            }
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+
+        return false;
+    }
+
+    function sumirMensagem() {
+        cardErro.style.display = "none"
+    }
+</script>
+
+
+</html>
