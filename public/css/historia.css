@@ -23,7 +23,7 @@ body {
     padding: 350px 20px;
     border-radius: 10px;
     text-align: left;
-    color: #fff;
+    color: var(--cor-branca);
     max-width: 600px;
     font-family: 'Arial', sans-serif;
 }
@@ -31,7 +31,7 @@ body {
 .caixa-texto1 h1 {
     background-color: transparent;
     text-transform: uppercase;
-    color: rgb(224, 222, 222);
+    color: var(--cor-branca);
     text-align: left;
     font-weight: 200;
     letter-spacing: 1.2px;
@@ -64,7 +64,7 @@ body {
     align-items: center;
     padding: 25px;
     margin: 25px;
-    outline: 2px solid #fff;
+    outline: 2px solid var(--cor-branca);
     border-radius: 10px;
     height: 80vh;
     overflow: hidden;
@@ -85,7 +85,7 @@ body {
     background-color: transparent;
     border-radius: 10px;
     text-align: left;
-    color: #fff;
+    color: var(--cor-branca);
     max-width: 600px;
     font-family: 'Arial', sans-serif;
     padding: 0 70px;
@@ -95,7 +95,7 @@ body {
 .caixa-texto2 h1 {
     background-color: transparent;
     text-transform: uppercase;
-    color: rgb(224, 222, 222);
+    color: var(--cor-branca);
     text-align: left;
     font-weight: 200;
     letter-spacing: 1.2px;
@@ -131,7 +131,7 @@ body {
     align-items: center;
     padding: 25px;
     margin: 25px;
-    outline: 2px solid #fff;
+    outline: 2px solid var(--cor-branca);
     border-radius: 10px;
     height: 80vh;
     overflow: hidden;
@@ -155,7 +155,7 @@ body {
 .caixa-texto3 {
     border-radius: 10px;
     text-align: left;
-    color: #fff;
+    color: var(--cor-branca);
     max-width: 600px;
     font-family: 'Arial', sans-serif;
 
@@ -164,7 +164,7 @@ body {
 .caixa-texto3 h1 {
     background-color: transparent;
     text-transform: uppercase;
-    color: rgb(224, 222, 222);
+    color: var(--cor-branca);
     text-align: left;
     font-weight: 200;
     letter-spacing: 1.2px;

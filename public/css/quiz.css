@@ -2,13 +2,12 @@
     text-align: center;
     font-family: "TheLastofUs";
     text-transform: uppercase;
-    background-color: #111;
+    background-color: var(--cor-preta);
 }
 
 .container-sessao1 {
     background-image: none;
 }
-
 
 .btn-iniciar {
     top: 40vh;
@@ -19,15 +18,15 @@
 }
 
 .caixa-pontos {
-    /* align-items: center;
-    justify-content: center; */
+    align-items: center;
+    justify-content: center;
     width: 25vw;
     border-radius: 5px;
     margin: 70px 100px 100px 100px;
     padding: 20px;
     font-size: 30px;
-    background-color: #111;
-    border: 2px solid rgb(224, 222, 222);
+    background-color: var(--cor-preta);
+    border: 2px solid var(--cor-branca);
     border-radius: 34px;
     flex-direction: column;
 }
@@ -40,12 +39,11 @@
     margin: 70px 100px 100px 100px;
     padding: 20px;
     font-size: 30px;
-    background-color: #111;
-    border: 2px solid rgb(224, 222, 222);
+    background-color: var(--cor-preta);
+    border: 2px solid var(--cor-branca);
     border-radius: 34px;
     flex-direction: column;
 }
-
 
 /* 
 .login {
@@ -54,8 +52,8 @@
     margin: 70px 100px 100px 100px;
     padding: 20px;
     font-size: 30px;
-    background-color: #111;
-    border: 2px solid rgb(224, 222, 222);
+    background-color: var(--cor-preta);
+    border: 2px solid var(--cor-branca);
     border-radius: 34px;
 
 }
@@ -70,7 +68,7 @@
 }
 
 .login a:hover {
-    color: #903030;
+    color:var(--cor-vinho);
     text-decoration: underline;
 } */
 

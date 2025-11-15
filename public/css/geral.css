@@ -6,20 +6,28 @@
     font-style: normal;
 }
 
+/* ---------- VARIÁVEIS GLOBAIS - CORES ----------- */
+:root {
+    --cor-branca: rgb(224, 222, 222);
+    --cor-cinza: rgb(170, 170, 170);
+    --cor-preta: rgb(15, 15, 15);
+    --cor-vinho: rgb(145, 50, 50);
+}
+
 /* ---------- BASE ----------- */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'TheLastofUs', Arial, sans-serif;
-    color: rgb(224, 222, 222);
+    color: var(--cor-branca);
     font-size: 20px;
     font-weight: 200;
     letter-spacing: 3px;
 }
 
 body {
-    background-color: #111;
+    background-color: var(--cor-preta);
     margin-bottom: 100px;
 }
 
@@ -32,7 +40,7 @@ a {
 }
 
 a:hover {
-    color: #903030;
+    color:var(--cor-vinho);
     text-decoration: underline;
 }
 
@@ -43,7 +51,7 @@ a:hover {
     left: 0;
     width: 100%;
     padding: 20px 40px;
-    background-color: #111;
+    background-color: var(--cor-preta);
     z-index: 10000;
 }
 
@@ -68,7 +76,7 @@ a:hover {
 }
 
 .pg-atual {
-    color: #903030;
+    color: var(--cor-vinho);
     text-decoration: underline;
 }
 
@@ -82,7 +90,7 @@ a:hover {
     font-size: 24px;
     cursor: pointer;
     font-weight: 200;
-    background-color: #111;
+    background-color: var(--cor-preta);;
     transition: color 0.3s ease, text-decoration 0.3s ease;
 }
 
@@ -103,12 +111,12 @@ a:hover {
     font-size: 24px;
     text-align: center;
     background-color: #111;
-    color: rgb(224, 222, 222);
+    color: var(--cor-branca);
     box-shadow:
-        -1px -1px 0 rgb(224, 222, 222),
-        1px -1px 0 rgb(224, 222, 222),
-        -1px 1px 0 rgb(224, 222, 222),
-        1px 1px 0 rgb(224, 222, 222);
+        -1px -1px 0 var(--cor-branca),
+        1px -1px 0 var(--cor-branca),
+        -1px 1px 0 var(--cor-branca),
+        1px 1px 0 var(--cor-branca);
 }
 
 .dropdown:hover .dropdown-content {
@@ -117,7 +125,7 @@ a:hover {
 
 .dropdown h1:hover,
 .dropdown-content a:hover {
-    color: #903030;
+    color: var(--cor-vinho);
     text-decoration: underline;
 }
 
@@ -128,7 +136,7 @@ a:hover {
     padding: 0 20px;
     height: 40px;
     line-height: 40px;
-    border: 2px solid rgb(202, 202, 202);
+    border: 2px solid var(--cor-cinza);
     border-radius: 34px;
     background: transparent;
     text-transform: uppercase;
@@ -155,7 +163,7 @@ a:hover {
     border-radius: inherit;
     transform: scale(0);
     z-index: -1;
-    background-color: #903030;
+    background-color:var(--cor-vinho);
     transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
@@ -166,7 +174,7 @@ a:hover {
 .btn-saiba:hover {
     color: #fff;
     transform: scale(1.05);
-    box-shadow: 0 0 20px #903030;
+    box-shadow: 0 0 20px var(--cor-vinho);
 }
 
 /* ---------- CONTAINERS ----------- */
@@ -179,4 +187,3 @@ a:hover {
     background-size: cover;
     background-position: center;
 }
-

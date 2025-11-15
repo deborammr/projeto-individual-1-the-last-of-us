@@ -15,8 +15,8 @@
     margin: 70px 100px 100px 100px;
     padding: 20px;
     font-size: 30px;
-    background-color: #111;
-    border: 2px solid rgb(224, 222, 222);
+    background-color: var(--cor-preta);
+    border: 2px solid var(--cor-branca);
     border-radius: 34px;
 
 }
@@ -31,7 +31,7 @@
 }
 
 .login a:hover {
-    color: #903030;
+    color: var(--cor-vinho);
     text-decoration: underline;
 }
 
@@ -45,12 +45,12 @@
 .form_input {
 
     height: 50px;
-    border: 2px solid rgb(224, 222, 222);
+    border: 2px solid var(--cor-branca);
     padding: 10px;
     font-size: 20px;
     border-radius: 34px;
     outline: 2px;
-    color: rgb(224, 222, 222);
+    color:var(--cor-branca);
 }
 
 /* ESTILO WEB-DATA-VIZ */
@@ -67,8 +67,8 @@
     position: fixed;
     top: 150px;
     border-radius: 5px;
-    border: rgb(224, 222, 222) 2px solid;
-    background-color: #903030;
+    border: 2px solid var(--cor-branca);
+    background-color: var(--cor-vinho);
     align-items: center;
     padding: 10px;
     margin-right: 40px;    
@@ -98,7 +98,7 @@
   border-radius: 10px;
 } */
 
-.btn {
+/* .btn {
     font-family: "Barlow", sans-serif;
     border: 0;
     border-radius: 5px;
@@ -110,7 +110,7 @@
     width: 120px;
     align-self: center;
     margin-top: 5px;
-}
+} */
 
 .loading-div {
     width: 50px;
