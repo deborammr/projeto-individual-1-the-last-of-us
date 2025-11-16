@@ -59,28 +59,6 @@
 
     <main class="scroll-container">
 
-        <!-- ----------CONTAINER 1---------- -->
-        <!-- <div class="container-sessao1">
-            <div class="caixa-sessao1">
-                <div class="caixa-texto1">
-                    <div class="login">
-                        <div class="hader">
-                            <h1>Faça seu cadastro para se tornar um sobrevivente!</h1>
-                        </div>
-                        <form action="#">
-                            <input type="text" placeholder="NOME" id="nome_input" />
-                            <input type="email" placeholder="E-MAIL" id="email_input" />
-                            <input type="password" placeholder="SENHA" id="senha_input" />
-                            <input type="password" placeholder="CONFIRME A SENHA" id="confirmacao_senha_input" />
-                            <button class="btn-saiba" onclick="cadastrar()">CADASTRE-SE</button>
-                            <h3> Já é cadastrado? <br><a href="./login.html">Login</a></h3>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div> -->
-
-
         <div class="container-sessao1">
             <div class="alerta_erro">
                 <div class="card_erro" id="cardErro">
@@ -89,7 +67,7 @@
             </div>
             <div class="login">
                 <div class="card card-cadastro">
-                    <h2>Bem-vindo!</h2>
+                    <h2>Bem-vindo!<br>Crie seu cadastro para testar seus conhecimentos!</h2>
                     <div class="form">
                         <div class="campo">
                             <input id="nome_input" type="text" placeholder="NOME" class="form_input" />
@@ -140,7 +118,7 @@
             finalizarAguardar();
             return false;
         }
-        else if (senhaVar == ""  || confirmacaoSenhaVar == "") {
+        else if (senhaVar == "") {
             cardErro.style.display = "block";
             mensagem_erro.innerHTML = "Por favor, preencha sua <br>senha!";
             finalizarAguardar();
@@ -149,6 +127,13 @@
         else if (confirmacaoSenhaVar == "") {
             cardErro.style.display = "block";
             mensagem_erro.innerHTML = "Por favor, confirme sua <br>senha!";
+            finalizarAguardar();
+            return false;
+        }
+        
+        else if (senhaVar != confirmacaoSenhaVar) {
+            cardErro.style.display = "block";
+            mensagem_erro.innerHTML = "A senha e a confirmação da senha devem <br>ser iguais!";
             finalizarAguardar();
             return false;
         }

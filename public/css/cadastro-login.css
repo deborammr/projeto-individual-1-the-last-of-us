@@ -43,8 +43,7 @@
 }
 
 .form_input {
-
-    height: 50px;
+    height: 40px;
     border: 2px solid var(--cor-branca);
     padding: 10px;
     font-size: 20px;
@@ -53,7 +52,10 @@
     color:var(--cor-branca);
 }
 
-
+.btn-saiba {
+    width: 200px;
+    align-self: center;
+}
 
 /* ESTILO WEB-DATA-VIZ */
 
