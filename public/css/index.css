@@ -142,3 +142,44 @@ h3 {
     color: var(--cor-branca);
     font-size: 16px;
 }
+
+/* POP UP CONFIRMAÇÃO IDADE */
+
+#conteudo {
+    display: none;
+}
+
+#idade-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--cor-preta);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 99999;
+
+}
+
+#idade-box {
+    background: var(--cor-preta);
+    padding: 30px;
+    border-radius: 34px;
+    text-align: center;
+    width: 350px;
+    border-radius: 12px;      
+    border: 2px solid var(--cor-cinza);
+    text-transform: uppercase;   
+
+}
+
+button {
+    padding: 10px 20px;
+    margin: 10px 10px 0 10px;
+    cursor: pointer;
+    border: none;
+    border-radius: 6px;
+    font-size: 20px;
+}

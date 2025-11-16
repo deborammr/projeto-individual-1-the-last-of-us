@@ -22,117 +22,160 @@
 
 <body>
 
-    <!-- ---------- HEADER ------------ -->
+    <!-- POPUP CONFIRMAÇÃO DE IDADE-->
+    <div id="idade-popup">
+        <div id="idade-box">
+            <h1>Você tem 18 anos ou mais?</h1>
+            <button id="btn-sim" class="btn-saiba">Sim</button>
+            <button id="btn-nao" class="btn-saiba">Não</button>
+        </div>
+    </div>
+
+    <div id="content">
+        <!-- ---------- HEADER ------------ -->
 
         <header>
-        <nav class="navbar">
-            <div class="navbar-container">
-                <div class="navbar-logo">
-                    <img src="./assets/The_Last_of_Us_logo_branco.png" alt="Logo The Last of Us">
-                </div>
-                <ul class="navbar-menu">
-                    <li><a href="./index.html" class="pg-atual">HOME</a></li>
-                    <div class="dropdown">
-                        <h1>HISTORIA</h1>
-                        <div class="dropdown-content">
-                            <a href="./historia-parte1.html">PARTE 1</a>
-                            <a href="./historia-left-behind.html">LEFT BEHIND</a>
-                            <a href="./historia-parte2.html">PARTE 2</a>
-                        </div>
+            <nav class="navbar">
+                <div class="navbar-container">
+                    <div class="navbar-logo">
+                        <img src="./assets/The_Last_of_Us_logo_branco.png" alt="Logo The Last of Us">
                     </div>
-                    <div class="dropdown">
-                        <h1>EXPLORAR</h1>
-                        <div class="dropdown-content">
-                            <a href="./explorar-personagens.html">PERSONAGENS</a>
-                            <a href="./explorar-grupos.html">GRUPOS</a>
-                            <a href="./explorar-infectados.html">INFECTADOS</a>
+                    <ul class="navbar-menu">
+                        <li><a href="./index.html" class="pg-atual">HOME</a></li>
+                        <div class="dropdown">
+                            <h1>HISTORIA</h1>
+                            <div class="dropdown-content">
+                                <a href="./historia-parte1.html">PARTE 1</a>
+                                <a href="./historia-left-behind.html">LEFT BEHIND</a>
+                                <a href="./historia-parte2.html">PARTE 2</a>
+                            </div>
                         </div>
+                        <div class="dropdown">
+                            <h1>EXPLORAR</h1>
+                            <div class="dropdown-content">
+                                <a href="./explorar-personagens.html">PERSONAGENS</a>
+                                <a href="./explorar-grupos.html">GRUPOS</a>
+                                <a href="./explorar-infectados.html">INFECTADOS</a>
+                            </div>
+                        </div>
+                        <li><a href="./login.html">QUIZ</a></li>
+                        <li><a href="./sobre.html">SOBRE</a></li>
+                        <li><a href="./login.html">LOGIN</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+
+        <!-- ---------- BODY ------------ -->
+
+        <main class="scroll-container">
+
+            <!-- ----------CONTAINER 1---------- -->
+            <div class="container-sessao1">
+                <div class="caixa-sessao1">
+                    <div class="caixa-texto1">
+                        <h1>Bem-vindo(a)<br>ao Mundo de<br>The Last of Us</h1>
+
                     </div>
-                    <li><a href="./login.html">QUIZ</a></li>
-                    <li><a href="./sobre.html">SOBRE</a></li>
-                    <li><a href="./login.html">LOGIN</a></li>
-                </ul>
+                </div>
+
             </div>
-        </nav>
-    </header>
 
-    <!-- ---------- BODY ------------ -->
+            <div class="container-sessao2">
 
-    <main class="scroll-container">
+                <div class="caixa-sessao">
+                    <!-- ---------- CARD 1 ---------- -->
 
-        <!-- ----------CONTAINER 1---------- -->
-        <div class="container-sessao1">
-            <div class="caixa-sessao1">
-                <div class="caixa-texto1">
-                    <h1>Bem-vindo(a)<br>ao Mundo de<br>The Last of Us</h1>
+                    <div class="container">
+
+                        <section>
+                            <figure class="card card-background">
+                                <img class='card-img card-trans' src="./assets/conheca.png" alt="Estalador">
+                            </figure>
+                            <div class="content">
+                                <h3>CONHEÇA</h3>
+                                <p class="description">Conheça a jornada intensa de The Last of Us, desde o surgimento
+                                    da
+                                    infecção até os eventos marcantes das partes I e II, e se aprofunde na história de
+                                    Ellie
+                                    na DLC Left Behind.</p>
+                                <a class="btn-saiba" href="./historia-parte1.html">Saiba Mais</a>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+                <div class="caixa-sessao">
+                    <!-- ---------- CARD 2---------- -->
+
+                    <div class="container">
+
+                        <section>
+                            <figure class="card card-background">
+                                <img class='card-img card-trans' src="./assets/explore.png" alt="Joel, Tess e Ellie">
+                            </figure>
+                            <div class="content">
+                                <h3>EXPLORE</h3>
+                                <p class="description">Explore os personagens, grupos/facções e infectados que habitam o
+                                    universo devastado de The Last of Us, onde a esperança é rara e cada escolha tem um
+                                    preço.</p>
+                                <a class="btn-saiba" href="./explorar-personagens.html">Saiba Mais</a>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+                <div class="caixa-sessao">
+                    <!-- ---------- CARD 3---------- -->
+
+                    <div class="container">
+
+                        <section>
+                            <figure class="card card-background">
+                                <img class='card-img card-trans' src="./assets/sobreviva2.png"
+                                    alt="Joel e Ellie lutando contra caçador">
+                            </figure>
+                            <div class="content">
+                                <h3>SOBREVIVA</h3>
+                                <p class="description">Coloque seus conhecimentos à prova no quiz de The Last of Us!
+                                    Teste o
+                                    quanto você realmente sabe sobre os jogos e mostre que você tem o instinto
+                                    necessário
+                                    para sobreviver onde poucos conseguem.</p>
+                                <a class="btn-saiba" href="./quiz.html">Saiba Mais</a>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+
+                <div class="container-sessao3">
 
                 </div>
             </div>
 
-        </div>
-
-        <div class="container-sessao2">
-
-            <div class="caixa-sessao">
-                <!-- ---------- CARD 1 ---------- -->
-
-                <div class="container">
-
-                    <section>
-                        <figure class="card card-background">
-                            <img class='card-img card-trans' src="./assets/conheca.png" alt="Estalador">
-                        </figure>
-                        <div class="content">
-                            <h3>CONHEÇA</h3>
-                            <p class="description">Conheça a jornada intensa de The Last of Us, desde o surgimento da
-                                infecção até os eventos marcantes das partes I e II, e se aprofunde na história de Ellie na DLC Left Behind.</p>
-                            <a class="btn-saiba" href="./historia-parte1.html">Saiba Mais</a>
-                        </div>
-                    </section>
-                </div>
-            </div>
-            <div class="caixa-sessao">
-                <!-- ---------- CARD 2---------- -->
-
-                <div class="container">
-
-                    <section>
-                        <figure class="card card-background">
-                            <img class='card-img card-trans' src="./assets/explore.png" alt="Joel, Tess e Ellie">
-                        </figure>
-                        <div class="content">
-                            <h3>EXPLORE</h3>
-                            <p class="description">Explore os personagens, grupos/facções e infectados que habitam o universo devastado de The Last of Us, onde a esperança é rara e cada escolha tem um preço.</p>
-                            <a class="btn-saiba" href="./explorar-personagens.html">Saiba Mais</a>
-                        </div>
-                    </section>
-                </div>
-            </div>
-            <div class="caixa-sessao">
-                <!-- ---------- CARD 3---------- -->
-
-                <div class="container">
-
-                    <section>
-                        <figure class="card card-background">
-                            <img class='card-img card-trans' src="./assets/sobreviva2.png" alt="Joel e Ellie lutando contra caçador">
-                        </figure>
-                        <div class="content">
-                            <h3>SOBREVIVA</h3>
-                            <p class="description">Coloque seus conhecimentos à prova no quiz de The Last of Us! Teste o
-                                quanto você realmente sabe sobre os jogos e mostre que você tem o instinto necessário para sobreviver onde poucos conseguem.</p>
-                            <a class="btn-saiba" href="./quiz.html">Saiba Mais</a>
-                        </div>
-                    </section>
-                </div>
-            </div>
-
-        </div>
-        <div class="container-sessao3">
-            
-        </div>
-    </main>
+        </main>
 
 </body>
+</div>
+
+<script>
+    const popup = document.getElementById("idade-popup");
+    const content = document.getElementById("content");
+
+    document.getElementById("btn-sim").addEventListener("click", () => {
+        popup.style.display = "none";
+        content.style.display = "block";
+    });
+
+    document.getElementById("btn-nao").addEventListener("click", () => {
+        document.getElementById("idade-box").innerHTML = `
+        <h2>Conteúdo permitido apenas para maiores de 18 anos.</h2>
+        <p>Você será redirecionado...</p>
+    `;
+
+        setTimeout(() => {
+            window.location.href = "https://google.com"; // ou outra página
+        }, 2000);
+    });
+
+</script>
 
 </html>
