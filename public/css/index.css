@@ -16,13 +16,10 @@ body {
 }
 
 .caixa-sessao1 {
-    background-color: var(--cor-preta);
     padding: 80px 50px;
-
 }
 
 .caixa-texto1 {
-    background-color: var(--cor-preta);
     padding: 350px 20px;
     border-radius: 10px;
     text-align: left;
@@ -32,7 +29,6 @@ body {
 }
 
 .caixa-texto1 h1 {
-    background-color:var(--cor-preta);
     font-family: 'TheLastofUs';
     font-size: 2.1em;
     margin-bottom: 15px;
