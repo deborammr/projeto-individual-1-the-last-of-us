@@ -48,7 +48,7 @@
                             <a href="./explorar-infectados.html">INFECTADOS</a>
                         </div>
                     </div>
-                    <li><a href="./quiz.html">QUIZ</a></li>
+                    <li><a href="./login.html">QUIZ</a></li>
                     <li><a href="./sobre.html">SOBRE</a></li>
                     <li><a href="./login.html">LOGIN</a></li>
                 </ul>
@@ -60,9 +60,10 @@
 
     <main>
         <div class="div_btn">
-            <button onclick="mostrarParte1()" class="btn-parte">Parte 1</button>
-            <button onclick="mostrarParte2()" class="btn-parte">Parte 2</button>
+            <button id="btn1" onclick="mostrarParte1()" class="btn-parte btn_selecionado">Parte 1</button>
+            <button id="btn2" onclick="mostrarParte2()" class="btn-parte">Parte 2</button>
         </div>
+
 
         <!-- ---------- PARTE 1 ------------ -->
         <div id="parte1">
@@ -75,8 +76,7 @@
                     <div class="container">
                         <section>
                             <figure class="card card-background">
-                                <img class='card-img card-trans' src="./assets/card_ellie.png"
-                                    alt="Ellie Willians">
+                                <img class='card-img card-trans' src="./assets/card_ellie.png" alt="Ellie Willians">
                             </figure>
                             <div class="content">
                                 <h3>ELLIE WILLIANS</h3>
@@ -137,8 +137,7 @@
                     <div class="container">
                         <section>
                             <figure class="card card-background">
-                                <img class='card-img card-trans' src="./assets/card_sarah.png"
-                                    alt="Sarah Miller">
+                                <img class='card-img card-trans' src="./assets/card_sarah.png" alt="Sarah Miller">
                             </figure>
                             <div class="content">
                                 <h3>SARAH MILLER</h3>
@@ -157,8 +156,7 @@
                     <div class="container">
                         <section>
                             <figure class="card card-background">
-                                <img class='card-img card-trans' src="./assets/card_tommy.png"
-                                    alt="Tommy Miller">
+                                <img class='card-img card-trans' src="./assets/card_tommy.png" alt="Tommy Miller">
                             </figure>
                             <div class="content">
                                 <h3>TOMMY MILLER</h3>
@@ -321,8 +319,7 @@
                     <div class="container">
                         <section>
                             <figure class="card card-background">
-                                <img class='card-img card-trans' src="./assets/card_abby.png"
-                                    alt="Abby Anderson">
+                                <img class='card-img card-trans' src="./assets/card_abby.png" alt="Abby Anderson">
                             </figure>
                             <div class="content">
                                 <h3>ABBY ANDERSON</h3>
@@ -381,8 +378,7 @@
                     <div class="container">
                         <section>
                             <figure class="card card-background">
-                                <img class='card-img card-trans' src="./assets/card_isaac.png"
-                                    alt="Isaac Dixon">
+                                <img class='card-img card-trans' src="./assets/card_isaac.png" alt="Isaac Dixon">
                             </figure>
                             <div class="content">
                                 <h3>ISAAC DIXON</h3>
@@ -560,8 +556,7 @@
                     <div class="container">
                         <section>
                             <figure class="card card-background">
-                                <img class='card-img card-trans' src="./assets/card_jerry.png"
-                                    alt="Jerry Anderson">
+                                <img class='card-img card-trans' src="./assets/card_jerry.png" alt="Jerry Anderson">
                             </figure>
                             <div class="content">
                                 <h3>JERRY ANDERSON</h3>
@@ -618,13 +613,21 @@
 
 <script>
     function mostrarParte1() {
+        document.getElementById("btn1").classList.add("btn_selecionado");
+        document.getElementById("btn2").classList.remove("btn_selecionado");
+
         parte1.style.display = "block";
         parte2.style.display = "none";
     }
+
     function mostrarParte2() {
+        document.getElementById("btn1").classList.remove("btn_selecionado");
+        document.getElementById("btn2").classList.add("btn_selecionado");
+
         parte1.style.display = "none";
         parte2.style.display = "block";
     }
+
 </script>
 
 </html>
