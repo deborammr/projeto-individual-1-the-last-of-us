@@ -6,7 +6,7 @@
 }
 
 .container-sessao1 {
-    background-image: none;
+    background-image: url('../assets/imagem-principal.jpg');
 }
 
 .btn-iniciar {
@@ -15,14 +15,15 @@
 
 .pontuacaoEJogo {
     flex-direction: row;
+    background-color: transparent;
 }
 
 .caixa-pontos {
-    align-items: center;
+    align-items: left;
     justify-content: center;
-    width: 25vw;
+    width: 40vw;
     border-radius: 5px;
-    margin: 70px 100px 100px 100px;
+    margin: 70px 100px 70px 100px;
     padding: 20px;
     font-size: 30px;
     background-color: var(--cor-preta);
@@ -34,7 +35,7 @@
 .caixa-quiz {
     align-items: center;
     justify-content: center;
-    width: 60vw;
+    width: 40vw;
     border-radius: 5px;
     margin: 70px 100px 100px 100px;
     padding: 20px;
@@ -44,6 +45,15 @@
     border-radius: 34px;
     flex-direction: column;
 }
+
+.btn-saiba {
+    margin: 10px;
+}
+
+.flex-linha option{
+    margin: 10px;
+}
+
 
 /* 
 .login {

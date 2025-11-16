@@ -76,7 +76,7 @@ body {
     object-fit: contain;
 }
 
-.caixa-sessao2 {
+.caixa-sessao2{
     background-color: transparent;
     padding: 0 7px;
 }
@@ -88,8 +88,8 @@ body {
     color: var(--cor-branca);
     max-width: 600px;
     font-family: 'Arial', sans-serif;
-    padding: 0 70px;
-    width: 100%;
+    padding: 70px;
+            max-width: 600px;
 }
 
 .caixa-texto2 h1 {
@@ -102,12 +102,13 @@ body {
     font-family: "TheLastofUs";
     font-size: 2.5em;
     margin-bottom: 15px;
+
 }
 
 .caixa-texto2 p {
     width: 650px;
-    font-weight: 100;
-    font-size: 22px;
+    font-weight: 200;
+    font-size: 1.2rem;
 }
 
 /* ---------- SESSÃO 3 ----------- */
@@ -147,9 +148,8 @@ body {
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    padding: 0 70px;
-
-
+    padding: 70px;
+    margin-top: 25px;
 }
 
 .caixa-texto3 {
@@ -170,13 +170,15 @@ body {
     letter-spacing: 1.2px;
     font-family: "TheLastofUs";
     font-size: 2.5em;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
+    padding-left: 25px;
 }
 
 .caixa-texto3 p {
     width: 650px;
     font-weight: 100;
     font-size: 24px;
+    padding-left: 25px;
 }
 
 /* ---------- SESSÃO 4 ----------- */
@@ -190,21 +192,7 @@ body {
     background-position: center;
     justify-content: space-between;
     align-items: flex-start;
-        background-image: url('../public/assets/joel-save-sarah.jpg');
-}
 
-/* ---------- SESSÃO 5 ----------- */
-.container-sessao5 {
-    position: absolute;
-    top: calc(400vh - 80px);
-    left: 0;
-    width: 100%;
-    height: calc(100vh - 80px);
-    background-size: cover;
-    background-position: center;
-    justify-content: space-between;
-    align-items: flex-start;
-        background-image: url('../public/assets/joel-save-sarah.jpg');
 }
 
 
