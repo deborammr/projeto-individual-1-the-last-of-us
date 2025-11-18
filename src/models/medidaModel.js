@@ -16,7 +16,7 @@ function buscarUltimasMedidas(idUsuario, limite_linhas) {
                             acertos,
                             erros,
                             pontuacao,
-                            DATE_FORMAT(dtHrTent,'%H:%i:%s') as dtHrTent
+                            DATE_FORMAT(dtHrTent, '%d/%m/%y %H:%i:%s') AS dtHrTent
                         FROM tentativa
                         JOIN usuario ON usuario.idUsuario = tentativa.fkUsuario
                         WHERE fkUsuario = ${idUsuario}
@@ -32,7 +32,7 @@ function buscarMedidasEmTempoReal(idUsuario) {
                             acertos,
                             erros,
                             pontuacao,
-                            DATE_FORMAT(dtHrTent,'%H:%i:%s')  as dtHrTent
+                            DATE_FORMAT(dtHrTent, '%d/%m/%y %H:%i:%s') AS dtHrTent
                         FROM tentativa
                         JOIN usuario ON usuario.idUsuario = tentativa.fkUsuario
                         WHERE fkUsuario = ${idUsuario}

@@ -8,6 +8,11 @@ body {
   /* font-family: 'Barlow', 'Segoe UI', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
 }
 
+.grafico1 {
+  width: 800px;
+
+}
+
 .label-captura {
   display: flex;
   justify-content: center;
