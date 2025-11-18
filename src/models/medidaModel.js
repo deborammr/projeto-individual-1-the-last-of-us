@@ -1,35 +1,67 @@
 var database = require("../database/config");
 
-function buscarUltimasMedidas(idAquario, limite_linhas) {
+function buscarUltimasMedidas(idUsuario, limite_linhas) {
 
-    var instrucaoSql = `SELECT 
-        dht11_temperatura as temperatura, 
-        dht11_umidade as umidade,
-                        momento,
-                        DATE_FORMAT(momento,'%H:%i:%s') as momento_grafico
-                    FROM medida
-                    WHERE fk_aquario = ${idAquario}
-                    ORDER BY id DESC LIMIT ${limite_linhas}`;
+    // var instrucaoSql = `SELECT 
+    //     dht11_temperatura as temperatura, 
+    //     dht11_umidade as umidade,
+    //                     momento,
+    //                     DATE_FORMAT(momento,'%H:%i:%s') as momento_grafico
+    //                 FROM medida
+    //                 WHERE fk_aquario = ${idAquario}
+    //                 ORDER BY id DESC LIMIT ${limite_linhas}`;
+
+    var instrucaoSql = `                      
+                        SELECT
+                            acertos,
+                            erros,
+                            pontuacao,
+                            DATE_FORMAT(dtHrTent,'%H:%i:%s') as dtHrTent
+                        FROM tentativa
+                        JOIN usuario ON usuario.idUsuario = tentativa.fkUsuario
+                        WHERE fkUsuario = ${idUsuario}
+                        ORDER BY fkUsuario DESC LIMIT ${limite_linhas};`;
+
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
+function buscarMedidasEmTempoReal(idUsuario) {
+
+    var instrucaoSql = `SELECT
+                            acertos,
+                            erros,
+                            pontuacao,
+                            DATE_FORMAT(dtHrTent,'%H:%i:%s')  as dtHrTent
+                        FROM tentativa
+                        JOIN usuario ON usuario.idUsuario = tentativa.fkUsuario
+                        WHERE fkUsuario = ${idUsuario}
+                        ORDER BY fkUsuario DESC LIMIT 1`;
 
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
 }
 
-function buscarMedidasEmTempoReal(idAquario) {
+// function buscarMedidasEmTempoReal(idAquario) {
 
-    var instrucaoSql = `SELECT 
-        dht11_temperatura as temperatura, 
-        dht11_umidade as umidade,
-                        DATE_FORMAT(momento,'%H:%i:%s') as momento_grafico, 
-                        fk_aquario 
-                        FROM medida WHERE fk_aquario = ${idAquario} 
-                    ORDER BY id DESC LIMIT 1`;
+//     var instrucaoSql = `SELECT 
+//         dht11_temperatura as temperatura, 
+//         dht11_umidade as umidade,
+//                         DATE_FORMAT(momento,'%H:%i:%s') as momento_grafico, 
+//                         fk_aquario 
+//                         FROM medida WHERE fk_aquario = ${idAquario} 
+//                     ORDER BY id DESC LIMIT 1`;
 
-    console.log("Executando a instrução SQL: \n" + instrucaoSql);
-    return database.executar(instrucaoSql);
-}
+//     console.log("Executando a instrução SQL: \n" + instrucaoSql);
+//     return database.executar(instrucaoSql);
+// }
 
 module.exports = {
     buscarUltimasMedidas,
     buscarMedidasEmTempoReal
 }
+
+// module.exports = {
+//     buscarUltimasMedidas,
+//     buscarMedidasEmTempoReal
+// }

@@ -160,13 +160,13 @@
     const popup = document.getElementById("idade-popup");
     const content = document.getElementById("content");
 
-    if (localStorage.getItem("maiorIdade") === "true") {
+    if (sessionStorage.getItem("maiorIdade") === "true") {
         popup.style.display = "none";
         content.style.display = "block";
     }
 
     document.getElementById("btn-sim").addEventListener("click", () => {
-        localStorage.setItem("maiorIdade", "true"); 
+        sessionStorage.setItem("maiorIdade", "true"); 
         popup.style.display = "none";
         content.style.display = "block";
     });
