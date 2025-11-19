@@ -8,6 +8,15 @@ body {
   /* font-family: 'Barlow', 'Segoe UI', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
 }
 
+#box-graficos {
+  /* display: flex; */
+  align-items: center;
+  justify-content: center;
+  background: var(--cor-preta);
+
+}
+
+
 .grafico1 {
   width: 800px;
 

@@ -133,6 +133,7 @@
 
         </div>
     </main>
+
 </html>
 
 <script>
@@ -666,6 +667,16 @@
         return false;
     }
 
+    // Soma de Pontos Possíveis
 
+    for (let index = 0; index < listaDeQuestoes.length; index++) {
+
+
+        var somaPontuacao = 0
+        somaPontuacao = Number(listaDeQuestoes[index].pontuacao);
+
+        console.log(`Pontuação parcial: ${somaPontuacao}`);
+    }
+    console.log(`Pontuação Total: ${somaPontuacao}`);
 
 </script>

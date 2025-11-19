@@ -20,7 +20,7 @@ function buscarUltimasMedidas(idUsuario, limite_linhas) {
                         FROM tentativa
                         JOIN usuario ON usuario.idUsuario = tentativa.fkUsuario
                         WHERE fkUsuario = ${idUsuario}
-                        ORDER BY fkUsuario DESC LIMIT ${limite_linhas};`;
+                        ORDER BY dtHrTent DESC LIMIT ${limite_linhas};`;
 
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
@@ -36,7 +36,7 @@ function buscarMedidasEmTempoReal(idUsuario) {
                         FROM tentativa
                         JOIN usuario ON usuario.idUsuario = tentativa.fkUsuario
                         WHERE fkUsuario = ${idUsuario}
-                        ORDER BY fkUsuario DESC LIMIT 1`;
+                        ORDER BY dtHrTent DESC LIMIT 1`;
 
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
