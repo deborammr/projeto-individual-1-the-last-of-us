@@ -15,7 +15,7 @@ router.get("/medias/:idUsuario", function (req, res) {
     medidaController.buscarMediasUsuario(req, res);
 })
 
-router.get("/medidas/mediasGerais", function (req, res) {
+router.get("/mediasGerais", function (req, res) {
     medidaController.buscarMediasGerais(req, res);
 })
 
