@@ -73,7 +73,28 @@
         </div>
 
         <div class="dash">
-            <div id="alerta"></div>
+            <div id="alerta">
+
+            </div>
+
+            <!-- ---------------------------------------- KPIs ---------------------------------------- -->
+
+            <div id="kpis">
+                <div class="kpi">
+                    <h3>Média de Acertos</h3>
+                    <p id="kpiMediaAcertos">--</p>
+                </div>
+                <div class="kpi">
+                    <h3>Média de Erros</h3>
+                    <p id="kpiMediaErros">--</p>
+                </div>
+                <div class="kpi">
+                    <h3>Média de Pontuação</h3>
+                    <p id="kpiMediaPontuacao">--</p>
+                </div>
+            </div>
+
+            <!-- ---------------------------------------- GRÁFICOS ---------------------------------------- -->
 
             <div class="btns-dash" id="btnAquario">
                 <!-- O gráfico é chamado de acordo com o id (fk_aquario) do banco  -->
@@ -91,6 +112,8 @@
                 </div>
 
             </div>
+
+
         </div>
     </div>
 
@@ -100,11 +123,16 @@
 </html>
 
 <script>
-    b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+
+    window.onload = function () {
+        b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+        obterDadosGrafico();
+        carregarKPIs();
+    };
 
     let proximaAtualizacao;
 
-    window.onload = obterDadosGrafico();
+
 
     // window.onload = exibirAquariosDoUsuario();
 
@@ -218,35 +246,10 @@
 
     }
 
-    // function obterDadosGrafico(idAquario) {
-
-    //     alterarTitulo(idAquario)
-
-    //     if (proximaAtualizacao != undefined) {
-    //         clearTimeout(proximaAtualizacao);
-    //     }
-
-    //     fetch(`/medidas/ultimas/${idAquario}`, { cache: 'no-store' }).then(function (response) {
-    //         if (response.ok) {
-    //             response.json().then(function (resposta) {
-    //                 console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-    //                 resposta.reverse();
-
-    //                 plotarGrafico(resposta, idAquario);
-
-    //             });
-    //         } else {
-    //             console.error('Nenhum dado encontrado ou erro na API');
-    //         }
-    //     })
-    //         .catch(function (error) {
-    //             console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
-    //         });
-    // }
-
     // Esta função *plotarGrafico* usa os dados capturados na função anterior para criar o gráfico
     // Configura o gráfico (cores, tipo, etc), materializa-o na página e, 
     // A função *plotarGrafico* também invoca a função *atualizarGrafico*
+
     function plotarGrafico(resposta, idUsuario) {
 
         console.log('iniciando plotagem do gráfico...');
@@ -342,14 +345,6 @@
 
         }
 
-        // Inserindo valores recebidos em estrutura para plotar o gráfico
-        // for (i = 0; i < resposta.length; i++) {
-        //     var registro = resposta[i];
-        //     labels.push(registro.momento_grafico);
-        //     dados.datasets[0].data.push(registro.umidade);
-        //     dados.datasets[1].data.push(registro.temperatura);
-        // }
-
         console.log('----------------------------------------------')
         console.log('O gráfico será plotado com os respectivos valores:')
         console.log('Labels:')
@@ -371,6 +366,7 @@
         );
 
         // setTimeout(() => atualizarGrafico(idUsuario, dados, myChart), 2000);
+
     }
 
     // Esta função *atualizarGrafico* atualiza o gráfico que foi renderizado na página,
@@ -432,6 +428,24 @@
     }
 
     // ---------------------------------------- KPIs ----------------------------------------
+
+    function carregarKPIs() {
+
+        let idUsuario = sessionStorage.ID_USUARIO;
+
+        fetch(`/medidas/todas/${idUsuario}`, { cache: 'no-store' }).then(response => response.json())
+            .then(kpis => {
+                console.log("KPIs recebidos:", kpis);
+
+                let media = kpis[0];
+
+                document.getElementById("kpiMediaAcertos").innerHTML = Math.round(Number(media.mediaAcertos) || 0);
+                document.getElementById("kpiMediaErros").innerHTML = Math.round(Number(media.mediaErros) || 0);
+                document.getElementById("kpiMediaPontuacao").innerHTML = Math.round(Number(media.mediaPontuacao) || 0);
+
+            })
+            .catch(error => console.error("Erro ao buscar KPIs:", error));
+    }
 
 
 
