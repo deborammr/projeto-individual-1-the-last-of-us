@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador</title>
+</head>
+
+<body>
+
+    Vida do infectado: <div id="div_infectado"></div><br>
+
+    Tempo Restante: <div id="div_tempo"></div><br>
+
+    <button onclick="iniciar()" id="btn_iniciar">Iniciar</button>
+
+    <button onclick="revolver()" id="btn_revolver" style="display: none;">Revolver</button>
+    <button onclick="rifle()" id="btn_rifle" style="display: none;">Rifle</button>
+    <button onclick="espingarda()" id="btn_espingarda" style="display: none;">Espingarda</button>
+
+
+</body>
+
+<script>
+    var nomeArma = ['Revolver', 'Rifle', 'Espingarda'];
+    var danoArma = [5, 8, 10];
+    var cargaArma = [6, 2, 4];
+    var tempoDisparo = [3, 5, 7];
+    var tempoRecarga = [3, 2, 3];
+
+    //Adicionar tipo de infectado de acordo com vida sorteada
+    var vidaInfectado = Number(Math.random() * 50 + 50).toFixed(0);
+
+    var tempoRestante = Number(Math.random() * 50 + 50).toFixed(0);
+
+    function exibirResultado() {
+        div_infectado.innerHTML = `${vidaInfectado}`;
+        div_tempo.innerHTML = `${tempoRestante}`;
+    }
+
+    function iniciar() {
+        div_infectado.innerHTML = `${vidaInfectado}`;
+        div_tempo.innerHTML = `${tempoRestante}`;
+
+        btn_iniciar.style.display = "none"
+        btn_revolver.style.display = "block"
+        btn_rifle.style.display = "block"
+        btn_espingarda.style.display = "block"
+    }
+
+    function revolver() {
+        vidaInfectado -= danoArma[0]
+        tempoRestante -= tempoDisparo[0]
+
+        exibirResultado();
+        validacao();
+    }
+
+    function rifle() {
+        vidaInfectado -= danoArma[1]
+        tempoRestante -= tempoDisparo[1]
+
+        exibirResultado();
+        validacao();
+    }
+
+    function espingarda() {
+        vidaInfectado -= danoArma[2]
+        tempoRestante -= tempoDisparo[2]
+
+        exibirResultado();
+        validacao();
+    }
+
+    function validacao() {
+        if (tempoRestante <= 0 && vidaInfectado > 0) {
+            alert("Você foi mordido!")
+        }
+        if (vidaInfectado <= 0){
+            alert("Você venceu!")
+        }
+    }
+
+</script>
+
+
+</html>

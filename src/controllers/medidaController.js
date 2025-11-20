@@ -21,7 +21,6 @@ function buscarUltimasMedidas(req, res) {
     });
 }
 
-
 function buscarMedidasEmTempoReal(req, res) {
 
     var idUsuario = req.params.idUsuario;
@@ -41,13 +40,13 @@ function buscarMedidasEmTempoReal(req, res) {
     });
 }
 
-function buscarTodasMedidas(req, res) {
+function buscarMediasUsuario(req, res) {
 
     var idUsuario = req.params.idUsuario;
 
     console.log(`Recuperando todas medidas`);
 
-    medidaModel.buscarTodasMedidas(idUsuario).then(function (resultado) {
+    medidaModel.buscarMediasUsuario(idUsuario).then(function (resultado) {
         if (resultado.length > 0) {
             res.status(200).json(resultado);
         } else {
@@ -55,7 +54,24 @@ function buscarTodasMedidas(req, res) {
         }
     }).catch(function (erro) {
         console.log(erro);
-        console.log("Houve um erro ao buscar as ultimas medidas.", erro.sqlMessage);
+        console.log("Houve um erro ao buscar as medidas do usuário.", erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+    });
+}
+
+function buscarMediasGerais(req, res) {
+
+    console.log(`Recuperando todas medidas`);
+
+    medidaModel.buscarMediasGerais().then(function (resultado) {
+        if (resultado.length > 0) {
+            res.status(200).json(resultado);
+        } else {
+            res.status(204).send("Nenhum resultado encontrado!")
+        }
+    }).catch(function (erro) {
+        console.log(erro);
+        console.log("Houve um erro ao buscar as medidas.", erro.sqlMessage);
         res.status(500).json(erro.sqlMessage);
     });
 }
@@ -63,5 +79,6 @@ function buscarTodasMedidas(req, res) {
 module.exports = {
     buscarUltimasMedidas,
     buscarMedidasEmTempoReal,
-    buscarTodasMedidas
+    buscarMediasUsuario,
+    buscarMediasGerais
 }

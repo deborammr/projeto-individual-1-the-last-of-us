@@ -81,16 +81,31 @@
 
             <div id="kpis">
                 <div class="kpi">
-                    <h3>Média de Acertos</h3>
-                    <p id="kpiMediaAcertos">--</p>
+                    <h3>Média de Acertos Individuais</h3>
+                    <p id="kpiMediaAcertosIndividuais">--</p>
                 </div>
                 <div class="kpi">
-                    <h3>Média de Erros</h3>
-                    <p id="kpiMediaErros">--</p>
+                    <h3>Média de Erros Individuais</h3>
+                    <p id="kpiMediaErrosIndividuais">--</p>
                 </div>
                 <div class="kpi">
-                    <h3>Média de Pontuação</h3>
-                    <p id="kpiMediaPontuacao">--</p>
+                    <h3>Média de Pontuação Individuais</h3>
+                    <p id="kpiMediaPontuacaoIndividuais">--</p>
+                </div>
+            </div>
+
+            <div id="kpis">
+                <div class="kpi">
+                    <h3>Média de Acertos Gerais</h3>
+                    <p id="kpiMediaAcertosGerais">--</p>
+                </div>
+                <div class="kpi">
+                    <h3>Média de Erros Gerais</h3>
+                    <p id="kpiMediaErrosGerais">--</p>
+                </div>
+                <div class="kpi">
+                    <h3>Média de Pontuação Gerais</h3>
+                    <p id="kpiMediaPontuacaoGerais">--</p>
                 </div>
             </div>
 
@@ -127,12 +142,11 @@
     window.onload = function () {
         b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
         obterDadosGrafico();
-        carregarKPIs();
+        carregarKPIsIndividuais();
+        carregarKPIsGerais();
     };
 
     let proximaAtualizacao;
-
-
 
     // window.onload = exibirAquariosDoUsuario();
 
@@ -429,29 +443,38 @@
 
     // ---------------------------------------- KPIs ----------------------------------------
 
-    function carregarKPIs() {
+    function carregarKPIsIndividuais() {
 
         let idUsuario = sessionStorage.ID_USUARIO;
 
-        fetch(`/medidas/todas/${idUsuario}`, { cache: 'no-store' }).then(response => response.json())
+        fetch(`/medidas/medias/${idUsuario}`, { cache: 'no-store' }).then(response => response.json())
             .then(kpis => {
-                console.log("KPIs recebidos:", kpis);
+                console.log("KPIs Individuais recebidos:", kpis);
 
                 let media = kpis[0];
 
-                document.getElementById("kpiMediaAcertos").innerHTML = Math.round(Number(media.mediaAcertos) || 0);
-                document.getElementById("kpiMediaErros").innerHTML = Math.round(Number(media.mediaErros) || 0);
-                document.getElementById("kpiMediaPontuacao").innerHTML = Math.round(Number(media.mediaPontuacao) || 0);
+                document.getElementById("kpiMediaAcertosIndividuais").innerHTML = Math.round(Number(media.mediaAcertos) || 0);
+                document.getElementById("kpiMediaErrosIndividuais").innerHTML = Math.round(Number(media.mediaErros) || 0);
+                document.getElementById("kpiMediaPontuacaoIndividuais").innerHTML = Math.round(Number(media.mediaPontuacao) || 0);
 
             })
             .catch(error => console.error("Erro ao buscar KPIs:", error));
     }
 
+    function carregarKPIsGerais() {
 
+        fetch(`/medidas/mediasGerais`, { cache: 'no-store' }).then(response => response.json())
+            .then(kpis => {
+                console.log("KPIs Gerais recebidos:", kpis);
 
+                let media = kpis[0];
 
+                document.getElementById("kpiMediaAcertosGerais").innerHTML = Math.round(Number(media.mediaAcertos) || 0);
+                document.getElementById("kpiMediaErrosGerais").innerHTML = Math.round(Number(media.mediaErros) || 0);
+                document.getElementById("kpiMediaPontuacaoGerais").innerHTML = Math.round(Number(media.mediaPontuacao) || 0);
 
-
-
+            })
+            .catch(error => console.error("Erro ao buscar KPIs:", error));
+    }
 
 </script>

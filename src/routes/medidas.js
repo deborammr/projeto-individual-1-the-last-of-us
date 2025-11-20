@@ -11,8 +11,12 @@ router.get("/tempo-real/:idUsuario", function (req, res) {
     medidaController.buscarMedidasEmTempoReal(req, res);
 })
 
-router.get("/todas/:idUsuario", function (req, res) {
-    medidaController.buscarTodasMedidas(req, res);
+router.get("/medias/:idUsuario", function (req, res) {
+    medidaController.buscarMediasUsuario(req, res);
+})
+
+router.get("/medidas/mediasGerais", function (req, res) {
+    medidaController.buscarMediasGerais(req, res);
 })
 
 module.exports = router;

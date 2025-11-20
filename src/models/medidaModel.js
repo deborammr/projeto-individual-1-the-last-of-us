@@ -33,7 +33,7 @@ function buscarMedidasEmTempoReal(idUsuario) {
     return database.executar(instrucaoSql);
 }
 
-function buscarTodasMedidas(idUsuario) {
+function buscarMediasUsuario(idUsuario) {
 
     var instrucaoSql = `SELECT
                             AVG(acertos) AS mediaAcertos,
@@ -46,8 +46,21 @@ function buscarTodasMedidas(idUsuario) {
     return database.executar(instrucaoSql);
 }
 
+function buscarMediasGerais(){
+
+    var instrucaoSql = `SELECT
+                            AVG(acertos) AS mediaAcertos,
+                            AVG(erros) AS mediaErros,
+                            AVG(pontuacao) AS mediaPontuacao
+                        FROM tentativa;`
+
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
 module.exports = {
     buscarUltimasMedidas,
     buscarMedidasEmTempoReal,
-    buscarTodasMedidas
+    buscarMediasUsuario,
+    buscarMediasGerais
 }
