@@ -1,0 +1,21 @@
+.div_dados {
+    max-width: 300px;
+    border-radius: 5px;
+    margin: 70px 100px 100px 100px;
+    padding: 20px;
+    font-size: 30px;
+    background-color: var(--cor-preta);
+    border: 2px solid var(--cor-branca);
+    border-radius: 34px;
+}
+
+.div_btn {
+    max-width: 500px;
+    border-radius: 5px;
+    margin: 70px 100px 100px 100px;
+    padding: 20px;
+    font-size: 30px;
+    background-color: var(--cor-preta);
+    border: 2px solid var(--cor-branca);
+    border-radius: 34px;
+}

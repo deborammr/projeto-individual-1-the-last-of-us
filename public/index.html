@@ -71,17 +71,15 @@
         <main class="scroll-container">
 
             <!-- ----------CONTAINER 1---------- -->
-            <div class="container-sessao1">
+            <div class="container-sessao imagemFundo1">
                 <div class="caixa-sessao1">
                     <div class="caixa-texto1">
                         <h1>Bem-vindo(a)<br>ao Mundo de<br>The Last of Us</h1>
-
                     </div>
                 </div>
-
             </div>
 
-            <div class="container-sessao2">
+            <div class="container-sessao">
 
                 <div class="caixa-sessao">
                     <!-- ---------- CARD 1 ---------- -->
@@ -146,13 +144,11 @@
                     </div>
                 </div>
 
-                <div class="container-sessao3">
+                <div class="container-sessao imagemFundo2">
 
                 </div>
             </div>
-
         </main>
-
 </body>
 </div>
 
@@ -166,7 +162,7 @@
     }
 
     document.getElementById("btn-sim").addEventListener("click", () => {
-        sessionStorage.setItem("maiorIdade", "true"); 
+        sessionStorage.setItem("maiorIdade", "true");
         popup.style.display = "none";
         content.style.display = "block";
     });

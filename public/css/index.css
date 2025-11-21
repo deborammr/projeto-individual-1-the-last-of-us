@@ -1,29 +1,27 @@
-body {
+/* body {
     padding-top: 100px;
-}
+} */
 
 /* ---------- SESSÃO 1 ----------- */
 
-.container-sessao1 {
-    position: absolute;
-    top: 80px;
-    left: 0;
-    width: 100%;
-    height: calc(100vh - 80px);
+.imagemFundo1 {
     background-image: url('../assets/imagem-principal2.jpg');
-    background-size: cover;
-    background-position: center;
+}
+
+.imagemFundo2 {
+    background-image: url('../assets/52342170554_740298ac0c_h.jpg');
 }
 
 .caixa-sessao1 {
-    padding: 80px 50px;
+    padding: 4rem 2rem;
+    /* padding: 80px 50px; */
 }
 
 .caixa-texto1 {
     padding: 350px 20px;
     border-radius: 10px;
     text-align: left;
-    color:var(--cor-branca);
+    color: var(--cor-branca);
     max-width: 600px;
     font-family: 'Arial', sans-serif;
 }
@@ -35,7 +33,7 @@ body {
     letter-spacing: 2px;
 
     text-transform: uppercase;
-    color:var(--cor-branca);
+    color: var(--cor-branca);
     text-align: left;
     font-weight: 200;
     letter-spacing: 1.2px;
@@ -45,9 +43,9 @@ body {
 
 /* ---------- SESSÃO 2 ----------- */
 
-.container-sessao2 {
+/* .container-sessao2 {
     position: absolute;
-    top: 100vh;
+    top: calc(100vh - 80px);
     left: 0;
     width: 100%;
     height: calc(100vh - 80px);
@@ -58,11 +56,11 @@ body {
     align-items: flex-start;
     flex-wrap: wrap;
     padding: 80px;
-}
+} */
 
 /* ---------- SESSÃO 3 ----------- */
 
-.container-sessao3 {
+/* .container-sessao3 {
     position: absolute;
     top: calc(200vh - 80px);
     left: 0;
@@ -71,7 +69,7 @@ body {
     background-image: url('../assets/52342170554_740298ac0c_h.jpg');
     background-size: cover;
     background-position: center;
-}
+} */
 
 
 .container {
@@ -170,9 +168,9 @@ h3 {
     border-radius: 34px;
     text-align: center;
     width: 350px;
-    border-radius: 12px;      
+    border-radius: 12px;
     border: 2px solid var(--cor-cinza);
-    text-transform: uppercase;   
+    text-transform: uppercase;
 
 }
 

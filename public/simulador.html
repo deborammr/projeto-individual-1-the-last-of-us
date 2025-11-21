@@ -1,48 +1,111 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simulador</title>
+    <title>TLOU | Home</title>
+
+    <!-- Chamada CSS Geral-->
+    <link rel="stylesheet" href="./css/geral.css">
+
+    <!-- Chamada CSS da página-->
+    <link rel="stylesheet" href="./css/simulador.css">
+
+    <!-- Chamada CSS Scrollbar -->
+    <link rel="stylesheet" href="./css/scrollbar.css">
+
+    <!-- Ícone Vagalumes -->
+    <link rel="shortcut icon" type="imagex/png" href="./assets/fireflies-logo.png">
+
 </head>
 
 <body>
 
-    Vida do personagem: <div id="div_personagem"></div><br>
+    <!-- ---------- HEADER ------------ -->
 
-    Vida do infectado: <div id="div_infectado"></div><br>
+    <header>
+        <nav class="navbar">
+            <div class="navbar-container">
+                <div class="navbar-logo">
+                    <img src="./assets/The_Last_of_Us_logo_branco.png" alt="Logo The Last of Us">
+                </div>
+                <ul class="navbar-menu">
+                    <li><a href="./index.html" class="pg-atual">HOME</a></li>
+                    <div class="dropdown">
+                        <h1>HISTORIA</h1>
+                        <div class="dropdown-content">
+                            <a href="./historia-parte1.html">PARTE 1</a>
+                            <a href="./historia-left-behind.html">LEFT BEHIND</a>
+                            <a href="./historia-parte2.html">PARTE 2</a>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <h1>EXPLORAR</h1>
+                        <div class="dropdown-content">
+                            <a href="./explorar-personagens.html">PERSONAGENS</a>
+                            <a href="./explorar-grupos.html">GRUPOS</a>
+                            <a href="./explorar-infectados.html">INFECTADOS</a>
+                        </div>
+                    </div>
+                    <li><a href="./login.html">QUIZ</a></li>
+                    <li><a href="./sobre.html">SOBRE</a></li>
+                    <li><a href="./login.html">LOGIN</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
 
-    Tempo Restante: <div id="div_tempo"></div><br>
+    <div class="container-sessao">
 
-    <button onclick="iniciar()" id="btn_iniciar">Iniciar</button>
+        <div class="div_dados">
+            <h1>Vida do personagem: <span id="div_personagem"></span></h1>
+        </div>
+        <div class="div_dados">
+            <h1>Vida do infectado: <span id="div_infectado"></span></h1>
+        </div>
+        <div class="div_dados">
+            <h1>Tempo Restante: <span id="div_tempo"></span></h1>
+        </div>
 
-    <div id="div_revolver">
-        <button onclick="atirar(0)" id="btn_revolver" style="display:none;">Revolver</button>
-        <button onclick="recarregar(0)" id="btn_rec_revolver" style="display:none;">Recarregar Revolver</button>
+        <div id="div_btn">
+
+            <button onclick="iniciar()" class="btn-saiba" id="btn_iniciar">Iniciar</button>
+
+            <div id="div_revolver">
+                <button onclick="atirar(0)" id="btn_revolver" class="btn-saiba" style="display:none;">Revolver</button>
+                <button onclick="recarregar(0)" id="btn_rec_revolver" style="display:none;">Recarregar Revolver</button>
+            </div>
+
+            <div id="div_rifle">
+                <button onclick="atirar(1)" id="btn_rifle" class="btn-saiba" style="display:none;">Rifle</button>
+                <button onclick="recarregar(1)" id="btn_rec_rifle" style="display:none;">Recarregar Rifle</button>
+            </div>
+
+            <div id="div_espingarda">
+                <button onclick="atirar(2)" id="btn_espingarda" class="btn-saiba"
+                    style="display:none;">Espingarda</button>
+                <button onclick="recarregar(2)" id="btn_rec_espingarda" class="btn-saiba"
+                    style="display:none;">Recarregar
+                    Espingarda</button>
+            </div>
+
+            <button onclick="iniciar()" id="btn_reiniciar" class="btn-saiba" style="display: none;">Reiniciar
+                Jogo</button>
+
+            <button onclick="listarArmas()" class="btn-saiba">Listar Armas</button>
+
+        </div>
+
+        <div id="div_armas"></div>
+        <div id="div_msg"></div>
     </div>
-
-    <div id="div_rifle">
-        <button onclick="atirar(1)" id="btn_rifle" style="display:none;">Rifle</button>
-        <button onclick="recarregar(1)" id="btn_rec_rifle" style="display:none;">Recarregar Rifle</button>
-    </div>
-
-    <div id="div_espingarda">
-        <button onclick="atirar(2)" id="btn_espingarda" style="display:none;">Espingarda</button>
-        <button onclick="recarregar(2)" id="btn_rec_espingarda" style="display:none;">Recarregar Espingarda</button>
-    </div>
-
-
-    <button onclick="iniciar()" id="btn_reiniciar" style="display: none;">Reiniciar Jogo</button>
-
-    <button onclick="listarArmas()">Listar Armas</button>
-    <div id="div_armas"></div>
-    <div id="div_msg"></div>
-
 
 </body>
 
+
 <script>
+
     var nomeArma = ['Revolver', 'Rifle', 'Espingarda'];
     var danoArma = [5, 8, 10];
     var cargaArma = [6, 2, 4];
@@ -249,8 +312,6 @@
         if (i === 1) btn_rec_rifle.style.display = "none";
         if (i === 2) btn_rec_espingarda.style.display = "none";
     }
-
-
 
 </script>
 

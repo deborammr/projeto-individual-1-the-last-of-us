@@ -5,7 +5,7 @@
     background-color: var(--cor-preta);
 }
 
-.container-sessao1 {
+.container-sessao {
     background-image: url('../assets/cacador-joel.jpg');
 }
 
@@ -81,24 +81,9 @@
     color:var(--cor-vinho);
     text-decoration: underline;
 } */
+ 
 
 /* webdataviz */
-:root {
-    --primary-brand-color: #ED145B;
-    --secondary-brand-color: #0762C8;
-    --success: #198754;
-    --success-dark: #095c36;
-    --success-light: #9dd3ba;
-    --warning: #ffc107;
-    --warning-dark: #705400;
-    --warning-light: #fdebb3;
-    --danger: #dc3545;
-    --danger-dark: #990c19;
-    --danger-light: #f0c1c6;
-    --new-gray: #CCCCCC;
-    --new-black: #212427;
-    --new-white: #E8E8E8;
-}
 
 body {
     color: var(--new-black);

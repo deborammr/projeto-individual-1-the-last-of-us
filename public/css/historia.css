@@ -1,21 +1,12 @@
-body {
-    padding-top: 100px;
+/* ---------- SESSÃO 1 ----------- */
+.container-sessao {
+    margin-bottom: 100px;
 }
 
-/* ---------- SESSÃO 1 ----------- */
-.container-sessao1 {
-    position: absolute;
-    top: 80px;
-    left: 0;
-    width: 100%;
-    height: calc(100vh - 80px);
-    background-size: cover;
-    background-position: center;
-}
 
 .caixa-sessao1 {
     background-color: transparent;
-    padding: 80px 50px;
+    /* padding: 80px 50px; */
 }
 
 .caixa-texto1 {
@@ -40,45 +31,47 @@ body {
     margin-bottom: 15px;
 }
 
+
 /* ---------- SESSÃO 2 ----------- */
 .container-sessao2 {
-    position: absolute;
-    top: 100vh;
-    left: 0;
-    width: 100%;
-    height: calc(100vh - 80px);
-    background-size: cover;
-    background-position: center;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    position: relative;
+    display: flex;
+    flex-direction: row;
     justify-content: space-between;
     align-items: flex-start;
     flex-wrap: wrap;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    gap: 20px;
+    box-sizing: border-box;
+    height: calc(100vh - 4rem);
 }
 
-.cont-esq {}
-
+.cont-esq,
 .cont-dir {
+    flex: 45%;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 25px;
-    margin: 25px;
-    outline: 2px solid var(--cor-branca);
+    padding: 0;
     border-radius: 10px;
-    height: 80vh;
     overflow: hidden;
+    box-sizing: border-box;
+    width: 100%;
 }
 
+.cont-esq img,
 .cont-dir img {
-    max-width: 100%;
-    max-height: 100%;
+    width: 100%;
+    height: 100%;
     object-fit: contain;
 }
 
-.caixa-sessao2{
+.caixa-sessao2 {
     background-color: transparent;
-    padding: 0 7px;
+
+    /* padding: 0 7px; */
 }
 
 .caixa-texto2 {
@@ -86,13 +79,13 @@ body {
     border-radius: 10px;
     text-align: left;
     color: var(--cor-branca);
-    max-width: 600px;
     font-family: 'Arial', sans-serif;
-    padding: 70px;
-            max-width: 600px;
+
+    max-width: 100%;
 }
 
 .caixa-texto2 h1 {
+    padding-left: 40px;
     background-color: transparent;
     text-transform: uppercase;
     color: var(--cor-branca);
@@ -100,99 +93,13 @@ body {
     font-weight: 200;
     letter-spacing: 1.2px;
     font-family: "TheLastofUs";
-    font-size: 2.5em;
-    margin-bottom: 15px;
-
+    font-size: 2.5rem;
+    /* margin-bottom: 15px; */
 }
 
 .caixa-texto2 p {
-    width: 650px;
+            padding: 40px;
+    width: 100%;
     font-weight: 200;
     font-size: 1.2rem;
 }
-
-/* ---------- SESSÃO 3 ----------- */
-.container-sessao3 {
-    position: absolute;
-    top: calc(200vh - 80px);
-    left: 0;
-    width: 100%;
-    height: calc(100vh - 80px);
-    background-size: cover;
-    background-position: center;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    justify-content: space-between;
-    align-items: flex-start;
-}
-
-.container-sessao3 .cont-esq {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 25px;
-    margin: 25px;
-    outline: 2px solid var(--cor-branca);
-    border-radius: 10px;
-    height: 80vh;
-    overflow: hidden;
-}
-
-.container-sessao3 .cont-esq img {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;
-}
-
-.container-sessao3 .cont-dir {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    padding: 70px;
-    margin-top: 25px;
-}
-
-.caixa-texto3 {
-    border-radius: 10px;
-    text-align: left;
-    color: var(--cor-branca);
-    max-width: 600px;
-    font-family: 'Arial', sans-serif;
-
-}
-
-.caixa-texto3 h1 {
-    background-color: transparent;
-    text-transform: uppercase;
-    color: var(--cor-branca);
-    text-align: left;
-    font-weight: 200;
-    letter-spacing: 1.2px;
-    font-family: "TheLastofUs";
-    font-size: 2.5em;
-    margin-bottom: 10px;
-    padding-left: 25px;
-}
-
-.caixa-texto3 p {
-    width: 650px;
-    font-weight: 100;
-    font-size: 24px;
-    padding-left: 25px;
-}
-
-/* ---------- SESSÃO 4 ----------- */
-.container-sessao4 {
-    position: absolute;
-    top: calc(300vh - 80px);
-    left: 0;
-    width: 100%;
-    height: calc(100vh - 80px);
-    background-size: cover;
-    background-position: center;
-    justify-content: space-between;
-    align-items: flex-start;
-
-}
-
-
