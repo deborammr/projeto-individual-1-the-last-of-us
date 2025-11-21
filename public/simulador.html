@@ -9,15 +9,35 @@
 
 <body>
 
+    Vida do personagem: <div id="div_personagem"></div><br>
+
     Vida do infectado: <div id="div_infectado"></div><br>
 
     Tempo Restante: <div id="div_tempo"></div><br>
 
     <button onclick="iniciar()" id="btn_iniciar">Iniciar</button>
 
-    <button onclick="revolver()" id="btn_revolver" style="display: none;">Revolver</button>
-    <button onclick="rifle()" id="btn_rifle" style="display: none;">Rifle</button>
-    <button onclick="espingarda()" id="btn_espingarda" style="display: none;">Espingarda</button>
+    <div id="div_revolver">
+        <button onclick="atirar(0)" id="btn_revolver" style="display:none;">Revolver</button>
+        <button onclick="recarregar(0)" id="btn_rec_revolver" style="display:none;">Recarregar Revolver</button>
+    </div>
+
+    <div id="div_rifle">
+        <button onclick="atirar(1)" id="btn_rifle" style="display:none;">Rifle</button>
+        <button onclick="recarregar(1)" id="btn_rec_rifle" style="display:none;">Recarregar Rifle</button>
+    </div>
+
+    <div id="div_espingarda">
+        <button onclick="atirar(2)" id="btn_espingarda" style="display:none;">Espingarda</button>
+        <button onclick="recarregar(2)" id="btn_rec_espingarda" style="display:none;">Recarregar Espingarda</button>
+    </div>
+
+
+    <button onclick="iniciar()" id="btn_reiniciar" style="display: none;">Reiniciar Jogo</button>
+
+    <button onclick="listarArmas()">Listar Armas</button>
+    <div id="div_armas"></div>
+    <div id="div_msg"></div>
 
 
 </body>
@@ -29,17 +49,11 @@
     var tempoDisparo = [3, 5, 7];
     var tempoRecarga = [3, 2, 3];
 
-    //Adicionar tipo de infectado de acordo com vida sorteada
-    var vidaInfectado = Number(Math.random() * 50 + 50).toFixed(0);
-
-    var tempoRestante = Number(Math.random() * 50 + 50).toFixed(0);
-
-    function exibirResultado() {
-        div_infectado.innerHTML = `${vidaInfectado}`;
-        div_tempo.innerHTML = `${tempoRestante}`;
-    }
-
     function iniciar() {
+
+        resetarJogo();
+
+        div_personagem.innerHTML = `${vidaPersonagem}`;
         div_infectado.innerHTML = `${vidaInfectado}`;
         div_tempo.innerHTML = `${tempoRestante}`;
 
@@ -49,40 +63,195 @@
         btn_espingarda.style.display = "block"
     }
 
-    function revolver() {
-        vidaInfectado -= danoArma[0]
-        tempoRestante -= tempoDisparo[0]
+    function atirar(indiceArma) {
+
+        if (jogoEncerrado) return;
+
+        vidaInfectado -= danoArma[indiceArma];
+        tempoRestante -= tempoDisparo[indiceArma];
+
+        municaoAtual[indiceArma]--;
+
+        if (municaoAtual[indiceArma] == 0) {
+            esconderBotaoArma(indiceArma);
+            mostrarBotaoRecarga(indiceArma);
+        }
+
+
+        if (!jogoEncerrado) {
+
+            div_msg.innerHTML += `
+        Você atacou o infectado ${nomeInfectado} com ${nomeArma[indiceArma]}!
+        Você deu ${danoArma[indiceArma]} de dano!<br>
+        `;
+
+            ataque();
+            ataqueSurpresa();
+            exibirResultado();
+            validacao();
+        }
+    }
+
+    function ataque() {
+        var ataque = Number(Math.random() * 9 + 1).toFixed(0);
+
+        if (ataque >= 1 && ataque <= 5) {
+            vidaPersonagem -= danoInfectado
+
+            div_msg.innerHTML += `Você sofreu um ataque de um infectado ${nomeInfectado}! Você levou ${danoInfectado} de dano!<br><br>`
+
+            console.log(`Ataque: ${ataque}`)
+        }
+        else {
+            div_msg.innerHTML += `Você conseguiu se proteger do ataque de um infectado ${nomeInfectado}! Você não levou dano!<br><br>`
+        }
+
+    }
+
+    function ataqueSurpresa() {
+        var ataqueSurpresa = Number(Math.random() * 9 + 1).toFixed(0);
+
+        console.log(`Ataque surpresa: ${ataqueSurpresa}`)
+
+        if (ataqueSurpresa == 3 || ataqueSurpresa == 7) {
+            vidaPersonagem -= danoInfectado
+            alert(`Você sofreu um ataque SURPRESA de um infectado ${nomeInfectado}! Você levou ${danoInfectado} de dano!`)
+        }
+    }
+
+    function recarregar(indiceArma) {
+        if (jogoEncerrado) return;
+
+        municaoAtual[indiceArma] = cargaArma[indiceArma];
+        tempoRestante -= tempoRecarga[indiceArma];
+
+        div_msg.innerHTML += `
+        Você recarregou o ${nomeArma[indiceArma]}!<br>
+        Munição restaurada: ${municaoAtual[indiceArma]}<br><br>
+    `;
+        esconderBotaoRecarga(indiceArma);
+        mostrarBotaoArma(indiceArma);
 
         exibirResultado();
         validacao();
     }
 
-    function rifle() {
-        vidaInfectado -= danoArma[1]
-        tempoRestante -= tempoDisparo[1]
 
-        exibirResultado();
-        validacao();
-    }
-
-    function espingarda() {
-        vidaInfectado -= danoArma[2]
-        tempoRestante -= tempoDisparo[2]
-
-        exibirResultado();
-        validacao();
+    function exibirResultado() {
+        div_infectado.innerHTML = `${vidaInfectado}`;
+        div_personagem.innerHTML = `${vidaPersonagem}`
+        div_tempo.innerHTML = `${tempoRestante}`;
     }
 
     function validacao() {
-        if (tempoRestante <= 0 && vidaInfectado > 0) {
-            alert("Você foi mordido!")
+        if (vidaInfectado <= 0) {
+            alert("Você venceu!");
+            jogoEncerrado = true;
+
+            btn_revolver.style.display = "none";
+            btn_rifle.style.display = "none";
+            btn_espingarda.style.display = "none";
+            btn_reiniciar.style.display = "block";
+
+            limpardivs();
         }
-        if (vidaInfectado <= 0){
-            alert("Você venceu!")
+        else if (tempoRestante <= 0 || vidaPersonagem <= 0) {
+            alert("Você foi mordido!");
+            jogoEncerrado = true;
+
+            btn_revolver.style.display = "none";
+            btn_rifle.style.display = "none";
+            btn_espingarda.style.display = "none";
+            btn_reiniciar.style.display = "block";
+
+            limpardivs();
         }
     }
 
-</script>
 
+    function limpardivs() {
+
+        div_infectado.innerHTML = '';
+        div_personagem.innerHTML = '';
+        div_tempo.innerHTML = '';
+        div_msg.innerHTML = ''
+    }
+
+    function listarArmas() {
+        for (var i = 0; i < nomeArma.length; i++) {
+            div_armas.innerHTML += `
+        <b>${nomeArma[i]}</b><br>
+        Dano: ${danoArma[i]}<br>
+        Carga: ${cargaArma[i]}<br>
+        Tempo de disparo: ${tempoDisparo[i]}<br>
+        Tempo de recarga: ${tempoRecarga[i]}<br><br>
+    `;
+        }
+    }
+
+    function resetarJogo() {
+        tempoRestante = Math.floor(Math.random() * 50 + 50);
+        vidaPersonagem = Math.floor(Math.random() * 50 + 50);
+        vidaInfectado = Math.floor(Math.random() * 61 + 40);
+
+        if (vidaInfectado >= 40 && vidaInfectado < 50) {
+            danoInfectado = 5;
+            nomeInfectado = "Corredor";
+        }
+        else if (vidaInfectado >= 50 && vidaInfectado < 60) {
+            danoInfectado = 10;
+            nomeInfectado = "Perseguidor";
+        }
+        else if (vidaInfectado >= 60 && vidaInfectado < 70) {
+            danoInfectado = 15;
+            nomeInfectado = "Estalador";
+        }
+        else if (vidaInfectado >= 70 && vidaInfectado < 80) {
+            danoInfectado = 20;
+            nomeInfectado = "Trôpego";
+        }
+        else if (vidaInfectado >= 80 && vidaInfectado < 90) {
+            danoInfectado = 25;
+            nomeInfectado = "Baiacu";
+        }
+        else {
+            danoInfectado = 30;
+            nomeInfectado = "Rei dos Ratos";
+        }
+
+        jogoEncerrado = false;
+
+        municaoAtual = [6, 2, 4];
+
+        div_msg.innerHTML = "";
+    }
+
+    function esconderBotaoArma(i) {
+        if (i === 0) btn_revolver.style.display = "none";
+        if (i === 1) btn_rifle.style.display = "none";
+        if (i === 2) btn_espingarda.style.display = "none";
+    }
+
+    function mostrarBotaoArma(i) {
+        if (i === 0) btn_revolver.style.display = "block";
+        if (i === 1) btn_rifle.style.display = "block";
+        if (i === 2) btn_espingarda.style.display = "block";
+    }
+
+    function mostrarBotaoRecarga(i) {
+        if (i === 0) btn_rec_revolver.style.display = "block";
+        if (i === 1) btn_rec_rifle.style.display = "block";
+        if (i === 2) btn_rec_espingarda.style.display = "block";
+    }
+
+    function esconderBotaoRecarga(i) {
+        if (i === 0) btn_rec_revolver.style.display = "none";
+        if (i === 1) btn_rec_rifle.style.display = "none";
+        if (i === 2) btn_rec_espingarda.style.display = "none";
+    }
+
+
+
+</script>
 
 </html>
