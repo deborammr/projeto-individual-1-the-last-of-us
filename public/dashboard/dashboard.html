@@ -8,7 +8,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TLOU | Dashboard</title>
 
+    <link rel="stylesheet" href="../css/geral.css">
+
     <link rel="stylesheet" href="../css/dashboards.css">
+
     <!-- <link rel="stylesheet" href="../css/estilo.css" /> -->
     <script src="../js/sessao.js"></script>
     <script src="../js/alerta.js"></script>
@@ -41,6 +44,8 @@
 
 <body>
 
+    <!-- ---------------------------------------- ABA LATERAL ---------------------------------------- -->
+
     <div class="janela">
         <div class="header-left">
             <h1>THE LAST OF US</h1>
@@ -72,67 +77,73 @@
 
         </div>
 
-        <div class="dash">
-            <div id="alerta">
+        <!-- ---------------------------------------- DASHBOARD ---------------------------------------- -->
 
+        <div class="dash">
+            <div id="alerta"></div>
+
+            <div class="div_btn">
+                <button id="btn1" onclick="mostrarIndividual()" class="btn_kpi btn_selecionado">INDIVIDUAL</button>
+                <button id="btn2" onclick="mostrarGeral()" class="btn_kpi">GERAL</button>
             </div>
 
             <!-- ---------------------------------------- KPIs ---------------------------------------- -->
 
-            <div id="kpis">
-                <div class="kpi">
-                    <h3>Média de Acertos Individuais</h3>
-                    <p id="kpiMediaAcertosIndividuais">--</p>
+            <div class="box-kpis">
+                <h1 id="titulo_kpi">Estatísticas Individuais</h1>
+                <div id="div_kpis_indiv" class="div_kpis_indiv">
+                    <div class="kpi">
+                        <h3>Média de Acertos Individuais</h3>
+                        <p id="kpiMediaAcertosIndividuais">--</p>
+                    </div>
+                    <div class="kpi">
+                        <h3>Média de Erros Individuais</h3>
+                        <p id="kpiMediaErrosIndividuais">--</p>
+                    </div>
+                    <div class="kpi">
+                        <h3>Média de Pontuação Individuais</h3>
+                        <p id="kpiMediaPontuacaoIndividuais">--</p>
+                    </div>
                 </div>
-                <div class="kpi">
-                    <h3>Média de Erros Individuais</h3>
-                    <p id="kpiMediaErrosIndividuais">--</p>
-                </div>
-                <div class="kpi">
-                    <h3>Média de Pontuação Individuais</h3>
-                    <p id="kpiMediaPontuacaoIndividuais">--</p>
-                </div>
-            </div>
 
-            <div id="kpis">
-                <div class="kpi">
-                    <h3>Média de Acertos Gerais</h3>
-                    <p id="kpiMediaAcertosGerais">--</p>
-                </div>
-                <div class="kpi">
-                    <h3>Média de Erros Gerais</h3>
-                    <p id="kpiMediaErrosGerais">--</p>
-                </div>
-                <div class="kpi">
-                    <h3>Média de Pontuação Gerais</h3>
-                    <p id="kpiMediaPontuacaoGerais">--</p>
+                <div id="div_kpis_grupo" class="div_kpis_grupo" style="display: none;">
+                    <div class="kpi">
+                        <h3>Média de Acertos Gerais</h3>
+                        <p id="kpiMediaAcertosGerais">--</p>
+                    </div>
+                    <div class="kpi">
+                        <h3>Média de Erros Gerais</h3>
+                        <p id="kpiMediaErrosGerais">--</p>
+                    </div>
+                    <div class="kpi">
+                        <h3>Média de Pontuação Gerais</h3>
+                        <p id="kpiMediaPontuacaoGerais">--</p>
+                    </div>
                 </div>
             </div>
 
             <!-- ---------------------------------------- GRÁFICOS ---------------------------------------- -->
 
-            <div class="btns-dash" id="btnAquario">
+            <div class="div-grafico" id="btnAquario">
                 <!-- O gráfico é chamado de acordo com o id (fk_aquario) do banco  -->
             </div>
             <div id="box-graficos">
+
                 <!-- <div class="cards"></div> -->
 
                 <div id="idUsuario"></div>
 
                 <div class="grafico1">
+                    <h1>Acertos X Erros por Tentativa</h1>
                     <canvas id="myChartCanvas1"></canvas>
                 </div>
                 <div class="grafico1">
+                    <h1>Pontuação por Tentativa</h1>
                     <canvas id="myChartCanvas2"></canvas>
                 </div>
-
             </div>
-
-
         </div>
     </div>
-
-
 </body>
 
 </html>
@@ -276,23 +287,70 @@
         // Criando estrutura para plotar gráfico - dados
         let dados = {
             labels: labels,
-            datasets: [{
-                label: 'Acertos',
-                data: [],
-                fill: false,
-                borderColor: 'rgb(75, 192, 192)',
-                backgroundColor: 'rgb(75, 192, 192)',
-                tension: 0.1
-            },
-            {
-                label: 'Erros',
-                data: [],
-                fill: false,
-                borderColor: 'rgb(199, 52, 52)',
-                backgroundColor: 'rgb(199, 52, 52)',
-                tension: 0.1
-            }]
+            datasets: [
+                {
+                    label: 'Acertos',
+                    data: [],
+                    fill: false,
+                    borderColor: 'rgb(75, 140, 75)',
+                    backgroundColor: 'rgb(75, 140, 75)',
+                    tension: 0.1
+                },
+                {
+                    label: 'Erros',
+                    data: [],
+                    fill: false,
+                    borderColor: 'rgb(145, 50, 50)',
+                    backgroundColor: 'rgb(145, 50, 50)',
+                    tension: 0.1
+                }
+            ]
         };
+
+let options = {
+    plugins: {
+        legend: {
+            labels: {
+                color: '#fff',
+                font: { size: 12 }
+            }
+        }
+    },
+    scales: {
+        x: {
+            ticks: { color: '#fff' },
+            title: {
+                display: true,
+                text: 'Tentativas',
+                color: '#fff',
+                font: { size: 12 }
+            },
+            grid: {
+                color: '#888',    
+            },
+            border: {
+                color: '#fff'      
+            }
+        },
+        y: {
+            ticks: { color: '#fff' },
+            title: {
+                display: true,
+                text: 'Acertos e Erros',
+                color: '#fff',
+                font: { size: 12 }
+            },
+            grid: {
+                color: '#888'      
+            },
+            border: {
+                color: '#fff'      
+            }
+        }
+    }
+};
+
+
 
         console.log('----------------------------------------------')
         console.log('Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":')
@@ -304,8 +362,14 @@
             labels.push(registro.dtHrTent);
             dados.datasets[0].data.push(registro.acertos);
             dados.datasets[1].data.push(registro.erros);
-
         }
+
+        // for (i = 0; i < resposta.length; i++) {
+        //     var registro = resposta[i];
+        //     labels.push(i + 1)
+        //     dados.datasets[0].data.push(registro.acertos);
+        //     dados.datasets[1].data.push(registro.erros);
+        // }
 
         console.log('----------------------------------------------')
         console.log('O gráfico será plotado com os respectivos valores:')
@@ -319,6 +383,7 @@
         const config = {
             type: 'bar',
             data: dados,
+            options: options
         };
 
         // Adicionando gráfico criado em div na tela
@@ -341,11 +406,59 @@
                 label: 'Pontuação',
                 data: [],
                 fill: false,
-                borderColor: 'rgb(75, 192, 192)',
-                backgroundColor: 'rgb(75, 192, 192)',
-                tension: 0.1
+                borderColor: 'rgb(75, 140, 75)',
+                backgroundColor: 'rgb(75, 140, 75)',
+                tension: 0.1,
             }]
         };
+let options2 = {
+    plugins: {
+        legend: {
+            labels: {
+                color: '#fff',
+                font: { size: 12 }
+            }
+        }
+    },
+    scales: {
+        x: {
+            ticks: {
+                color: '#fff'
+            },
+            title: {
+                display: true,
+                text: 'Tentativas',
+                color: '#fff',
+                font: { size: 12 },
+                family: 'TheLastofUs'
+            },
+            grid: {
+                color: '#aaaaaa'
+            },
+            border: {
+                color: '#fff'  
+            }
+        },
+        y: {
+            ticks: {
+                color: '#fff'
+            },
+            title: {
+                display: true,
+                text: 'Acertos e Erros',
+                color: '#fff',
+                font: { size: 12 },
+                family: 'TheLastofUs'
+            },
+            grid: {
+                color: '#aaaaaa'  
+            },
+            border: {
+                color: '#fff' 
+            }
+        }
+    }
+};
 
         console.log('----------------------------------------------')
         console.log('Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":')
@@ -371,6 +484,7 @@
         const config2 = {
             type: 'line',
             data: dados2,
+            options: options2
         };
 
         // Adicionando gráfico criado em div na tela
@@ -475,6 +589,27 @@
 
             })
             .catch(error => console.error("Erro ao buscar KPIs:", error));
+    }
+
+    // BOTÕES
+    function mostrarIndividual() {
+        document.getElementById("btn1").classList.add("btn_selecionado");
+        document.getElementById("btn2").classList.remove("btn_selecionado");
+
+        div_kpis_indiv.style.display = "flex";
+        div_kpis_grupo.style.display = "none";
+
+        titulo_kpi.innerHTML = "Estatísticas Individuais"
+    }
+
+    function mostrarGeral() {
+        document.getElementById("btn1").classList.remove("btn_selecionado");
+        document.getElementById("btn2").classList.add("btn_selecionado");
+
+        div_kpis_indiv.style.display = "none";
+        div_kpis_grupo.style.display = "flex";
+
+                titulo_kpi.innerHTML = "Estatísticas Gerais"
     }
 
 </script>
