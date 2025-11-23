@@ -128,7 +128,7 @@
 
 /* SIMULADOR */
 
-.simulador {
+/* .simulador {
     color: white;
 }
 
@@ -136,16 +136,16 @@
     flex-direction: column;
     overflow: scroll;
     height: var(--tamanho-simulador);
-}
+} */
 
 /* ALERTA */
 
-#alerta {
+/* #alerta {
     position: absolute;
     right: 0;
     bottom: 0;
-}
-
+} */
+/* 
 .mensagem-alarme {
     background-color: white;
     border-radius: 5px;
@@ -197,4 +197,4 @@
     100% {
         transform: rotate(25deg)
     }
-}
+} */

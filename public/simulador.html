@@ -20,87 +20,115 @@
 
 </head>
 
-<body>
+<!-- ---------- HEADER ------------ -->
 
-    <!-- ---------- HEADER ------------ -->
-
-    <header>
-        <nav class="navbar">
-            <div class="navbar-container">
-                <div class="navbar-logo">
-                    <img src="./assets/The_Last_of_Us_logo_branco.png" alt="Logo The Last of Us">
+<header>
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-logo">
+                <img src="./assets/The_Last_of_Us_logo_branco.png" alt="Logo The Last of Us">
+            </div>
+            <ul class="navbar-menu">
+                <li><a href="./index.html" class="pg-atual">HOME</a></li>
+                <div class="dropdown">
+                    <h1>HISTORIA</h1>
+                    <div class="dropdown-content">
+                        <a href="./historia-parte1.html">PARTE 1</a>
+                        <a href="./historia-left-behind.html">LEFT BEHIND</a>
+                        <a href="./historia-parte2.html">PARTE 2</a>
+                    </div>
                 </div>
-                <ul class="navbar-menu">
-                    <li><a href="./index.html" class="pg-atual">HOME</a></li>
-                    <div class="dropdown">
-                        <h1>HISTORIA</h1>
-                        <div class="dropdown-content">
-                            <a href="./historia-parte1.html">PARTE 1</a>
-                            <a href="./historia-left-behind.html">LEFT BEHIND</a>
-                            <a href="./historia-parte2.html">PARTE 2</a>
-                        </div>
+                <div class="dropdown">
+                    <h1>EXPLORAR</h1>
+                    <div class="dropdown-content">
+                        <a href="./explorar-personagens.html">PERSONAGENS</a>
+                        <a href="./explorar-grupos.html">GRUPOS</a>
+                        <a href="./explorar-infectados.html">INFECTADOS</a>
                     </div>
-                    <div class="dropdown">
-                        <h1>EXPLORAR</h1>
-                        <div class="dropdown-content">
-                            <a href="./explorar-personagens.html">PERSONAGENS</a>
-                            <a href="./explorar-grupos.html">GRUPOS</a>
-                            <a href="./explorar-infectados.html">INFECTADOS</a>
-                        </div>
-                    </div>
-                    <li><a href="./login.html">QUIZ</a></li>
-                    <li><a href="./sobre.html">SOBRE</a></li>
-                    <li><a href="./login.html">LOGIN</a></li>
-                </ul>
+                </div>
+                <li><a href="./login.html">QUIZ</a></li>
+                <li><a href="./sobre.html">SOBRE</a></li>
+                <li><a href="./login.html">LOGIN</a></li>
+            </ul>
+        </div>
+    </nav>
+</header>
+
+<button onclick="iniciar()" class="btn-saiba" id="btn_iniciar">Iniciar</button>
+
+
+<body onload="onloadEsconder()">
+    <div class="container-sessao" id="container-sessao">
+
+        <div class="box-esq">
+            <h1 id="titulo_esq">Estatísticas</h1>
+            <div id="div_kpis_indiv" class="div_kpis_indiv">
+                <div class="item-box">
+                    <h3>Vida do personagem</h3>
+                    <p id="div_personagem">--</p>
+                </div>
+                <div class="item-box">
+                    <h3>Vida do infectado</h3>
+                    <p id="div_infectado">--</p>
+                </div>
+                <div class="item-box">
+                    <h3>Tempo Restante</h3>
+                    <p id="div_tempo">--</p>
+                </div>
             </div>
-        </nav>
-    </header>
-
-    <div class="container-sessao">
-
-        <div class="div_dados">
-            <h1>Vida do personagem: <span id="div_personagem"></span></h1>
-        </div>
-        <div class="div_dados">
-            <h1>Vida do infectado: <span id="div_infectado"></span></h1>
-        </div>
-        <div class="div_dados">
-            <h1>Tempo Restante: <span id="div_tempo"></span></h1>
         </div>
 
-        <div id="div_btn">
+        <!-- <div class="div_dados">
+                <h1>Vida do personagem: <span id="div_personagem"></span></h1>
+            </div>
+            <div class="div_dados">
+                <h1>Vida do infectado: <span id="div_infectado"></span></h1>
+            </div>
+            <div class="div_dados">
+                <h1>Tempo Restante: <span id="div_tempo"></span></h1>
+            </div> -->
 
-            <button onclick="iniciar()" class="btn-saiba" id="btn_iniciar">Iniciar</button>
+        <div class="box-esq2" id="div_btn">
 
-            <div id="div_revolver">
+            <div class="item-box" id="div_revolver">
+                <img src="./assets/Icon-revolver.png" alt="Revolver">
                 <button onclick="atirar(0)" id="btn_revolver" class="btn-saiba" style="display:none;">Revolver</button>
-                <button onclick="recarregar(0)" id="btn_rec_revolver" style="display:none;">Recarregar Revolver</button>
+                <button onclick="recarregar(0)" id="btn_rec_revolver" class="btn-saiba"
+                    style="display:none;">Recarregar</button>
+                <p id="arma_0"></p>
             </div>
 
-            <div id="div_rifle">
+            <div class="item-box" id="div_rifle">
+                <img src="./assets/Icon-rifle.png" alt="Rifle">
                 <button onclick="atirar(1)" id="btn_rifle" class="btn-saiba" style="display:none;">Rifle</button>
-                <button onclick="recarregar(1)" id="btn_rec_rifle" style="display:none;">Recarregar Rifle</button>
+                <button onclick="recarregar(1)" id="btn_rec_rifle" class="btn-saiba"
+                    style="display:none;">Recarregar</button>
+                <p id="arma_1"></p>
             </div>
 
-            <div id="div_espingarda">
+            <div class="item-box" id="div_espingarda">
+                <img src="./assets/Icon-shotgun.png" alt="Espingarda">
                 <button onclick="atirar(2)" id="btn_espingarda" class="btn-saiba"
                     style="display:none;">Espingarda</button>
                 <button onclick="recarregar(2)" id="btn_rec_espingarda" class="btn-saiba"
-                    style="display:none;">Recarregar
-                    Espingarda</button>
+                    style="display:none;">Recarregar</button>
+                <p id="arma_2"></p>
             </div>
 
-            <button onclick="iniciar()" id="btn_reiniciar" class="btn-saiba" style="display: none;">Reiniciar
-                Jogo</button>
-
-            <button onclick="listarArmas()" class="btn-saiba">Listar Armas</button>
 
         </div>
 
-        <div id="div_armas"></div>
-        <div id="div_msg"></div>
+        <button onclick="iniciar()" id="btn_reiniciar" class="btn-saiba" style="display: none;">Reiniciar
+            Jogo</button>
+
+
+        <div class="box-esq box-esq-scroll">
+            <div id="div_msg"></div>
+        </div>
+
     </div>
 
+</body>
 </body>
 
 
@@ -112,9 +140,16 @@
     var tempoDisparo = [3, 5, 7];
     var tempoRecarga = [3, 2, 3];
 
+    function onloadEsconder() {
+        document.getElementById('container-sessao').style.display = "none"
+    }
+
     function iniciar() {
 
         resetarJogo();
+
+        document.getElementById('btn_iniciar').style.display = "none"
+        document.getElementById('container-sessao').style.display = "block"
 
         div_personagem.innerHTML = `${vidaPersonagem}`;
         div_infectado.innerHTML = `${vidaInfectado}`;
@@ -124,6 +159,8 @@
         btn_revolver.style.display = "block"
         btn_rifle.style.display = "block"
         btn_espingarda.style.display = "block"
+
+        preencherArmas();
     }
 
     function atirar(indiceArma) {
@@ -133,7 +170,8 @@
         vidaInfectado -= danoArma[indiceArma];
         tempoRestante -= tempoDisparo[indiceArma];
 
-        municaoAtual[indiceArma]--;
+        municaoAtual[indiceArma] = municaoAtual[indiceArma] - 1;
+        preencherArmas();
 
         if (municaoAtual[indiceArma] == 0) {
             esconderBotaoArma(indiceArma);
@@ -186,6 +224,8 @@
         if (jogoEncerrado) return;
 
         municaoAtual[indiceArma] = cargaArma[indiceArma];
+        preencherArmas();
+
         tempoRestante -= tempoRecarga[indiceArma];
 
         div_msg.innerHTML += `
@@ -312,6 +352,21 @@
         if (i === 1) btn_rec_rifle.style.display = "none";
         if (i === 2) btn_rec_espingarda.style.display = "none";
     }
+
+    function preencherArmas() {
+        for (let i = 0; i < nomeArma.length; i++) {
+            const p = document.getElementById("arma_" + i);
+            p.innerHTML = `
+            Arma: ${nomeArma[i]}<br>
+            Dano: ${danoArma[i]}<br>
+            Carga: ${municaoAtual[i]}/${cargaArma[i]}<br>
+            Tempo de disparo: ${tempoDisparo[i]}<br>
+            Tempo de recarga: ${tempoRecarga[i]}<br>
+        `;
+        }
+    }
+
+
 
 </script>
 

@@ -81,7 +81,7 @@
     background-color: var(--cor-preta);
     z-index: 102;
     outline: 4px solid var(--cor-cinza);
-    outline-offset: 2px;
+    /* outline-offset: 2px; */
     border-radius: 34px;
     overflow: hidden;
 }
@@ -155,11 +155,11 @@ h3 {
     height: 100%;
     background: var(--cor-preta);
     background-image: url('../assets/wallpaper-tlou.png');
+    background-size: 105%;
     display: flex;
     align-items: center;
     justify-content: center;
     z-index: 99999;
-
 }
 
 #idade-box {

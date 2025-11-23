@@ -85,10 +85,10 @@
 
 /* webdataviz */
 
-body {
+/* body {
     color: var(--new-black);
     background-color: var(--new-white);
-    /* font-family: Verdana, Geneva, Tahoma, sans-serif; */
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .flex-coluna {
@@ -103,13 +103,13 @@ body {
 
 .width-fit-content {
     width: fit-content;
-}
+} */
 
 /* .padding-8 {
     padding: 8px;
 } */
 
-.text-success-with-bg {
+/* .text-success-with-bg {
     color: var(--success-dark);
     background-color: var(--success-light);
 }
@@ -126,5 +126,5 @@ body {
 
 .text-new-gray {
     color: var(--new-gray);
-}
+} */
 
