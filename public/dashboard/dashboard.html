@@ -61,11 +61,11 @@
                 </a>
             </div>
 
-            <div class="btn-saiba">
+            <!-- <div class="btn-saiba">
 
                 <h3>Gráficos</h3>
 
-            </div>
+            </div> -->
 
             <!-- <div class="btn-nav-white">
                 <a href="./mural.html">
@@ -127,7 +127,7 @@
             <div class="div-grafico" id="btnAquario">
                 <!-- O gráfico é chamado de acordo com o id (fk_aquario) do banco  -->
             </div>
-            <div id="box-graficos">
+            <div id="box_graficos">
 
                 <!-- <div class="cards"></div> -->
 
@@ -307,48 +307,48 @@
             ]
         };
 
-let options = {
-    plugins: {
-        legend: {
-            labels: {
-                color: '#fff',
-                font: { size: 12 }
+        let options = {
+            plugins: {
+                legend: {
+                    labels: {
+                        color: '#fff',
+                        font: { size: 12 }
+                    }
+                }
+            },
+            scales: {
+                x: {
+                    ticks: { color: '#fff' },
+                    title: {
+                        display: true,
+                        text: 'Tentativas',
+                        color: '#fff',
+                        font: { size: 12 }
+                    },
+                    grid: {
+                        color: '#888',
+                    },
+                    border: {
+                        color: '#fff'
+                    }
+                },
+                y: {
+                    ticks: { color: '#fff' },
+                    title: {
+                        display: true,
+                        text: 'Acertos e Erros',
+                        color: '#fff',
+                        font: { size: 12 }
+                    },
+                    grid: {
+                        color: '#888'
+                    },
+                    border: {
+                        color: '#fff'
+                    }
+                }
             }
-        }
-    },
-    scales: {
-        x: {
-            ticks: { color: '#fff' },
-            title: {
-                display: true,
-                text: 'Tentativas',
-                color: '#fff',
-                font: { size: 12 }
-            },
-            grid: {
-                color: '#888',    
-            },
-            border: {
-                color: '#fff'      
-            }
-        },
-        y: {
-            ticks: { color: '#fff' },
-            title: {
-                display: true,
-                text: 'Acertos e Erros',
-                color: '#fff',
-                font: { size: 12 }
-            },
-            grid: {
-                color: '#888'      
-            },
-            border: {
-                color: '#fff'      
-            }
-        }
-    }
-};
+        };
 
 
 
@@ -411,54 +411,54 @@ let options = {
                 tension: 0.1,
             }]
         };
-let options2 = {
-    plugins: {
-        legend: {
-            labels: {
-                color: '#fff',
-                font: { size: 12 }
+        let options2 = {
+            plugins: {
+                legend: {
+                    labels: {
+                        color: '#fff',
+                        font: { size: 12 }
+                    }
+                }
+            },
+            scales: {
+                x: {
+                    ticks: {
+                        color: '#fff'
+                    },
+                    title: {
+                        display: true,
+                        text: 'Tentativas',
+                        color: '#fff',
+                        font: { size: 12 },
+                        family: 'TheLastofUs'
+                    },
+                    grid: {
+                        color: '#aaaaaa'
+                    },
+                    border: {
+                        color: '#fff'
+                    }
+                },
+                y: {
+                    ticks: {
+                        color: '#fff'
+                    },
+                    title: {
+                        display: true,
+                        text: 'Acertos e Erros',
+                        color: '#fff',
+                        font: { size: 12 },
+                        family: 'TheLastofUs'
+                    },
+                    grid: {
+                        color: '#aaaaaa'
+                    },
+                    border: {
+                        color: '#fff'
+                    }
+                }
             }
-        }
-    },
-    scales: {
-        x: {
-            ticks: {
-                color: '#fff'
-            },
-            title: {
-                display: true,
-                text: 'Tentativas',
-                color: '#fff',
-                font: { size: 12 },
-                family: 'TheLastofUs'
-            },
-            grid: {
-                color: '#aaaaaa'
-            },
-            border: {
-                color: '#fff'  
-            }
-        },
-        y: {
-            ticks: {
-                color: '#fff'
-            },
-            title: {
-                display: true,
-                text: 'Acertos e Erros',
-                color: '#fff',
-                font: { size: 12 },
-                family: 'TheLastofUs'
-            },
-            grid: {
-                color: '#aaaaaa'  
-            },
-            border: {
-                color: '#fff' 
-            }
-        }
-    }
-};
+        };
 
         console.log('----------------------------------------------')
         console.log('Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":')
@@ -597,6 +597,7 @@ let options2 = {
         document.getElementById("btn2").classList.remove("btn_selecionado");
 
         div_kpis_indiv.style.display = "flex";
+        box_graficos.style.display = "flex";
         div_kpis_grupo.style.display = "none";
 
         titulo_kpi.innerHTML = "Estatísticas Individuais"
@@ -607,9 +608,10 @@ let options2 = {
         document.getElementById("btn2").classList.add("btn_selecionado");
 
         div_kpis_indiv.style.display = "none";
+        box_graficos.style.display = "none";
         div_kpis_grupo.style.display = "flex";
 
-                titulo_kpi.innerHTML = "Estatísticas Gerais"
+        titulo_kpi.innerHTML = "Estatísticas Gerais"
     }
 
 </script>
