@@ -119,6 +119,7 @@
             finalizarAguardar();
             return false;
         }
+
         else if (senhaVar == "") {
             cardErro.style.display = "block";
             mensagem_erro.innerHTML = "Por favor, preencha sua <br>senha!";
@@ -141,6 +142,24 @@
 
         else {
             setInterval(sumirMensagem, 5000);
+        }
+
+        let emailValidacao = validarEmail(emailVar);
+
+        if (emailValidacao != "ok") {
+            cardErro.style.display = "block";
+            mensagem_erro.innerHTML = emailValidacao;
+            finalizarAguardar();
+            return false;
+        }
+
+        let validacao = validarSenha(senhaVar);
+
+        if (validacao != "ok") {
+            cardErro.style.display = "block";
+            mensagem_erro.innerHTML = validacao;
+            finalizarAguardar();
+            return false;
         }
 
         // Enviando o valor da nova input
@@ -187,6 +206,72 @@
     function sumirMensagem() {
         cardErro.style.display = "none";
     }
+
+    function validarEmail(email) {
+        let temArrobaEmail = false;
+        let temPontoEmail = false;
+
+        for (let i = 0; i < email.length; i++) {
+            if (email[i] == '@') temArrobaEmail = true;
+            if (email[i] == '.') temPontoEmail = true;
+        }
+
+        if (!temArrobaEmail || !temPontoEmail) {
+            return "Insira um e-mail válido!";
+        }
+
+        return "ok";
+    }
+
+
+    function validarSenha(senha) {
+        const maiusculas = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        const minusculas = "abcdefghijklmnopqrstuvwxyz";
+        const numeros = "0123456789";
+        const especiais = "!@#$%^&*()_+-={}[]|:;'<>,.?/~`";
+
+        let temMaiuscula = false;
+        let temMinuscula = false;
+        let temNumero = false;
+        let temEspecial = false;
+
+        for (let i = 0; i < senha.length; i++) {
+            let char = senha[i];
+
+            if (maiusculas.includes(char)) {
+                temMaiuscula = true;
+            }
+            else if (minusculas.includes(char)) {
+                temMinuscula = true;
+            }
+            else if (numeros.includes(char)) {
+                temNumero = true;
+            }
+            else if (especiais.includes(char)) {
+                temEspecial = true;
+            }
+        }
+
+        if (senha.length < 8) {
+            return "A senha deve ter pelo menos 8 caracteres!";
+        }
+        if (!temMaiuscula) {
+            return "A senha precisa ter pelo menos 1 letra maiúscula!";
+        }
+        if (!temMinuscula) {
+            return "A senha precisa ter pelo menos 1 letra minúscula!";
+        }
+        if (!temNumero) {
+            return "A senha precisa ter pelo menos 1 número!";
+        }
+        if (!temEspecial) {
+            return "A senha precisa ter pelo menos 1 caractere especial!";
+        }
+
+        return "ok";
+    }
+
+
 </script>
 
 </html>
