@@ -14,7 +14,6 @@ body {
   position: relative;
   top: 0;
   left: 20%;
-  /* background-color: #e10e0e; */
   height: 100vh;
   overflow: auto;
   height: 100vh;
@@ -150,7 +149,6 @@ body {
 
 .dash-right .avisos .div-form button {
   cursor: pointer;
-  /* font-family: 'Barlow', 'Segoe UI', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
   border: 0;
   border-radius: 5px;
   font-weight: 600;
@@ -163,7 +161,6 @@ body {
 
 .publicacao-btn-editar {
   cursor: pointer;
-  /* font-family: 'Barlow', 'Segoe UI', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
   border: 0;
   border-radius: 5px;
   font-weight: 600;
@@ -216,7 +213,6 @@ body {
 
 
 .area-parametros-alerta {
-  /* border: 2px solid pink; */
   display: flex;
   flex-direction: column;
   width: 70%;

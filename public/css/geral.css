@@ -110,7 +110,7 @@ a:hover {
     position: absolute;
     top: 100%;
     left: 50%;
-    /* transform: translateX(-50%); */
+    transform: translateX(-50%);
     min-width: 120px;
     background-color: var(--cor-preta);
     z-index: 10000;
@@ -172,16 +172,6 @@ a:hover {
 }
 
 /* ---------- CONTAINERS ----------- */
-/* .container-sessao1 {
-    position: absolute;
-    top: 4rem;
-    left: 0;
-    width: 100%;
-    height: calc(100vh - 4rem);
-    background-size: cover;
-    background-position: center;
-} */
-
 .container-sessao {
     position: relative;
     height: calc(100vh - 4rem);

@@ -17,6 +17,12 @@
     /* padding: 80px 50px; */
 }
 
+.container-sessao {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
 .caixa-texto1 {
     padding: 350px 20px;
     border-radius: 10px;
@@ -42,35 +48,6 @@
 }
 
 /* ---------- SESSÃO 2 ----------- */
-
-/* .container-sessao2 {
-    position: absolute;
-    top: calc(100vh - 80px);
-    left: 0;
-    width: 100%;
-    height: calc(100vh - 80px);
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    flex-wrap: wrap;
-    padding: 80px;
-} */
-
-/* ---------- SESSÃO 3 ----------- */
-
-/* .container-sessao3 {
-    position: absolute;
-    top: calc(200vh - 80px);
-    left: 0;
-    width: 100%;
-    height: calc(100vh - 80px);
-    background-image: url('../assets/52342170554_740298ac0c_h.jpg');
-    background-size: cover;
-    background-position: center;
-} */
-
 
 .container {
     margin: 0 auto;

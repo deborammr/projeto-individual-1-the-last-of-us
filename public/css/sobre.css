@@ -1,6 +1,8 @@
 /* ---------- SESSÃO 1 ----------- */
 .container-sessao {
     margin-bottom: 100px;
+    background-image: url('../assets/ellie-wall.png');
+    align-items: center;
 }
 
 
@@ -38,7 +40,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
     flex-wrap: wrap;
     width: 100%;
     background-size: cover;
@@ -70,6 +72,8 @@
 
 .caixa-sessao2 {
     background-color: transparent;
+
+    /* padding: 0 7px; */
 }
 
 .caixa-texto2 {
@@ -78,11 +82,12 @@
     text-align: left;
     color: var(--cor-branca);
     font-family: 'Arial', sans-serif;
+
     max-width: 100%;
 }
 
 .caixa-texto2 h1 {
-    padding-left: 40px;
+    padding-left: 2rem;
     background-color: transparent;
     text-transform: uppercase;
     color: var(--cor-branca);
@@ -95,7 +100,7 @@
 }
 
 .caixa-texto2 p {
-    padding: 40px;
+    padding: 2rem;
     width: 100%;
     font-weight: 200;
     font-size: 1.2rem;
