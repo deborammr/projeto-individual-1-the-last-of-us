@@ -23,7 +23,7 @@
 <body>
 
     <!-- ---------- HEADER ------------ -->
-        <header>
+    <header>
         <nav class="navbar">
             <div class="navbar-container">
                 <div class="navbar-logo">
@@ -48,6 +48,7 @@
                         </div>
                     </div>
                     <li><a href="./login.html">QUIZ</a></li>
+                    <li><a href="./simulador.html">SIMULADOR</a></li>
                     <li><a href="./sobre.html">SOBRE</a></li>
                     <li><a href="./login.html" class="pg-atual">LOGIN</a></li>
                 </ul>
@@ -130,7 +131,7 @@
             finalizarAguardar();
             return false;
         }
-        
+
         else if (senhaVar != confirmacaoSenhaVar) {
             cardErro.style.display = "block";
             mensagem_erro.innerHTML = "A senha e a confirmação da senha devem <br>ser iguais!";

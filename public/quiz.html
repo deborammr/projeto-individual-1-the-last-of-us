@@ -49,6 +49,7 @@
                         </div>
                     </div>
                     <li><a href="./login.html" class="pg-atual">QUIZ</a></li>
+                    <li><a href="./simulador.html">SIMULADOR</a></li>
                     <li><a href="./sobre.html">SOBRE</a></li>
                     <li><a href="./login.html">LOGIN</a></li>
                 </ul>
@@ -650,14 +651,14 @@
             console.log("resposta: ", resposta);
 
             if (resposta.ok) {
-                window.alert("Post realizado com sucesso pelo usuario de ID: " + idUsuario + "!");
-                window.location = "/dashboard/mural.html";
+                window.alert("Quiz realizado com sucesso pelo usuario de ID: " + idUsuario + "!");
+                window.location = "/dashboard/dashboard.html";
                 // limparFormulario();
                 // finalizarAguardar();
             } else if (resposta.status == 404) {
                 window.alert("Deu 404!");
             } else {
-                throw ("Houve um erro ao tentar realizar a postagem! Código da resposta: " + resposta.status);
+                throw ("Houve um erro ao tentar realizar o quiz! Código da resposta: " + resposta.status);
             }
         }).catch(function (resposta) {
             console.log(`#ERRO: ${resposta}`);
