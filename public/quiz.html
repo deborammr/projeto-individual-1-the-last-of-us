@@ -48,7 +48,7 @@
                             <a href="./explorar-infectados.html">INFECTADOS</a>
                         </div>
                     </div>
-                    <li><a href="./login.html" class="pg-atual">QUIZ</a></li>
+                    <li><a href="./quiz.html" class="pg-atual">QUIZ</a></li>
                     <li><a href="./simulador.html">SIMULADOR</a></li>
                     <li><a href="./sobre.html">SOBRE</a></li>
                     <li><a href="./login.html">LOGIN</a></li>
@@ -459,6 +459,15 @@
     }
 
     function iniciarQuiz() {
+
+        const idUsuario = sessionStorage.ID_USUARIO;
+
+        if (!idUsuario) {
+            window.alert("Você precisa estar logado para fazer o quiz!")
+            window.location.href = './login.html'; 20000
+            return;
+        }
+
         document.getElementById('pontuacao').style.display = "flex"
         document.getElementById('jogo').style.display = "flex"
         document.getElementById('btnIniciarQuiz').style.display = "none"
