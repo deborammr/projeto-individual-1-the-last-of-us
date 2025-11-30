@@ -38,6 +38,9 @@
 
     <!-- Ícone Vagalumes -->
     <link rel="shortcut icon" type="imagex/png" href="../assets/fireflies-logo.png">
+
+    <!-- Script JS -->
+    <script src="./js/sessao.js"></script>
 </head>
 
 <!-- <body onload=" atualizarFeed()"> -->
@@ -48,18 +51,13 @@
 
     <div class="janela">
         <div class="header-left">
-            <h1>THE LAST OF US</h1>
+            <h1 onclick="">THE LAST OF US</h1>
 
             <div class="hello">
                 <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
             </div>
 
-
-            <div class="btn-saiba">
-                <a href="../quiz.html">
-                    <h3>Quiz</h3>
-                </a>
-            </div>
+            <a class="btn-saiba" href="../quiz.html">Quiz</a>
 
             <!-- <div class="btn-saiba">
 
@@ -445,7 +443,7 @@
                     },
                     title: {
                         display: true,
-                        text: 'Acertos e Erros',
+                        text: 'Pontuação',
                         color: '#fff',
                         font: { size: 12 },
                         family: 'TheLastofUs'
