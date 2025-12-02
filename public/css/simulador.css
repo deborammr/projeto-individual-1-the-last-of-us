@@ -1,30 +1,34 @@
+p {
+    font-size: 0.75rem;
+}
+
 .container-sessao {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
+    height: calc(100vh - 4rem);
+    top: 4rem;
+    background-image: url('../assets/cacador-joel.jpg');
 }
-
-* {
-    font-size: 18px;
-}
-
 
 .box-esq {
     display: flex;
-    flex: 1;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    /* justify-content: center; */
     border: 2px solid var(--cor-branca);
     border-radius: 15px;
-    width: 40%;
-    margin: 40px;
+    width: 60%;      
+    margin: 1rem;     
     text-transform: uppercase;
+    background-color: var(--cor-preta);
+    height: 20%; 
 }
 
 .box-esq-scroll {
-    overflow: scroll;
+    overflow: auto;
 }
+
 
 .box-esq h1,
 .box-esq2 h1 {
@@ -40,9 +44,10 @@
     border: 2px solid var(--cor-branca);
     border-radius: 15px;
     width: 60%;
-    height: 40%;
-    margin: 20px;
+    /* height: 10%; */
+    margin: 1rem;
     text-transform: uppercase;
+    background-color: var(--cor-preta);
 }
 
 .box-dir {
@@ -54,23 +59,10 @@
     border-radius: 5px;
     width: 60%;
     height: 20%;
-    margin: 20px;
+    margin: 1rem;
     text-transform: uppercase;
     overflow: scroll;
     padding: 20px;
-}
-
-.box-esq {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    border: 2px solid var(--cor-branca);
-    border-radius: 15px;
-    width: 60%;
-    margin: 20px;
-    text-transform: uppercase;
-    height: 20%;
 }
 
 #div_kpis_indiv {
@@ -79,7 +71,6 @@
     align-items: center;
     /* flex-direction: row; */
     /* max-width: 30rem; */
-    gap: 2rem;
     padding-bottom: 10px;
 }
 
@@ -92,11 +83,10 @@
     border-radius: 15px;
     background: var(--cor-preta);
     padding: 10px;
-    margin: 20px;
+    margin: 1rem;
     text-align: center;
     width: 250px;
 }
-
 
 .item-box img {
     height: 4rem;
@@ -119,19 +109,15 @@
     background-color: var(--cor-vinho);
 }
 
-.btn-saiba {
-    font-size: 18px;
-}
-
 p {
     padding: 10px;
-} 
+}
 
-#btn_iniciar {
-   position: absolute;
+#btn_iniciar, #btn_reiniciar {
+    position: absolute;
     top: 50%;
     left: 50%;
-    
+    transform: translate(-50%, -50%);
 }
 
 .card {

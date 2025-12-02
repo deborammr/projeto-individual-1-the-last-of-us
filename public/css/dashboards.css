@@ -12,12 +12,12 @@ body {
   flex-direction: column;
   width: 80%;
   position: relative;
-  top: 0;
   left: 20%;
   height: 100vh;
   overflow: auto;
-  height: 100vh;
-  padding: 0 3rem 3rem 3rem;
+  /* height: 100vh; */
+  padding: 0 3rem 0 3rem;
+  justify-content: space-evenly;
 }
 
 .div_btn {
@@ -63,7 +63,7 @@ body {
   justify-content: center;
   background: var(--cor-preta);
   border: 2px solid var(--cor-branca);
-  border-radius: 35px;
+  border-radius: 15px;
   padding: 5px;
 }
 
@@ -107,70 +107,10 @@ body {
   background-color: #212124;
 }
 
-.area-parametros-alerta {
-  display: flex;
-  flex-direction: column;
-  width: 70%;
-  margin: auto;
-  margin-top: 10px;
-  background-color: #212124;
-}
-
-.area-parametros-alerta .titulo-legenda {
-  color: white;
-  font-weight: 600;
-  width: fit-content;
-  margin: 10px 20px;
-}
-
-.parametros-alerta {
-  display: flex;
-  width: 100%;
-}
-
-.item-regua {
-  width: 20%;
-  text-align: center;
-  height: 80px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-self: center;
-}
-
-.item-regua p {
-  margin: 0;
-  font-weight: 500;
-}
-
-.item-regua p:nth-child(2) {
-  font-weight: 800;
-}
-
-.cards {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  height: 450px;
-  width: 100%;
-  align-items: center;
-  color: white;
-}
-
-.cards h1 {
-  font-size: 22px;
-  border-bottom: solid white 1px;
-  text-align: left;
-  font-weight: lighter;
-  margin: 20px;
-}
-
-
 .div-grafico {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 30px;
   flex-wrap: wrap;
   padding: 0 30% 0 30%;
   border-radius: 35px;

@@ -55,73 +55,77 @@
     </nav>
 </header>
 
-<button onclick="iniciar()" class="btn-saiba" id="btn_iniciar">Iniciar</button>
+<main class="scroll-container">
 
-
-<body onload="onloadEsconder()">
     <div class="container-sessao" id="container-sessao">
 
-        <div class="box-esq">
-            <h1 id="titulo_esq">Estatísticas</h1>
-            <div id="div_kpis_indiv" class="div_kpis_indiv">
-                <div class="item-box">
-                    <h3>Vida do personagem</h3>
-                    <p id="div_personagem">--</p>
+        <button onclick="iniciar()" class="btn-saiba" id="btn_iniciar">Iniciar Jogo</button>
+        <button onclick="iniciar()" class="btn-saiba" id="btn_reiniciar" style="display: none">Reiniciar Jogo</button>
+
+        <body onload="onloadEsconder()">
+            <div class="box-esq" id="div1">
+                <h1 id="titulo_esq">Estatísticas</h1>
+                <div id="div_kpis_indiv" class="div_kpis_indiv">
+                    <div class="item-box">
+                        <h3>Vida do personagem</h3>
+                        <p id="div_personagem">--</p>
+                    </div>
+                    <div class="item-box">
+                        <h3>Vida do infectado</h3>
+                        <p id="div_infectado">--</p>
+                    </div>
+                    <div class="item-box">
+                        <h3>Tempo Restante</h3>
+                        <p id="div_tempo">--</p>
+                    </div>
                 </div>
-                <div class="item-box">
-                    <h3>Vida do infectado</h3>
-                    <p id="div_infectado">--</p>
+            </div>
+
+            <div class="box-esq2" id="div2">
+
+                <div class="item-box" id="div_revolver">
+                    <img src="./assets/Icon-revolver.png" alt="Revolver">
+                    <button onclick="atirar(0)" id="btn_revolver" class="btn-saiba"
+                        style="display:none;">Revolver</button>
+                    <button onclick="recarregar(0)" id="btn_rec_revolver" class="btn-saiba"
+                        style="display:none;">Recarregar</button>
+                    <p id="arma_0"></p>
                 </div>
-                <div class="item-box">
-                    <h3>Tempo Restante</h3>
-                    <p id="div_tempo">--</p>
+
+                <div class="item-box" id="div_rifle">
+                    <img src="./assets/Icon-rifle.png" alt="Rifle">
+                    <button onclick="atirar(1)" id="btn_rifle" class="btn-saiba" style="display:none;">Rifle</button>
+                    <button onclick="recarregar(1)" id="btn_rec_rifle" class="btn-saiba"
+                        style="display:none;">Recarregar</button>
+                    <p id="arma_1"></p>
                 </div>
-            </div>
-        </div>
 
-        <div class="box-esq2" id="div_btn">
+                <div class="item-box" id="div_espingarda">
+                    <img src="./assets/Icon-shotgun.png" alt="Espingarda">
+                    <button onclick="atirar(2)" id="btn_espingarda" class="btn-saiba"
+                        style="display:none;">Espingarda</button>
+                    <button onclick="recarregar(2)" id="btn_rec_espingarda" class="btn-saiba"
+                        style="display:none;">Recarregar</button>
+                    <p id="arma_2"></p>
+                </div>
 
-            <div class="item-box" id="div_revolver">
-                <img src="./assets/Icon-revolver.png" alt="Revolver">
-                <button onclick="atirar(0)" id="btn_revolver" class="btn-saiba" style="display:none;">Revolver</button>
-                <button onclick="recarregar(0)" id="btn_rec_revolver" class="btn-saiba"
-                    style="display:none;">Recarregar</button>
-                <p id="arma_0"></p>
-            </div>
-
-            <div class="item-box" id="div_rifle">
-                <img src="./assets/Icon-rifle.png" alt="Rifle">
-                <button onclick="atirar(1)" id="btn_rifle" class="btn-saiba" style="display:none;">Rifle</button>
-                <button onclick="recarregar(1)" id="btn_rec_rifle" class="btn-saiba"
-                    style="display:none;">Recarregar</button>
-                <p id="arma_1"></p>
             </div>
 
-            <div class="item-box" id="div_espingarda">
-                <img src="./assets/Icon-shotgun.png" alt="Espingarda">
-                <button onclick="atirar(2)" id="btn_espingarda" class="btn-saiba"
-                    style="display:none;">Espingarda</button>
-                <button onclick="recarregar(2)" id="btn_rec_espingarda" class="btn-saiba"
-                    style="display:none;">Recarregar</button>
-                <p id="arma_2"></p>
+            <div class="box-esq box-esq-scroll" id="div3">
+                <h1>Resumo</h1>
+                <p id="div_msg">
+
+                </p>
             </div>
 
-
-        </div>
-
-        <button onclick="iniciar()" id="btn_reiniciar" class="btn-saiba" style="display: none;">Reiniciar
-            Jogo</button>
-
-
-        <div class="box-esq box-esq-scroll">
-            <div id="div_msg"></div>
-        </div>
+        </body>
 
     </div>
 
-</body>
-</body>
+    </div>
 
+    </body>
+</main>
 
 <script>
 
@@ -132,7 +136,9 @@
     var tempoRecarga = [3, 2, 3];
 
     function onloadEsconder() {
-        document.getElementById('container-sessao').style.display = "none"
+        document.getElementById('div1').style.display = "none"
+        document.getElementById('div2').style.display = "none"
+        document.getElementById('div3').style.display = "none"
     }
 
     function iniciar() {
@@ -140,13 +146,17 @@
         resetarJogo();
 
         document.getElementById('btn_iniciar').style.display = "none"
-        document.getElementById('container-sessao').style.display = "block"
+        document.getElementById('btn_reiniciar').style.display = "none"
+        document.getElementById('div1').style.display = "flex"
+        document.getElementById('div2').style.display = "flex"
+        document.getElementById('div3').style.display = "flex"
 
         div_personagem.innerHTML = `${vidaPersonagem}`;
         div_infectado.innerHTML = `${vidaInfectado}`;
         div_tempo.innerHTML = `${tempoRestante}`;
 
         btn_iniciar.style.display = "none"
+        btn_reiniciar.style.display = "none"
         btn_revolver.style.display = "block"
         btn_rifle.style.display = "block"
         btn_espingarda.style.display = "block"
@@ -240,11 +250,11 @@
     function validacao() {
         if (vidaInfectado <= 0) {
             alert("Você venceu!");
+
+            onloadEsconder();
+
             jogoEncerrado = true;
 
-            btn_revolver.style.display = "none";
-            btn_rifle.style.display = "none";
-            btn_espingarda.style.display = "none";
             btn_reiniciar.style.display = "block";
 
             limpardivs();
@@ -253,9 +263,8 @@
             alert("Você foi mordido!");
             jogoEncerrado = true;
 
-            btn_revolver.style.display = "none";
-            btn_rifle.style.display = "none";
-            btn_espingarda.style.display = "none";
+            onloadEsconder();
+
             btn_reiniciar.style.display = "block";
 
             limpardivs();
@@ -321,27 +330,27 @@
     }
 
     function esconderBotaoArma(i) {
-        if (i === 0) btn_revolver.style.display = "none";
-        if (i === 1) btn_rifle.style.display = "none";
-        if (i === 2) btn_espingarda.style.display = "none";
+        if (i == 0) btn_revolver.style.display = "none";
+        if (i == 1) btn_rifle.style.display = "none";
+        if (i == 2) btn_espingarda.style.display = "none";
     }
 
     function mostrarBotaoArma(i) {
-        if (i === 0) btn_revolver.style.display = "block";
-        if (i === 1) btn_rifle.style.display = "block";
-        if (i === 2) btn_espingarda.style.display = "block";
+        if (i == 0) btn_revolver.style.display = "block";
+        if (i == 1) btn_rifle.style.display = "block";
+        if (i == 2) btn_espingarda.style.display = "block";
     }
 
     function mostrarBotaoRecarga(i) {
-        if (i === 0) btn_rec_revolver.style.display = "block";
-        if (i === 1) btn_rec_rifle.style.display = "block";
-        if (i === 2) btn_rec_espingarda.style.display = "block";
+        if (i == 0) btn_rec_revolver.style.display = "block";
+        if (i == 1) btn_rec_rifle.style.display = "block";
+        if (i == 2) btn_rec_espingarda.style.display = "block";
     }
 
     function esconderBotaoRecarga(i) {
-        if (i === 0) btn_rec_revolver.style.display = "none";
-        if (i === 1) btn_rec_rifle.style.display = "none";
-        if (i === 2) btn_rec_espingarda.style.display = "none";
+        if (i == 0) btn_rec_revolver.style.display = "none";
+        if (i == 1) btn_rec_rifle.style.display = "none";
+        if (i == 2) btn_rec_espingarda.style.display = "none";
     }
 
     function preencherArmas() {

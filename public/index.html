@@ -22,15 +22,6 @@
 
 <body>
 
-    <!-- POPUP CONFIRMAÇÃO DE IDADE-->
-    <div id="idade-popup">
-        <div id="idade-box">
-            <h1>Você tem 18 anos ou mais?</h1>
-            <button id="btn-sim" class="btn-saiba">Sim</button>
-            <button id="btn-nao" class="btn-saiba">Não</button>
-        </div>
-    </div>
-
     <div id="content">
 
         <!-- ---------- HEADER ------------ -->
@@ -129,11 +120,7 @@
                         </figure>
                         <div class="content">
                             <h3>SOBREVIVA</h3>
-                            <p class="description">Coloque seus conhecimentos à prova no quiz de The Last of Us!
-                                Teste o
-                                quanto você realmente sabe sobre os jogos e mostre que você tem o instinto
-                                necessário
-                                para sobreviver onde poucos conseguem.</p>
+                            <p class="description">Mostre seus instintos de sobrevivência! Coloque seus conhecimentos à prova no quiz e se aventure no simulador de jogo, mostrando que você tem o instinto necessário para sobreviver.</p>
                             <a class="btn-saiba" href="./login.html">Saiba Mais</a>
                         </div>
                 </div>
@@ -143,33 +130,4 @@
         </main>
 </body>
 </div>
-
-<script>
-    const popup = document.getElementById("idade-popup");
-    const content = document.getElementById("content");
-
-    if (sessionStorage.getItem("maiorIdade") === "true") {
-        popup.style.display = "none";
-        content.style.display = "block";
-    }
-
-    document.getElementById("btn-sim").addEventListener("click", () => {
-        sessionStorage.setItem("maiorIdade", "true");
-        popup.style.display = "none";
-        content.style.display = "block";
-    });
-
-    document.getElementById("btn-nao").addEventListener("click", () => {
-        document.getElementById("idade-box").innerHTML = `
-            <h2>Conteúdo permitido apenas para maiores de 18 anos.</h2>
-            <p>Você será redirecionado...</p>
-        `;
-
-        setTimeout(() => {
-            window.location.href = "https://google.com";
-        }, 2000);
-    });
-</script>
-
-
 </html>

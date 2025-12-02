@@ -5,13 +5,19 @@
 }
 
 .container-sessao {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: calc(100vh - 4rem);
+  top: 4rem;
   background-image: url('../assets/cacador-joel.jpg');
-  height: 100vh;
-  top: 0rem;
 }
 
 .btn-iniciar {
-  top: 40vh;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .pontuacaoEJogo {
@@ -63,12 +69,16 @@
 }
 
 .text-success-with-bg {
-    background-color: var(--cor-verde);
+  background-color: var(--cor-verde);
+}
+
+.text-warning-with-bg {
+  background-color: #d5d585;
+  color: var(--cor-preta);
 }
 
 .text-danger-with-bg {
-    color: var(--danger-dark);
-    background-color: var(--cor-vinho);
+  background-color: var(--cor-vinho);
 }
 
 .btn_selecionado {
@@ -95,14 +105,12 @@
   background-color: #212124;
 }
 
- .header-left h1 {
+.header-left h1 {
   color: rgb(224, 222, 222);
   font-size: 2rem;
-} 
-
-.header-left .btn-saiba {
-  width: 200px;
 }
+
+;
 
 .hello {
   width: 100%;
@@ -118,7 +126,7 @@
 .hello h3 span {
   font-size: 1.2rem;
   text-decoration: underline;
-} 
+}
 
 /* GRÁFICOS */
 
@@ -153,6 +161,6 @@
 }
 
 #msgFinal {
-    border: 2px solid var(--cor-branca);
-    border-radius: 15px;
+  border: 2px solid var(--cor-branca);
+  border-radius: 15px;
 }

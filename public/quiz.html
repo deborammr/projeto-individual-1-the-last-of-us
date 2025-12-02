@@ -80,6 +80,8 @@
                             <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
                         </div>
 
+                        <a class="btn-saiba" href="../index.html">Home</a>
+
                         <a class="btn-saiba" href="../dashboard/dashboard.html">Dashboard</a>
 
                         <button class="btn-saiba" onclick="limparSessao()">Sair</button>
@@ -159,88 +161,11 @@
                                     class="btn-saiba">Tentar
                                     novamente</button>
                             </div>
-
                         </div>
-
-                        <!-- ---------------------------------------- QUIZ ---------------------------------------- -->
-
-                        <!-- <div id="pontuacaoEJogo" class="pontuacaoEJogo">
-                            <button id="btnIniciarQuiz" class="btn-saiba btn-iniciar" onclick="iniciarQuiz()">INICIAR
-                                QUIZ</button>
-
-                            <div id="pontuacao" class="caixa-pontos">
-                                <div id="pontuacaoDuranteJogo" class="kpi">
-                                    <span class="width-fit-content">Quantidade de acertos: <span
-                                            id="spanCertas"></span></span>
-                                    <span class="width-fit-content">Quantidade de erros: <span
-                                            id="spanErradas"></span></span>
-                                </div>
-                                <div id="pontuacaoFinalJogo" class="kpi">
-                                    <span id="pontuacaoFinal" class="width-fit-content">Pontuação Final:
-                                        <span id="spanPontuacaoFinal">***</span>
-                                    </span>
-                                    <span id="msgFinal" class="width-fit-content">***</span>
-                                </div>
-                            </div>
-
-                            <div id="jogo" class="caixa-quiz">
-
-                                <div id="infoQuestao" class="">
-                                    <span>Questão atual: <span id="spanNumeroDaQuestaoAtual"></span> de <span
-                                            id="qtdQuestoes"></span>
-                                        questões.</span>
-                                </div>
-
-                                <div id="perguntaDaQuestaoAtual" class="">
-                                    <span id="spanQuestaoExibida"></span>
-                                </div>
-
-                                <div id="opcoes" class="flex-linha">
-                                    <span>
-                                        <input type="radio" id="primeiraOpcao" name="option" class="radio"
-                                            value="alternativaA" />
-                                        <label for="primeiraOpcao" class="option" id="labelOpcaoUm"></label>
-                                    </span>
-                                    <span>
-                                        <input type="radio" id="segundaOpcao" name="option" class="radio"
-                                            value="alternativaB" />
-                                        <label for="segundaOpcao" class="option" id="labelOpcaoDois"></label>
-                                    </span>
-                                    <span>
-                                        <input type="radio" id="terceiraOpcao" name="option" class="radio"
-                                            value="alternativaC" />
-                                        <label for="terceiraOpcao" class="option" id="labelOpcaoTres"></label>
-                                    </span>
-                                    <span>
-                                        <input type="radio" id="quartaOpcao" name="option" class="radio"
-                                            value="alternativaD" />
-                                        <label for="quartaOpcao" class="option" id="labelOpcaoQuatro"></label>
-                                    </span>
-                                </div>
-
-                                <div id="botoes">
-                                    <button onclick="submeter()" id="btnSubmeter" class="btn-saiba">Submeter
-                                        resposta</button>
-                                    <button onclick="avancar()" id="btnProx" disabled class="btn-saiba">Avançar para
-                                        próxima
-                                        questão</button>
-
-                                    <button onclick="tentarNovamente()" id="btnTentarNovamente" disabled
-                                        class="btn-saiba">Tentar
-                                        novamente</button>
-                                </div>
-
-                            </div>
-                        </div> -->
-
                     </div>
-
-
             </body>
-
         </div>
     </main>
-
 </html>
 
 <script>
@@ -780,9 +705,9 @@
 
             if (resposta.ok) {
                 window.alert("Quiz realizado com sucesso pelo usuario de ID: " + idUsuario + "!");
-                setTimeout(function () {
-                    window.location = "/dashboard/dashboard.html";
-                }, 3000);
+                // setTimeout(function () {
+                //     window.location = "/dashboard/dashboard.html";
+                // }, 3000);
                 // limparFormulario();
                 // finalizarAguardar();
             } else if (resposta.status == 404) {
