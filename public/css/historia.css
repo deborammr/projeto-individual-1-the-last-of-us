@@ -6,7 +6,6 @@
 
 .caixa-sessao1 {
     background-color: transparent;
-    /* padding: 80px 50px; */
 }
 
 .caixa-texto1 {
@@ -91,7 +90,6 @@
     letter-spacing: 1.2px;
     font-family: "TheLastofUs";
     font-size: 2.5rem;
-    /* margin-bottom: 15px; */
 }
 
 .caixa-texto2 p {

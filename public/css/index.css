@@ -1,7 +1,3 @@
-/* body {
-    padding-top: 100px;
-} */
-
 /* ---------- SESSÃO 1 ----------- */
 
 .imagemFundo1 {
@@ -14,7 +10,7 @@
 
 .caixa-sessao1 {
     padding: 4rem 2rem;
-    /* padding: 80px 50px; */
+
 }
 
 .container-sessao {
@@ -58,7 +54,6 @@
     background-color: var(--cor-preta);
     z-index: 102;
     outline: 4px solid var(--cor-cinza);
-    /* outline-offset: 2px; */
     border-radius: 34px;
     overflow: hidden;
 }

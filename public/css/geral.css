@@ -43,7 +43,6 @@ a {
     text-transform: uppercase;
     text-decoration: none;
     color: inherit;
-    transition: color 0.3s ease, text-decoration 0.3s ease;
 }
 
 a:hover {
@@ -102,7 +101,6 @@ a:hover {
     cursor: pointer;
     font-weight: 200;
     background-color: var(--cor-preta);
-    /* transition: color 0.3s ease, text-decoration 0.3s ease; */
 }
 
 .dropdown-content {
@@ -157,7 +155,6 @@ a:hover {
     text-align: center;
     cursor: pointer;
     overflow: hidden;
-    /* transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1); */
 }
 
 .btn-saiba {
