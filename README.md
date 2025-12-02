@@ -1,4 +1,4 @@
-**Portal The Last of Us**
+# Portal The Last of Us
 
 Este projeto consiste no desenvolvimento de um website temático sobre The Last of Us, criado para a disciplina de Pesquisa e Inovação. O portal reúne páginas informativas sobre o universo dos jogos, além de funcionalidades interativas como cadastro, login, quiz, dashboard e simulador de jogo.
 
@@ -39,7 +39,9 @@ Criar um portal completo aplicando conhecimentos de:
 
 <hr>
 
-# Como usar
+# Como Usar
+
+**Funcionalidades**
 
 1. Clone este repositório em sua máquina.
 
@@ -65,8 +67,10 @@ _O comando acima irá instalar as bibliotecas necessárias para o funcionamento 
 npm start
 ``` 
 
-_O comando acima irá iniciar seu projeto e efetuar os comandos de acordo com a sua parametrização feita nos passos anteriores._
+_O comando acima irá iniciar seu projeto e efetuar os comandos de acordo com a sua parametrização.
 
-6. Para "ver" seu projeto funcionando, acesse em seu navegador o caminho **informado no terminal**.
+<hr>
 
-7. Caso queira parar a execução, tecle **CTRL+C** no terminal em que o projeto está rodando.
+# Créditos
+
+Todo o material gráfico e intelectual de The Last of Us, incluindo imagens, personagens e logotipos, é propriedade da Naughty Dog e da Sony Interactive Entertainment. Este projeto não possui vínculo oficial com as empresas e é destinado apenas para fins acadêmicos e de apreciação da obra.

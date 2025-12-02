@@ -25,7 +25,7 @@ CREATE TABLE quiz (
 
 CREATE TABLE questao (
     idQuestao INT PRIMARY KEY AUTO_INCREMENT,
-    fkQuiz INT,
+    fkQuiz INT DEFALUT 1,
     enunciado VARCHAR(100),
     alternativaA VARCHAR(45),
     alternativaB VARCHAR(45),
