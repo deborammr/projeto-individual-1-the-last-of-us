@@ -14,15 +14,15 @@
 }
 
 .btn-iniciar {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .pontuacaoEJogo {
   display: flex;
-  align-items:center;
+  align-items: center;
   justify-items: center;
   flex-direction: column;
   width: 90%;
@@ -69,17 +69,22 @@
   margin: 10px;
 }
 
+#msgFinal {
+  padding: 10px;
+  color: var(--cor-preta);
+}
+
 .text-success-with-bg {
   background-color: var(--cor-verde);
 }
 
 .text-warning-with-bg {
-  background-color: #d5d585;
-  color: var(--cor-preta);
+  background-color: #d5c123;
 }
 
 .text-danger-with-bg {
   background-color: var(--cor-vinho);
+
 }
 
 .btn_selecionado {

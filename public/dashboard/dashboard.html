@@ -575,7 +575,7 @@
 
                 document.getElementById("kpiMediaAcertosIndividuais").innerHTML = Math.round(Number(media.mediaAcertos) || 0);
                 document.getElementById("kpiMediaErrosIndividuais").innerHTML = Math.round(Number(media.mediaErros) || 0);
-                document.getElementById("kpiMediaPontuacaoIndividuais").innerHTML = Math.round(Number(media.mediaPontuacao) || 0);
+                document.getElementById("kpiMediaPontuacaoIndividuais").innerHTML = Math.round(Number(media.mediaPontuacao) || 0)+ "/300";
 
             })
             .catch(error => console.error("Erro ao buscar KPIs:", error));
@@ -591,7 +591,7 @@
 
                 document.getElementById("kpiMediaAcertosGerais").innerHTML = Math.round(Number(media.mediaAcertos) || 0);
                 document.getElementById("kpiMediaErrosGerais").innerHTML = Math.round(Number(media.mediaErros) || 0);
-                document.getElementById("kpiMediaPontuacaoGerais").innerHTML = Math.round(Number(media.mediaPontuacao) || 0);
+                document.getElementById("kpiMediaPontuacaoGerais").innerHTML = Math.round(Number(media.mediaPontuacao) || 0) + "/300";
 
             })
             .catch(error => console.error("Erro ao buscar KPIs:", error));

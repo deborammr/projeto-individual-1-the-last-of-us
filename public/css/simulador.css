@@ -1,5 +1,5 @@
 p {
-    font-size: 0.75rem;
+    font-size: 0.9rem;
 }
 
 .container-sessao {
@@ -15,14 +15,13 @@ p {
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* justify-content: center; */
     border: 2px solid var(--cor-branca);
     border-radius: 15px;
     width: 60%;      
-    margin: 1rem;     
+    margin: 0.5rem;     
     text-transform: uppercase;
     background-color: var(--cor-preta);
-    height: 20%; 
+    height: 25%; 
 }
 
 .box-esq-scroll {
@@ -32,23 +31,37 @@ p {
 
 .box-esq h1,
 .box-esq2 h1 {
-    padding: 10px;
+    padding-top: 10px;
 }
 
 .box-esq2 {
     display: flex;
-    flex: 1;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     border: 2px solid var(--cor-branca);
     border-radius: 15px;
     width: 60%;
-    /* height: 10%; */
-    margin: 1rem;
-    text-transform: uppercase;
+    height: 55%;
+    margin: 0.5rem;
     background-color: var(--cor-preta);
+    text-transform: uppercase;
 }
+
+.itens-container {
+    display: flex;
+    flex-direction: row; 
+    justify-content: center;
+    align-items: flex-start;
+    gap: 2rem;           
+}
+
+.item-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 
 .box-dir {
     display: block;
@@ -59,7 +72,7 @@ p {
     border-radius: 5px;
     width: 60%;
     height: 20%;
-    margin: 1rem;
+    margin: 0.5rem;
     text-transform: uppercase;
     overflow: scroll;
     padding: 20px;
@@ -69,8 +82,6 @@ p {
     display: flex;
     justify-content: center;
     align-items: center;
-    /* flex-direction: row; */
-    /* max-width: 30rem; */
     padding-bottom: 10px;
 }
 
@@ -82,8 +93,8 @@ p {
     border: 2px solid var(--cor-branca);
     border-radius: 15px;
     background: var(--cor-preta);
-    padding: 10px;
-    margin: 1rem;
+    padding: 5px;
+    margin: 0.5rem;
     text-align: center;
     width: 250px;
 }

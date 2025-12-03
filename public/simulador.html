@@ -82,33 +82,38 @@
             </div>
 
             <div class="box-esq2" id="div2">
+                <h1 id="titulo_esq">Armas</h1>
 
-                <div class="item-box" id="div_revolver">
-                    <img src="./assets/Icon-revolver.png" alt="Revolver">
-                    <button onclick="atirar(0)" id="btn_revolver" class="btn-saiba"
-                        style="display:none;">Revolver</button>
-                    <button onclick="recarregar(0)" id="btn_rec_revolver" class="btn-saiba"
-                        style="display:none;">Recarregar</button>
-                    <p id="arma_0"></p>
+                <div class="itens-container">
+
+                    <div class="item-box" id="div_revolver">
+                        <img src="./assets/Icon-revolver.png" alt="Revolver">
+                        <button onclick="atirar(0)" id="btn_revolver" class="btn-saiba"
+                            style="display:none;">Revolver</button>
+                        <button onclick="recarregar(0)" id="btn_rec_revolver" class="btn-saiba"
+                            style="display:none;">Recarregar</button>
+                        <p id="arma_0"></p>
+                    </div>
+
+                    <div class="item-box" id="div_rifle">
+                        <img src="./assets/Icon-rifle.png" alt="Rifle">
+                        <button onclick="atirar(1)" id="btn_rifle" class="btn-saiba"
+                            style="display:none;">Rifle</button>
+                        <button onclick="recarregar(1)" id="btn_rec_rifle" class="btn-saiba"
+                            style="display:none;">Recarregar</button>
+                        <p id="arma_1"></p>
+                    </div>
+
+                    <div class="item-box" id="div_espingarda">
+                        <img src="./assets/Icon-shotgun.png" alt="Espingarda">
+                        <button onclick="atirar(2)" id="btn_espingarda" class="btn-saiba"
+                            style="display:none;">Espingarda</button>
+                        <button onclick="recarregar(2)" id="btn_rec_espingarda" class="btn-saiba"
+                            style="display:none;">Recarregar</button>
+                        <p id="arma_2"></p>
+                    </div>
+
                 </div>
-
-                <div class="item-box" id="div_rifle">
-                    <img src="./assets/Icon-rifle.png" alt="Rifle">
-                    <button onclick="atirar(1)" id="btn_rifle" class="btn-saiba" style="display:none;">Rifle</button>
-                    <button onclick="recarregar(1)" id="btn_rec_rifle" class="btn-saiba"
-                        style="display:none;">Recarregar</button>
-                    <p id="arma_1"></p>
-                </div>
-
-                <div class="item-box" id="div_espingarda">
-                    <img src="./assets/Icon-shotgun.png" alt="Espingarda">
-                    <button onclick="atirar(2)" id="btn_espingarda" class="btn-saiba"
-                        style="display:none;">Espingarda</button>
-                    <button onclick="recarregar(2)" id="btn_rec_espingarda" class="btn-saiba"
-                        style="display:none;">Recarregar</button>
-                    <p id="arma_2"></p>
-                </div>
-
             </div>
 
             <div class="box-esq box-esq-scroll" id="div3">
@@ -200,12 +205,13 @@
         if (ataque >= 1 && ataque <= 5) {
             vidaPersonagem -= danoInfectado
 
-            div_msg.innerHTML += `Você sofreu um ataque de um infectado ${nomeInfectado}! Você levou ${danoInfectado} de dano!<br><br>`
+            div_msg.innerHTML += `Você sofreu um ataque de um infectado
+            ${nomeInfectado}! Você levou ${danoInfectado} de dano!<br><br>`
 
             console.log(`Ataque: ${ataque}`)
         }
         else {
-            div_msg.innerHTML += `Você conseguiu se proteger do ataque de um infectado ${nomeInfectado}! Você não levou dano!<br><br>`
+            div_msg.innerHTML += `Você conseguiu se proteger do ataque deum infectado ${nomeInfectado}! Você não levou dano!<br><br>`
         }
 
     }
