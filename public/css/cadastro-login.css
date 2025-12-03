@@ -74,7 +74,8 @@
     background-color: var(--cor-vinho);
     align-items: center;
     padding: 10px;
-    margin-right: 40px;    
+    margin-right: 40px;  
+    z-index: 1000;  
 }
 
 .card_erro #mensagem_erro {

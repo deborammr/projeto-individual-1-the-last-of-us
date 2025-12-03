@@ -135,21 +135,22 @@
                     sessionStorage.NOME_USUARIO = json.nome;
                     sessionStorage.ID_USUARIO = json.idUsuario
 
-                    setTimeout(function () {
-                        window.location = "./quiz.html";
-                    }, 1000); // apenas para exibir o loading
+                    cardErro.style.display = "block";
+                    mensagem_erro.innerHTML = "Login realizado com sucesso!";
 
+                    setTimeout(() => {
+                        window.location = "./quiz.html";
+                    }, 1500);
                 });
 
             } else {
-
-                console.log("Houve um erro ao tentar realizar o login!");
-
                 resposta.text().then(texto => {
-                    console.error(texto);
-                    // finalizarAguardar(texto);
+                    cardErro.style.display = "block";
+                    mensagem_erro.innerHTML = texto || "E-mail ou senha incorretos!";
+                    setTimeout(sumirMensagem, 5000);
                 });
             }
+
 
         }).catch(function (erro) {
             console.log(erro);
