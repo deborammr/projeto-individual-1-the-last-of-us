@@ -15,7 +15,6 @@ body {
   left: 20%;
   height: 100vh;
   overflow: auto;
-  /* height: 100vh; */
   padding: 0 3rem 0 3rem;
   justify-content: space-evenly;
 }

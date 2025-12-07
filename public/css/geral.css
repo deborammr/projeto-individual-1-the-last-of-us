@@ -163,7 +163,6 @@ a:hover {
 
 .btn-saiba:hover {
     color: #fff;
-    /* transform: scale(1.05); */
     box-shadow: 0 0 20px var(--cor-vinho);
     background-color: var(--cor-vinho);
 }

@@ -43,8 +43,6 @@
     <script src="./js/sessao.js"></script>
 </head>
 
-<!-- <body onload=" atualizarFeed()"> -->
-
 <body>
 
     <!-- ---------------------------------------- ABA LATERAL ---------------------------------------- -->
@@ -61,18 +59,6 @@
 
             <a class="btn-saiba" href="../quiz.html">Quiz</a>
 
-            <!-- <div class="btn-saiba">
-
-                <h3>Gráficos</h3>
-
-            </div> -->
-
-            <!-- <div class="btn-nav-white">
-                <a href="./mural.html">
-                    <h3>Mural de Avisos</h3>
-                </a>
-            </div> -->
-
             <button class="btn-saiba" onclick="limparSessao()">Sair</button>
 
         </div>
@@ -82,26 +68,21 @@
         <div class="dash">
             <div id="alerta"></div>
 
-            <!-- <div class="div_btn">
-                <button id="btn1" onclick="mostrarIndividual()" class="btn_kpi btn_selecionado">INDIVIDUAL</button>
-                <button id="btn2" onclick="mostrarGeral()" class="btn_kpi">GERAL</button>
-            </div> -->
-
             <!-- ---------------------------------------- KPIs ---------------------------------------- -->
 
             <div class="box-kpis">
                 <h1 id="titulo_kpi">Estatísticas Individuais</h1>
                 <div id="div_kpis_indiv" class="div_kpis_indiv">
                     <div class="kpi">
-                        <h3>Média de Acertos Individuais</h3>
+                        <h3>Média de Acertos</h3>
                         <p id="kpiMediaAcertosIndividuais">--</p>
                     </div>
                     <div class="kpi">
-                        <h3>Média de Erros Individuais</h3>
+                        <h3>Média de Erros</h3>
                         <p id="kpiMediaErrosIndividuais">--</p>
                     </div>
                     <div class="kpi">
-                        <h3>Média de Pontuação Individuais</h3>
+                        <h3>Média de Pontuação</h3>
                         <p id="kpiMediaPontuacaoIndividuais">--</p>
                     </div>
                 </div>
@@ -113,7 +94,6 @@
                 <!-- O gráfico é chamado de acordo com o id (fk_aquario) do banco  -->
             </div>
             <div id="box_graficos">
-
 
                 <!-- <div class="cards"></div> -->
 
@@ -133,15 +113,15 @@
                 <h1 id="titulo_kpi">Estatísticas Gerais</h1>
                 <div id="div_kpis_grupo" class="div_kpis_grupo">
                     <div class="kpi">
-                        <h3>Média de Acertos Gerais</h3>
+                        <h3>Média de Acertos</h3>
                         <p id="kpiMediaAcertosGerais">--</p>
                     </div>
                     <div class="kpi">
-                        <h3>Média de Erros Gerais</h3>
+                        <h3>Média de Erros</h3>
                         <p id="kpiMediaErrosGerais">--</p>
                     </div>
                     <div class="kpi">
-                        <h3>Média de Pontuação Gerais</h3>
+                        <h3>Média de Pontuação</h3>
                         <p id="kpiMediaPontuacaoGerais">--</p>
                     </div>
                 </div>
@@ -164,75 +144,6 @@
     };
 
     let proximaAtualizacao;
-
-    // window.onload = exibirAquariosDoUsuario();
-
-    // function exibirAquariosDoUsuario() {
-    //     var aquarios = JSON.parse(sessionStorage.AQUARIOS);
-    //     aquarios.forEach(item => {
-    //         document.getElementById("btnAquario").innerHTML += `
-    //         <button class="btn-chart" onclick="exibirAquario(${item.id})" id="btnAquario${item.id}">${item.descricao}</button>
-    //         `
-
-    //         document.getElementById("graficos").innerHTML += `
-    //             <div id="grafico${item.id}" class="display-none">
-    //                 <h3 class="tituloGraficos">
-    //                     <span id="tituloAquario${item.id}">${item.descricao}</span>
-    //                 </h3>
-    //                 <div class="graph">
-    //                     <canvas id="myChartCanvas${item.id}"></canvas>
-    //                 </div>
-    //                 <div class="label-captura">
-    //                     <p id="avisoCaptura${item.id}" style="color: white"></p>
-    //                 </div>
-    //             </div>
-    //         `
-
-    //         obterDadosGrafico(item.id)
-    //     });
-
-    //     if (aquarios.length > 0) {
-    //         exibirAquario(aquarios[0].id)
-    //     }
-    // }
-
-    // function alterarTitulo(idAquario) {
-    //     var tituloAquario = document.getElementById(`tituloAquario${idAquario}`)
-    //     var descricao = JSON.parse(sessionStorage.AQUARIOS).find(item => item.id == idAquario).descricao;
-    //     tituloAquario.innerHTML = "Últimas medidas de Temperatura e Umidade do <span style='color: #e6005a'>" + descricao + "</span>"
-    // }
-
-    // function exibirAquario(idAquario) {
-    //     let todosOsGraficos = JSON.parse(sessionStorage.AQUARIOS);
-
-    //     for (i = 0; i < todosOsGraficos.length; i++) {
-    //         // exibindo - ou não - o gráfico
-    //         if (todosOsGraficos[i].id != idAquario) {
-    //             let elementoAtual = document.getElementById(`grafico${todosOsGraficos[i].id}`)
-    //             if (elementoAtual.classList.contains("display-block")) {
-    //                 elementoAtual.classList.remove("display-block")
-    //             }
-    //             elementoAtual.classList.add("display-none")
-
-    //             // alterando estilo do botão
-    //             let btnAtual = document.getElementById(`btnAquario${todosOsGraficos[i].id}`)
-    //             if (btnAtual.classList.contains("btn-pink")) {
-    //                 btnAtual.classList.remove("btn-pink")
-    //             }
-    //             btnAtual.classList.add("btn-white")
-    //         }
-    //     }
-
-    //     // exibindo - ou não - o gráfico
-    //     let graficoExibir = document.getElementById(`grafico${idAquario}`)
-    //     graficoExibir.classList.remove("display-none")
-    //     graficoExibir.classList.add("display-block")
-
-    //     // alterando estilo do botão
-    //     let btnExibir = document.getElementById(`btnAquario${idAquario}`)
-    //     btnExibir.classList.remove("btn-white")
-    //     btnExibir.classList.add("btn-pink")
-    // }
 
     // O gráfico é construído com três funções:
     // 1. obterDadosGrafico -> Traz dados do Banco de Dados para montar o gráfico da primeira vez
@@ -356,8 +267,6 @@
             }
         };
 
-
-
         console.log('----------------------------------------------')
         console.log('Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":')
         console.log(resposta)
@@ -369,13 +278,6 @@
             dados.datasets[0].data.push(registro.acertos);
             dados.datasets[1].data.push(registro.erros);
         }
-
-        // for (i = 0; i < resposta.length; i++) {
-        //     var registro = resposta[i];
-        //     labels.push(i + 1)
-        //     dados.datasets[0].data.push(registro.acertos);
-        //     dados.datasets[1].data.push(registro.erros);
-        // }
 
         console.log('----------------------------------------------')
         console.log('O gráfico será plotado com os respectivos valores:')
@@ -397,8 +299,6 @@
             document.getElementById(`myChartCanvas1`),
             config
         );
-
-        // setTimeout(() => atualizarGrafico(idUsuario, dados, myChart), 2000);
 
         // -------------------- GRAFICO 2 --------------------
 
@@ -498,9 +398,6 @@
             document.getElementById(`myChartCanvas2`),
             config2
         );
-
-        // setTimeout(() => atualizarGrafico(idUsuario, dados, myChart), 2000);
-
     }
 
     // Esta função *atualizarGrafico* atualiza o gráfico que foi renderizado na página,
@@ -516,7 +413,6 @@
                 response.json().then(function (novoRegistro) {
 
                     obterdados(idUsuario);
-                    // alertar(novoRegistro, idAquario);
                     console.log(`Dados recebidos: ${JSON.stringify(novoRegistro)}`);
                     console.log(`Dados atuais do gráfico:`);
                     console.log(dados);
@@ -573,9 +469,9 @@
 
                 let media = kpis[0];
 
-                document.getElementById("kpiMediaAcertosIndividuais").innerHTML = Math.round(Number(media.mediaAcertos) || 0);
-                document.getElementById("kpiMediaErrosIndividuais").innerHTML = Math.round(Number(media.mediaErros) || 0);
-                document.getElementById("kpiMediaPontuacaoIndividuais").innerHTML = Math.round(Number(media.mediaPontuacao) || 0)+ "/300";
+                document.getElementById("kpiMediaAcertosIndividuais").innerHTML = Math.round(Number(media.mediaAcertos) || 0) + "/30";
+                document.getElementById("kpiMediaErrosIndividuais").innerHTML = Math.round(Number(media.mediaErros) || 0) + "/30";
+                document.getElementById("kpiMediaPontuacaoIndividuais").innerHTML = Math.round(Number(media.mediaPontuacao) || 0)+ "/500";
 
             })
             .catch(error => console.error("Erro ao buscar KPIs:", error));
@@ -589,35 +485,12 @@
 
                 let media = kpis[0];
 
-                document.getElementById("kpiMediaAcertosGerais").innerHTML = Math.round(Number(media.mediaAcertos) || 0);
-                document.getElementById("kpiMediaErrosGerais").innerHTML = Math.round(Number(media.mediaErros) || 0);
-                document.getElementById("kpiMediaPontuacaoGerais").innerHTML = Math.round(Number(media.mediaPontuacao) || 0) + "/300";
+                document.getElementById("kpiMediaAcertosGerais").innerHTML = Math.round(Number(media.mediaAcertos) || 0) + "/30";
+                document.getElementById("kpiMediaErrosGerais").innerHTML = Math.round(Number(media.mediaErros) || 0) + "/30";
+                document.getElementById("kpiMediaPontuacaoGerais").innerHTML = Math.round(Number(media.mediaPontuacao) || 0) + "/500";
 
             })
             .catch(error => console.error("Erro ao buscar KPIs:", error));
     }
-
-    // BOTÕES
-    // function mostrarIndividual() {
-    //     document.getElementById("btn1").classList.add("btn_selecionado");
-    //     document.getElementById("btn2").classList.remove("btn_selecionado");
-
-    //     div_kpis_indiv.style.display = "flex";
-    //     box_graficos.style.display = "flex";
-    //     div_kpis_grupo.style.display = "none";
-
-    //     titulo_kpi.innerHTML = "Estatísticas Individuais"
-    // }
-
-    // function mostrarGeral() {
-    //     document.getElementById("btn1").classList.remove("btn_selecionado");
-    //     document.getElementById("btn2").classList.add("btn_selecionado");
-
-    //     div_kpis_indiv.style.display = "none";
-    //     box_graficos.style.display = "none";
-    //     div_kpis_grupo.style.display = "flex";
-
-    //     titulo_kpi.innerHTML = "Estatísticas Gerais"
-    // }
 
 </script>
